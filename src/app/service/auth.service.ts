@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, tap, BehaviorSubject } from 'rxjs';
-interface User {
-  id: string,
-  username: string,
-  password: string,
-}
+import { tap, BehaviorSubject } from 'rxjs';
+
+// interface UserData {
+//   email: string | null | undefined,
+//   password: string | null | undefined,
+//   username?: string | null | undefined,
+// }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,14 +21,14 @@ export class AuthService {
     this._isLoggedIn$.next(!!token);
   }
 
-  apiurl='http://localhost:3000/';
+  apiUrl='http://localhost:3000/';
 
-  register(val: any) {
-    return this._http.post(this.apiurl + 'register', { email: val.email, password: val.password })
+  register(data: any) {
+    return this._http.post(this.apiUrl + 'register', { email: data.email, password: data.password })
   }
 
-  login(val: any) {
-    return this._http.post(this.apiurl + 'login', { email: val.email, password: val.password })
+  login(data: any) {
+    return this._http.post(this.apiUrl + 'login', { email: data.email, password: data.password })
       .pipe(
         tap((response: any) => {
           localStorage.setItem('jwt_auth_token', response.accessToken);

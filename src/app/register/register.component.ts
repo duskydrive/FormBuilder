@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 
@@ -9,27 +8,32 @@ import { AuthService } from '../service/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.sass']
 })
+
 export class RegisterComponent {
+  requestError = '';
+
   regForm = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]),
     username: new FormControl('', Validators.required),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(3),
+      Validators.minLength(4),
     ]),
   });
 
-  constructor(private _http:HttpClient, private _route:Router, private authService: AuthService) { }
+  constructor(private _route:Router, private _authService: AuthService) { }
 
 
   onSubmit() {
-    const val = this.regForm.value;
+    const userData = this.regForm.value;
+    console.log(userData)
 
-    this.authService.register(val).subscribe((res) => {
-      this._route.navigate(['/', 'login'])
-    })
-   
-
-    
+    this._authService.register(userData).subscribe({
+      error: (e) => console.error('error', this.requestError = e.error),
+      complete: () => this._route.navigate(['/', 'login'])
+    })    
   }
 }

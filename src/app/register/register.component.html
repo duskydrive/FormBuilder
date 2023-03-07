@@ -6,9 +6,11 @@
       [formGroup]="regForm"
       (ngSubmit)="onSubmit()"
     >
-      <div class="form-element center">
+      <div class="form-element center mb40">
         <h1>Form Builder</h1>
       </div>
+
+      <div class="error center mb15" *ngIf="requestError">{{ requestError }}</div>
 
       <mat-form-field class="form-element mb15">
         <mat-label>Email</mat-label>
@@ -17,7 +19,12 @@
           type="text" 
           formControlName="email"
         >
-        <mat-error>Email is required</mat-error>
+        <mat-error *ngIf="regForm.controls['email'].hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="regForm.controls['email'].hasError('email')">
+          Must be a valid email
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-element mb15">
@@ -41,17 +48,24 @@
           Password is required
         </mat-error>
         <mat-error *ngIf="regForm.controls['password'].hasError('minlength')">
-          Password must be at least 3 characters
+          Password must be at least 4 characters
         </mat-error>
       </mat-form-field>
 
-      <div class="form-element">
+      <div class="form-element mb30">
         <button 
           mat-raised-button 
           color="primary"
           class="button"
           [disabled]="!regForm.valid"
         >Register</button>
+
+      </div>
+
+      <div class="form-element center">
+        <a routerLink="/login">
+           Sign in
+        </a>
       </div>
     </form>
   </mat-card> 
