@@ -27,7 +27,9 @@ export class LoginComponent {
       const val = this.loginForm.value;
       if (val.email && val.password) {
           this.authService.login(val)
-              .subscribe(
+              .subscribe((response) => {
+                this._route.navigate(['']);
+              }
                 // change to next error complete
                   // data => console.log('success', data),
                   // error => console.log('oops', error)
