@@ -10,66 +10,35 @@ import { AuthService } from '../service/auth.service';
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
     ]),
   });
 
-  constructor(private _http:HttpClient, private _route:Router, private service: AuthService) { }
+  constructor(private _http:HttpClient, private _route:Router, private authService: AuthService) { }
 
   result: any;
 
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.service.login(this.loginForm.value.username).subscribe(item => {
-        this.result = item;
-        if (this.result.password === this.loginForm.value.password) {
-          alert('logged')
-          // if (this.result.isactive) {
-          //   // sessionStorage.setItem('username',this.result.id);
-          //   // sessionStorage.setItem('role',this.result.role);
-          //   // this.router.navigate(['']);
-            
-          // } else {
-          //   alert()
-          //   this.toastr.error('Please contact Admin', 'InActive User');
-          // }
-        } else {
-          alert('whatever')
-          // this.toastr.error('Invalid credentials');
-        }
-      });
-    } else {
-      alert('Please enter valid data.')
-    }
-    // console.log(this.loginForm.value)
-    // if (this.loginForm.invalid) {
-    //   return
-    // } 
-
-    // this._http.get<any>("http://localhost:3000/signup")
-    // .subscribe(res=>{
-    //   console.log(res)
-    //   const user = res.find((a:any)=>{
-    //     return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
-    //   });
-
-    //   if(user){
-    //     alert('you are successfully loged in');
-    //     // this.loginForm.reset();
-    //     // $('.form-box').css('display','none');
-    //     // this._route.navigate(['dashboard']);
-    //   }else{
-    //     alert('User Not Found');
-    //     // this._route.navigate(['login']);
-    //   }
-
-    // })
-   
-
-    
+      const val = this.loginForm.value;
+      if (val.email && val.password) {
+          this.authService.login(val)
+              .subscribe(
+                // change to next error complete
+                  // data => console.log('success', data),
+                  // error => console.log('oops', error)
+                  // (res) => {
+                    // console.log(typeof res)
+                    
+                      // console.log("User is logged in");
+                      // this._route.navigateByUrl('/');
+                  // }
+              );
+      }
+    } 
   }
 }

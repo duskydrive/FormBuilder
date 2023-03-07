@@ -9,11 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
