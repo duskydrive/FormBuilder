@@ -6,11 +6,16 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.sass']
 })
 
 export class RegisterComponent {
   requestError = '';
+  // text for submit btn in view component
+  btnText = 'Register';
+  // text for url to register
+  urlTitle = 'Sign In';
+  // register url router link
+  routeUrl = '/login';
 
   regForm = new FormGroup({
     email: new FormControl('', [
@@ -29,10 +34,9 @@ export class RegisterComponent {
 
   onSubmit() {
     const userData = this.regForm.value;
-    console.log(userData)
 
     this._authService.register(userData).subscribe({
-      error: (e) => console.error('error', this.requestError = e.error),
+      error: (e) => this.requestError = e.error,
       complete: () => this._route.navigate(['/', 'login'])
     })    
   }

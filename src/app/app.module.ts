@@ -11,10 +11,12 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptorProvider } from './auth.interceptor';
+import { AuthViewComponent } from './shared/auth-ui/auth-view.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    AuthViewComponent,
     MainComponent,
     RegisterComponent,
   ],
