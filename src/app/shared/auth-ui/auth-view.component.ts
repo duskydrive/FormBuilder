@@ -21,7 +21,6 @@ export class AuthViewComponent {
   @Output() submitFunc: EventEmitter<any> = new EventEmitter();
 
   public raiseSubmit(): void {
-    // this.submitFunc();
     this.submitFunc.emit();
   }
   
