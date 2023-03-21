@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
+    CdkAccordionModule,
   ]
 })
 export class MaterialDesignModule { }

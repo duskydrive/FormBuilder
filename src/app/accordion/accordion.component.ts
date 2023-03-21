@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 @Component({
   selector: 'app-accordion',
@@ -7,5 +6,6 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
   styleUrls: ['./accordion.component.sass']
 })
 export class AccordionComponent {
-
+  items = ['Form General Styling', 'Field styling'];
+  expandedIndex = 0;
 }
