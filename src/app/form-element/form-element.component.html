@@ -1,0 +1,61 @@
+<div [ngSwitch]="element.type">
+  <div *ngSwitchCase="'input'">
+    <input 
+      type="text" 
+      [ngStyle]="{
+        'width': element.width + '%',
+        'height': element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color
+      }"
+      [required]="element.required"
+      [placeholder]="element.placeholderText"
+      disabled
+    />
+  </div>
+  <div *ngSwitchCase="'textarea'">
+    <textarea 
+      name="" 
+      id="" 
+      [ngStyle]="{
+        'width': element.width + '%',
+        'height': element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color
+      }"
+      [required]="element.required"
+      disabled
+    >
+      {{ element.placeholderText }}
+    </textarea>
+  </div>
+  <div *ngSwitchCase="'button'">
+    <button
+      [ngStyle]="{
+        'width': element.width + '%',
+        'height': element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color
+      }"
+      disabled
+    >
+      {{ element.placeholderText }}
+    </button>
+  </div>
+  <div *ngSwitchCase="'checkbox'">
+    <label for="">
+      {{ element.placeholderText }}
+    </label>
+    <input 
+      type="checkbox"
+      [required]="element.required"
+      disabled
+    >
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<mat-card class="wrapper-item">
+  <mat-card-content>
+    <div class="items-container">
+      <div
+        cdkDropList
+        id="formElements"
+        #doneList="cdkDropList"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListConnectedTo]="['formBuilder']"
+        [cdkDropListData]="done"
+        class="items-list">
+          <app-form-element *ngFor="let item of done" cdkDrag [element]="item" class="items-box"></app-form-element>
+        <!-- <div class="example-box" >{{item.type}}</div> -->
+      </div>
+    </div>
+  </mat-card-content>
+  
+</mat-card>

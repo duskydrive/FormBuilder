@@ -14,7 +14,8 @@ import { AuthInterceptorProvider } from './auth.interceptor';
 import { AuthViewComponent } from './shared/auth-ui/auth-view.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
-import { FormComponentsComponent } from './form-components/form-components.component';
+import { FormElementsComponent } from './form-elements/form-elements.component';
+import { FormElementComponent } from './form-element/form-element.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { FormComponentsComponent } from './form-components/form-components.compo
     RegisterComponent,
     AccordionComponent,
     FormBuilderComponent,
-    FormComponentsComponent,
+    FormElementsComponent,
+    FormElementComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,25 @@
 <mat-card class="wrapper-item">
   <mat-card-content>
     <h2>Form Builder</h2>
-    <div class="example-container">
+    <div class="items-container">
       <h2>To do</h2>
     
-      <!-- <div
+      <div
+        [ngStyle]="{'min-height':'50px'}"
         cdkDropList
+        id="formBuilder"
         #todoList="cdkDropList"
         [cdkDropListData]="todo"
-        [cdkDropListConnectedTo]="[doneList]"
-        class="example-list"
+        [cdkDropListConnectedTo]="['formElements']"
+        class="items-list"
         (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-      </div> -->
+          <app-form-element 
+            *ngFor="let item of todo" 
+            cdkDrag 
+            [element]="item"
+            (click)="selectElement(item)" 
+            class="items-box"></app-form-element>
+      </div>
     </div>
   </mat-card-content>
 </mat-card>
