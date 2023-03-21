@@ -1,3 +1,15 @@
 .wrapper
   padding: 30px
   display: flex
+  align-items: flex-start
+  justify-content: space-between
+
+.wrapper > app-accordion,
+.wrapper > app-form-builder,
+.wrapper > app-form-components
+  display: flex
+  // width: 30%
+  flex: 0 1 30%
+  min-height: calc(100vh - 19vh)
+  // min-height: 100vh
+  // align-items: stretch

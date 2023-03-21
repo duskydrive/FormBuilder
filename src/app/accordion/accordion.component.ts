@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./accordion.component.sass']
 })
 export class AccordionComponent {
-  items = ['Form General Styling', 'Field styling'];
-  expandedIndex = 0;
+  // items = ['Form General Styling', 'Field styling'];
+  // expandedIndex = 0;
 }
