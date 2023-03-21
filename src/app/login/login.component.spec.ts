@@ -1,26 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from  '@angular/common/http/testing';
 import { LoginComponent } from './login.component';
-import { AuthViewComponent } from '../shared/auth-ui/auth-view.component';
-import { MaterialDesignModule } from 'src/app/material-design/material-design.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from '../service/auth.service';
+import { of } from 'rxjs';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let mockAuthService: jasmine.SpyObj<AuthService>;
 
   beforeEach(async () => {
+    mockAuthService = jasmine.createSpyObj<AuthService>('AuthService', ['login']);
+    mockAuthService.login.and.returnValue(of([]))
+
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent, AuthViewComponent ],
+      declarations: [ LoginComponent ],
       imports: [ 
-        MaterialDesignModule, 
         ReactiveFormsModule, 
-        AppRoutingModule, 
+        RouterTestingModule,
         BrowserAnimationsModule,
-        HttpClientTestingModule,
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [{provide: AuthService, useValue: mockAuthService}]
     })
     .compileComponents();
 
@@ -32,4 +36,5 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

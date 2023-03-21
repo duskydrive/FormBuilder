@@ -12,6 +12,7 @@ import { MainComponent } from './main/main.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptorProvider } from './auth.interceptor';
 import { AuthViewComponent } from './shared/auth-ui/auth-view.component';
+import { AccordionComponent } from './accordion/accordion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { AuthViewComponent } from './shared/auth-ui/auth-view.component';
     AuthViewComponent,
     MainComponent,
     RegisterComponent,
+    AccordionComponent,
   ],
   imports: [
     BrowserModule,

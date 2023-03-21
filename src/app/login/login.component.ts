@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { UserData } from '../ts/interfaces';
 
 @Component({
   selector: 'app-login',
@@ -31,12 +32,15 @@ export class LoginComponent {
   constructor(private _route:Router, private _authService: AuthService) { }
 
   onSubmit() {
-      const userData = this.loginForm.value;
+    const userData: UserData = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    }
 
-      this._authService.login(userData)
-        .subscribe({
-          error: (e) => this.requestError = e.error,
-          complete: () => this._route.navigate([''])
-        })             
+    this._authService.login(userData)
+      .subscribe({
+        error: (e) => this.requestError = e.error,
+        complete: () => this._route.navigate([''])
+      })             
   }
 }

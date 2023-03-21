@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { UserData } from '../ts/interfaces';
 
 @Component({
   selector: 'app-register',
@@ -33,7 +34,11 @@ export class RegisterComponent {
 
 
   onSubmit() {
-    const userData = this.regForm.value;
+    const userData: UserData = {
+      email: this.regForm.value.email,
+      username: this.regForm.value.username,
+      password: this.regForm.value.password,
+    }
 
     this._authService.register(userData).subscribe({
       error: (e) => this.requestError = e.error,
