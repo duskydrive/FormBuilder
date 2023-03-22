@@ -1,16 +1,25 @@
 <mat-card class="wrapper-item">
   <mat-card-content>
+    <h2>Form Elements</h2>
     <div class="items-container">
       <div
-        cdkDropList
         id="formElements"
-        #doneList="cdkDropList"
-        (cdkDropListDropped)="drop($event)"
-        [cdkDropListConnectedTo]="['formBuilder']"
-        [cdkDropListData]="done"
+        cdkDropList
+        [cdkDropListData]="defaultElements"
+        [cdkDropListConnectedTo]="['doneList']"
+        [cdkDropListSortingDisabled]="true"
+        (cdkDropListEntered)="dragService.entered($event)"
+        (cdkDropListExited)="dragService.exited($event)"
+        [cdkDropListEnterPredicate]="dragService.enterPredicate"
         class="items-list">
-          <app-form-element *ngFor="let item of done" cdkDrag [element]="item" class="items-box"></app-form-element>
-        <!-- <div class="example-box" >{{item.type}}</div> -->
+          <div *ngFor="let item of defaultElements">
+            <div class="items-box" cdkDrag [cdkDragData]="item">
+              <app-form-element [element]="item"></app-form-element>
+            </div>
+            <div class="items-box" *ngIf="dragService.transferringItem === item" >
+              <app-form-element  [element]="item"></app-form-element>
+            </div>
+          </div>
       </div>
     </div>
   </mat-card-content>
