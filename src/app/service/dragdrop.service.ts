@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormElement } from '../ts/interfaces';
-import { CdkDragDrop, copyArrayItem, CdkDragExit, moveItemInArray
+import { CdkDragDrop, copyArrayItem, transferArrayItem, CdkDragExit, moveItemInArray
 } from '@angular/cdk/drag-drop';
 @Injectable({
   providedIn: 'root'

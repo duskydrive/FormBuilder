@@ -11,7 +11,8 @@
         class="items-list rec"
         (cdkDropListDropped)="onDrop($event)">
           <div class="items-box" *ngFor="let item of elements" cdkDrag>
-            <app-form-element  [element]="item"></app-form-element>
+            <app-form-element [element]="item" [isDisabled]="disableBool"></app-form-element>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
           </div>
       </div>
     </div>

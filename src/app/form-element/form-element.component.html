@@ -8,30 +8,31 @@
         'border-style': element.borderStyle,
         'font-size': element.fontSize + 'px',
         'font-weight': element.fontWeight,
-        'color': element.color
+        'color': element.color,
+        boxSizing: 'border-box'
       }"
       [required]="element.required"
       [placeholder]="element.placeholderText"
-      disabled
-    />
-  </div>
+      [disabled]="isDisabled"
+      />
+    </div>
   <div *ngSwitchCase="'textarea'">
     <textarea 
       name="" 
       id="" 
       [ngStyle]="{
-        'width': element.width + '%',
-        'height': element.height + 'px',
+        width: element.width + '%',
+        height: element.height + 'px',
         'border-style': element.borderStyle,
         'font-size': element.fontSize + 'px',
         'font-weight': element.fontWeight,
-        'color': element.color
+        'color': element.color,
+        boxSizing: 'border-box'
       }"
       [required]="element.required"
-      disabled
-    >
-      {{ element.placeholderText }}
-    </textarea>
+      [disabled]="isDisabled"
+      [placeholder]="element.placeholderText"
+    ></textarea>
   </div>
   <div *ngSwitchCase="'button'">
     <button
@@ -41,9 +42,11 @@
         'border-style': element.borderStyle,
         'font-size': element.fontSize + 'px',
         'font-weight': element.fontWeight,
-        'color': element.color
+        'color': element.color,
+        boxSizing: 'border-box',
+        pointerEvents: isDisabled ? 'none' : ''
       }"
-      disabled
+      [disabled]="isDisabled"
     >
       {{ element.placeholderText }}
     </button>
@@ -55,7 +58,7 @@
     <input 
       type="checkbox"
       [required]="element.required"
-      disabled
+      [disabled]="isDisabled"
     >
   </div>
 </div>

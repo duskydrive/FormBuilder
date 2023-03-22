@@ -8,55 +8,16 @@ import { DragdropService } from '../service/dragdrop.service';
   styleUrls: ['./form-builder.component.sass']
 })
 export class FormBuilderComponent {
-  // todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
   elements: FormElement[] = [];
+  disableBool = false;
 
 
-  // drop(event: CdkDragDrop<FormElement[]>) {
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     transferArrayItem(
-  //       event.previousContainer.data,
-  //       event.container.data,
-  //       event.previousIndex,
-  //       event.currentIndex,
-  //     );
-  //   }
-  // }
-
-  // transferringItem: FormElement | undefined = undefined;
-
-  // drop(event: CdkDragDrop<FormElement[]>) {
-  //   if (event.previousContainer.id !== event.container.id) {
-  //   copyArrayItem(
-  //     event.previousContainer.data,
-  //     event.container.data,
-  //     event.previousIndex,
-  //     event.currentIndex
-  //   );
-  //   }
-
-  //   this.transferringItem = undefined;
-  // }
-
-  // entered() {
-  //   this.transferringItem = undefined;
-  // }
-
-  // exited(e: CdkDragExit<any>) {
-  //   this.transferringItem = e.item.data;
-  // }
-
-  constructor(private dragService: DragdropService) {
+  constructor(public dragService: DragdropService) {
 
   }
 
   onDrop(event: CdkDragDrop<FormElement[]>) {
     this.dragService.drop(event);
-    // if (index?.action === 'splice') {
-      // this.elements.splice(index.index, 1)
-    // }
   }
 
   selectElement(el: FormElement) {

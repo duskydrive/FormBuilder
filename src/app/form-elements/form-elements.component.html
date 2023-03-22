@@ -6,22 +6,19 @@
         id="formElements"
         cdkDropList
         [cdkDropListData]="defaultElements"
-        [cdkDropListConnectedTo]="['doneList']"
+        class="items-list"
         [cdkDropListSortingDisabled]="true"
+        [cdkDropListConnectedTo]="['doneList']"
+        (cdkDropListDropped)="dragService.drop($event)"
+        [cdkDropListEnterPredicate]="dragService.enterPredicate"
         (cdkDropListEntered)="dragService.entered($event)"
         (cdkDropListExited)="dragService.exited($event)"
-        [cdkDropListEnterPredicate]="dragService.enterPredicate"
-        class="items-list">
-          <div *ngFor="let item of defaultElements">
-            <div class="items-box" cdkDrag [cdkDragData]="item">
-              <app-form-element [element]="item"></app-form-element>
-            </div>
-            <div class="items-box" *ngIf="dragService.transferringItem === item" >
-              <app-form-element  [element]="item"></app-form-element>
-            </div>
-          </div>
+      >
+        <div *ngFor="let item of defaultElements" class="items-box" cdkDrag [cdkDragData]="item">
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          {{ item.type }}
+        </div>
       </div>
     </div>
   </mat-card-content>
-  
 </mat-card>
