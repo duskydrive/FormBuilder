@@ -5,16 +5,16 @@
       <div
         id="formElements"
         cdkDropList
-        [cdkDropListData]="defaultElements"
+        [cdkDropListData]="defaultElements$"
         class="items-list"
         [cdkDropListSortingDisabled]="true"
         [cdkDropListConnectedTo]="['doneList']"
         (cdkDropListDropped)="dragService.drop($event)"
         [cdkDropListEnterPredicate]="dragService.enterPredicate"
-        (cdkDropListEntered)="dragService.entered($event)"
+        (cdkDropListEntered)="dragService.entered"
         (cdkDropListExited)="dragService.exited($event)"
       >
-        <div *ngFor="let item of defaultElements" class="items-box" cdkDrag [cdkDragData]="item">
+        <div *ngFor="let item of defaultElements$ | async" class="items-box" cdkDrag [cdkDragData]="item">
           <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
           {{ item.type }}
         </div>

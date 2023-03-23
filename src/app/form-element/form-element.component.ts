@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormElement } from '../ts/interfaces';
 
 @Component({
@@ -6,15 +6,9 @@ import { FormElement } from '../ts/interfaces';
   templateUrl: './form-element.component.html',
   styleUrls: ['./form-element.component.sass']
 })
-export class FormElementComponent implements AfterViewInit{
+export class FormElementComponent {
   @Input() element!: FormElement;
   @Input() isDisabled!: boolean;
-  // constructor() {
-    
-    // }
-  ngAfterViewInit() {
-    console.log(this.isDisabled)
-  }
-
   
+  // constructor() {}
 }
