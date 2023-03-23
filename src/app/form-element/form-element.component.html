@@ -43,6 +43,7 @@
         'font-size': element.fontSize + 'px',
         'font-weight': element.fontWeight,
         'color': element.color,
+        'background-color': element.backgroundColor,
         boxSizing: 'border-box',
         pointerEvents: isDisabled ? 'none' : ''
       }"
@@ -52,13 +53,31 @@
     </button>
   </div>
   <div *ngSwitchCase="'checkbox'">
+    <input 
+    type="checkbox"
+    [required]="element.required"
+    [disabled]="isDisabled"
+    >
     <label for="">
       {{ element.placeholderText }}
     </label>
-    <input 
-      type="checkbox"
-      [required]="element.required"
-      [disabled]="isDisabled"
+  </div>
+  <div *ngSwitchCase="'select'">
+    <select 
+      name="" 
+      id=""
+      [ngStyle]="{
+        'width': element.width + '%',
+        'height': element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color
+      }"
     >
+      <option value="">One</option>
+      <option value="">Two</option>
+      <option value="">Three</option>
+    </select>
   </div>
 </div>

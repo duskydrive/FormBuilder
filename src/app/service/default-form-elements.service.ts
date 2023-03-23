@@ -39,7 +39,8 @@ export class DefaultFormElementsService {
         borderStyle: 'solid', 
         fontSize: 14,
         fontWeight: 400,
-        color: '#000000',
+        color: '#fff',
+        backgroundColor: '#3f51b5',
       },
       {
         type: 'checkbox',
@@ -52,7 +53,17 @@ export class DefaultFormElementsService {
         fontWeight: 400,
         color: '#000000',
       },
-
+      {
+        type: 'select',
+        placeholderText: 'Placeholder',
+        width: 100,
+        height: 50,
+        required: false,
+        borderStyle: 'solid', 
+        fontSize: 14,
+        fontWeight: 400,
+        color: '#000000',
+      },
     ]
   }
 }

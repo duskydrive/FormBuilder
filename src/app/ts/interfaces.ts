@@ -14,4 +14,5 @@ export interface FormElement {
   fontSize: number,
   fontWeight: number,
   color: string,
+  backgroundColor?: string,
 }
