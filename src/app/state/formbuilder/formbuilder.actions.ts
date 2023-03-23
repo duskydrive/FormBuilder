@@ -3,7 +3,7 @@ import { FormElement } from "src/app/ts/interfaces";
 
 export const addFormElement = createAction(
   '[Form Builder] Add Form Element',
-  props<{ element: FormElement }>()
+  props<{ element: FormElement, index: number }>()
 )
 
 export const removeFormElement = createAction(
@@ -14,6 +14,11 @@ export const removeFormElement = createAction(
 export const updateFormElement = createAction(
   '[Form Builder] Update Form Element',
   props<{ elementId: string, key: string, val: string }>()
+)
+
+export const swapFormElements = createAction(
+  '[Form Builder] Swap Form Elements',
+  props<{ index1: number, index2: number }>()
 )
 
 export const addOption = createAction(

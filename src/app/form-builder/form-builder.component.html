@@ -6,11 +6,11 @@
         [ngStyle]="{'min-height':'60px'}"
         cdkDropList
         id="doneList"
-        [cdkDropListData]="elements"
+        [cdkDropListData]="elements$"
         [cdkDropListSortingDisabled]="false"
         class="items-list rec"
         (cdkDropListDropped)="onDrop($event)">
-          <div class="items-box" *ngFor="let item of elements" cdkDrag>
+          <div class="items-box" *ngFor="let item of elements$ | async" cdkDrag>
             <app-form-element [element]="item" [isDisabled]="disableBool"></app-form-element>
             <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
           </div>

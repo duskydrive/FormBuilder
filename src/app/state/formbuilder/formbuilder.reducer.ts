@@ -7,6 +7,7 @@ import {
   addOption,
   removeOption,
   updateGeneralForm,
+  swapFormElements,
 } from "./formbuilder.actions";
 
 export const initialState: FormBuilderState = {
@@ -21,11 +22,39 @@ export const initialState: FormBuilderState = {
   },
 }
 
+const sortNewElement = (arr: FormElement[], index: number, newElement: FormElement) => {
+  const copyArr = arr.slice();
+
+  for (let i = copyArr.length; i > index; i--) {
+    copyArr[i] = copyArr[i-1];
+  }
+  copyArr[index] = newElement
+  return copyArr
+}
+
+const sortElements = (arr: FormElement[], index1: number, index2: number ) => {
+  const results = arr.slice();
+  // from start index to new index
+  const temp = results[index1];
+ 
+  if (index1 < index2) {
+    for (let i = index1; i < index2; i++) {
+      results[i] = results[i+1]
+    }
+  } else {
+    for (let i = index1; i > index2; i--) {
+      results[i] = results[i-1]
+    }
+  }
+  results[index2] = temp
+  return results
+}
+
 export const formBuilderReducer = createReducer(
   initialState,
-  on(addFormElement, (state, { element }) => ({
+  on(addFormElement, (state, { element, index }) => ({
     ...state,
-    formElements: [...state.formElements, { id: Date.now().toString(), ...element}]
+    formElements: sortNewElement(state.formElements, index, element)
   })),
   on(removeFormElement, (state, { id }) => ({
     ...state,
@@ -42,6 +71,10 @@ export const formBuilderReducer = createReducer(
         [key]: val,
       }
     })
+  })),
+  on(swapFormElements, (state, { index1, index2 }) => ({
+    ...state,
+    formElements: sortElements(state.formElements, index1, index2),
   })),
   on(addOption, (state, { selectId, content }) => ({
     ...state,
