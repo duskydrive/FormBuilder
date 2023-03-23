@@ -4,7 +4,13 @@ export interface UserData {
   username?: string | null | undefined,
 }
 
+export interface SelectOption {
+  id: string,
+  content: string,
+}
+
 export interface FormElement {
+  id?: string,
   type: string,
   placeholderText: string,
   width: number,
@@ -15,4 +21,19 @@ export interface FormElement {
   fontWeight: number,
   color: string,
   backgroundColor?: string,
+  options?: SelectOption[],
+}
+
+export interface GeneralFormStyles {
+  heading: string,
+  borderStyle: string, 
+  fontSize: number,
+  fontWeight: number,
+  color: string,
+  backgroundColor: string,
+}
+
+export interface FormBuilderState {
+  formElements: FormElement[],
+  generalForm: GeneralFormStyles,
 }
