@@ -16,6 +16,8 @@ export interface FormElement {
   width: number,
   height: number,
   required: boolean,
+  borderWidth: string,
+  borderColor: string,
   borderStyle: string, 
   fontSize: number,
   fontWeight: number,

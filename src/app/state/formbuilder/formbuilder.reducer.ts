@@ -9,6 +9,7 @@ import {
   updateGeneralForm,
   swapFormElements,
   selectFormElement,
+  updateCurrentElement,
 } from "./formbuilder.actions";
 
 export const initialState: FormBuilderState = {
@@ -70,15 +71,7 @@ export const formBuilderReducer = createReducer(
   })),
   on(updateFormElement, (state, { elementId, key, val }) => ({
     ...state,
-    formElements: state.formElements.map((item) => {
-      if ( item.id !== elementId ) {
-        return item
-      }
-      return {
-        ...item,
-        [key]: val,
-      }
-    })
+    formElements: state.formElements.map((item => item.id === elementId ? {...item, [key]: val} : item ))
   })),
   on(swapFormElements, (state, { index1, index2 }) => ({
     ...state,
@@ -118,5 +111,13 @@ export const formBuilderReducer = createReducer(
   on(selectFormElement, (state, { element }) => ({
     ...state,
     currentElement: element,
+  })),
+  on(updateCurrentElement, (state, { key, val }) => ({
+    ...state,
+    currentElement: {
+      ...state.currentElement!,
+      [key]: val,
+    }
+    // state.formElements.map((item => item.id === elementId ? {...item, [key]: val} : item ))
   })),
 )

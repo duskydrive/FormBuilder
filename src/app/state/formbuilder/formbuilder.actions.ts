@@ -40,3 +40,8 @@ export const selectFormElement = createAction(
   '[Fields Styling] Select a Form Element',
   props<{ element: FormElement }>()
 )
+
+export const updateCurrentElement = createAction(
+  '[Form Builder] Update Current Form Element',
+  props<{ key: string, val: string }>()
+)

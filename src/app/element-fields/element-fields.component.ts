@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { selectCurrentElement } from '../state/formbuilder/formBuilder.selectors';
 import { updateFormElement } from '../state/formbuilder/formbuilder.actions';
+import { updateCurrentElement } from '../state/formbuilder/formbuilder.actions';
 interface Field {
   elementId: string, 
   key: string, 
@@ -14,12 +15,14 @@ interface Field {
   styleUrls: ['./element-fields.component.sass']
 })
 export class ElementFieldsComponent {
-  element = this.store.select(selectCurrentElement);
+  element$ = this.store.select(selectCurrentElement);
 
   constructor(private store: Store<AppState>) {}
-
+  
   changeField(obj: Field) {
     this.store.dispatch(updateFormElement(obj))
+    this.store.dispatch(updateCurrentElement(obj))
   }
+ 
 
 }
