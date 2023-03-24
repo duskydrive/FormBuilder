@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormElement } from '../ts/interfaces';
+import { FormElement } from './interfaces';
 import { CdkDragDrop, CdkDragExit } from '@angular/cdk/drag-drop';
 import { addFormElement, swapFormElements } from '../state/formbuilder/formbuilder.actions';
 import { Store } from '@ngrx/store';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, BehaviorSubject } from 'rxjs';
-import { UserData } from '../ts/interfaces';
+import { UserData } from './interfaces';
 @Injectable({
   providedIn: 'root'
 })

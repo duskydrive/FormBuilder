@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { FormElement } from '../ts/interfaces';
+import { FormElement } from '../service/interfaces';
 import { DragdropService } from '../service/dragdrop.service';
 import { selectFormElements } from '../state/formbuilder/formBuilder.selectors';
 import { Observable } from 'rxjs';
 import { AppState } from '../state/app.state';
 import { selectGeneralForm } from '../state/formbuilder/formBuilder.selectors';
+// import { selectFormElement } from '../state/formbuilder/formbuilder.actions';
 
 @Component({
   selector: 'app-form-builder',
@@ -25,7 +26,7 @@ export class FormBuilderComponent {
       this.dragService.drop(event);
   }
 
-  selectElement(el: FormElement) {
-    console.log(el)
-  }
+  // selectElement(el: FormElement) {
+  //   this.store.dispatch(selectFormElement({element: el}))
+  // }
 }

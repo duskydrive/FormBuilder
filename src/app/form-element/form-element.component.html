@@ -2,6 +2,7 @@
   <div *ngSwitchCase="'input'">
     <input 
       type="text" 
+      (click)="selectElement()"
       [ngStyle]="{
         'width': element.width + '%',
         'height': element.height + 'px',
@@ -20,6 +21,7 @@
     <textarea 
       name="" 
       id="" 
+      (click)="selectElement()"
       [ngStyle]="{
         width: element.width + '%',
         height: element.height + 'px',
@@ -47,6 +49,7 @@
         boxSizing: 'border-box',
         pointerEvents: isDisabled ? 'none' : ''
       }"
+      (click)="selectElement()"
       [disabled]="isDisabled"
     >
       {{ element.placeholderText }}
@@ -55,6 +58,7 @@
   <div *ngSwitchCase="'checkbox'">
     <input 
     type="checkbox"
+    (click)="selectElement()"
     [required]="element.required"
     [disabled]="isDisabled"
     >
@@ -66,6 +70,7 @@
     <select 
       name="" 
       id=""
+      (click)="selectElement()"
       [ngStyle]="{
         'width': element.width + '%',
         'height': element.height + 'px',

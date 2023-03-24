@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { FormElement } from "src/app/ts/interfaces";
+import { FormElement } from "src/app/service/interfaces";
 
 export const addFormElement = createAction(
   '[Form Builder] Add Form Element',
@@ -34,4 +34,9 @@ export const removeOption = createAction(
 export const updateGeneralForm = createAction(
   '[Form General] Update General Form',
   props<{ key: string, val: string }>()
+)
+
+export const selectFormElement = createAction(
+  '[Fields Styling] Select a Form Element',
+  props<{ element: FormElement }>()
 )

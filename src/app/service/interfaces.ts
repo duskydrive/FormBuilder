@@ -38,4 +38,5 @@ export interface GeneralFormStyles {
 export interface FormBuilderState {
   formElements: FormElement[],
   generalForm: GeneralFormStyles,
+  currentElement: FormElement | undefined,
 }

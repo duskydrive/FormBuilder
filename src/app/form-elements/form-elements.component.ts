@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { FormElement } from '../ts/interfaces';
+import { FormElement } from '../service/interfaces';
 import { DefaultFormElementsService } from '../service/default-form-elements.service';
 import { DragdropService } from '../service/dragdrop.service';
 import { Observable } from 'rxjs';

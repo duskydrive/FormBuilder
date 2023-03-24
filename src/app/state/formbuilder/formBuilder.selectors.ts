@@ -1,6 +1,6 @@
 import { createSelector } from "@ngrx/store";
 import { AppState } from "../app.state";
-import { FormBuilderState } from "src/app/ts/interfaces";
+import { FormBuilderState } from "src/app/service/interfaces";
 
 export const selectFormBuilder = (state: AppState) => state.formBuilder;
 
@@ -12,4 +12,9 @@ export const selectFormElements = createSelector(
 export const selectGeneralForm = createSelector(
   selectFormBuilder,
   (state: FormBuilderState) => state.generalForm
+);
+
+export const selectCurrentElement = createSelector(
+  selectFormBuilder,
+  (state: FormBuilderState) => state.currentElement
 );

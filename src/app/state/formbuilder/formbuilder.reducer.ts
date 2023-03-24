@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { FormElement, FormBuilderState } from "src/app/ts/interfaces";
+import { FormElement, FormBuilderState } from "src/app/service/interfaces";
 import { 
   addFormElement, 
   removeFormElement, 
@@ -8,6 +8,7 @@ import {
   removeOption,
   updateGeneralForm,
   swapFormElements,
+  selectFormElement,
 } from "./formbuilder.actions";
 
 export const initialState: FormBuilderState = {
@@ -22,15 +23,20 @@ export const initialState: FormBuilderState = {
     color: '#000000',
     backgroundColor: '#ffffff',
   },
+  currentElement: undefined,
 }
 
 const sortNewElement = (arr: FormElement[], index: number, newElement: FormElement) => {
   const copyArr = arr.slice();
+  const newElementClone = Object.assign({
+    id: Date.now().toString(),
+  }, newElement);
 
   for (let i = copyArr.length; i > index; i--) {
     copyArr[i] = copyArr[i-1];
   }
-  copyArr[index] = newElement
+
+  copyArr[index] = newElementClone;
   return copyArr
 }
 
@@ -108,5 +114,9 @@ export const formBuilderReducer = createReducer(
       ...state.generalForm,
       [key]: val,
     }
+  })),
+  on(selectFormElement, (state, { element }) => ({
+    ...state,
+    currentElement: element,
   })),
 )

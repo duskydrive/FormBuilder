@@ -1,17 +1,29 @@
-import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, AfterViewInit } from '@angular/core';
+import { AccordionManipulatorService } from '../service/accordion-manipulator.service';
 @Component({
   selector: 'app-accordion',
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.sass']
 })
-export class AccordionComponent {
-  // public selectedElementSubject = new BehaviorSubject(null);
-  // val = {};
-  // items = ['Form General Styling', 'Field styling'];
-  // expandedIndex = 0;
-  // changeElement(el: any) {
-    // this.val = el
-    // this.selectedElementSubject.next(el);
-  // }
+export class AccordionComponent implements AfterViewInit {
+  fieldsTab: HTMLElement | null = null;
+  fieldsTabClickable: HTMLElement | null = null;
+
+  constructor( public changeAccordion: AccordionManipulatorService ) { 
+    this.changeAccordion.callToggle.subscribe(( ) => {
+      this.openFieldStyling();
+    } )
+  } 
+
+  ngAfterViewInit(): void {
+    this.fieldsTab = document.querySelector('#accordion-header-2');
+    this.fieldsTabClickable = document.querySelector('#accordion-header-2 .mui-accordion-item-header');
+  }
+  
+  openFieldStyling() {
+    const bool = this.fieldsTab?.getAttribute('aria-expanded');
+    if (bool === 'false') {
+      this.fieldsTabClickable?.click();
+    }
+  }
 }
