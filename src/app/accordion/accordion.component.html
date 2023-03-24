@@ -22,9 +22,7 @@
           [style.display]="accordionItem.expanded ? '' : 'none'"
           [attr.id]="'accordion-body-1'"
           [attr.aria-labelledby]="'accordion-header-1'">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-          excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-          veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa? 1111
+          <app-form-general></app-form-general>
         </div>
       </cdk-accordion-item>
       <cdk-accordion-item
@@ -47,11 +45,7 @@
           [style.display]="accordionItem1.expanded ? '' : 'none'"
           [attr.id]="'accordion-body-2'"
           [attr.aria-labelledby]="'accordion-header-2'">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-          excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-          veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa? 2222
-          <!-- {{ val }} -->
-          <!-- {{ val.type }} -->
+          <app-element-fields></app-element-fields>
         </div>
       </cdk-accordion-item>
     </cdk-accordion>

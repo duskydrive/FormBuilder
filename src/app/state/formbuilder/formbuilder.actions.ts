@@ -32,6 +32,6 @@ export const removeOption = createAction(
 )
 
 export const updateGeneralForm = createAction(
-  '[Form Builder] Update General Form',
+  '[Form General] Update General Form',
   props<{ key: string, val: string }>()
 )

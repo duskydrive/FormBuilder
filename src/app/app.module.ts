@@ -20,6 +20,8 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { FormElementsComponent } from './form-elements/form-elements.component';
 import { FormElementComponent } from './form-element/form-element.component';
 import { formBuilderReducer } from './state/formbuilder/formbuilder.reducer';
+import { FormGeneralComponent } from './form-general/form-general.component';
+import { ElementFieldsComponent } from './element-fields/element-fields.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,8 @@ import { formBuilderReducer } from './state/formbuilder/formbuilder.reducer';
     FormBuilderComponent,
     FormElementsComponent,
     FormElementComponent,
+    FormGeneralComponent,
+    ElementFieldsComponent,
   ],
   imports: [
     BrowserModule,

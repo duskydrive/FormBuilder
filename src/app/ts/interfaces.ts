@@ -26,6 +26,8 @@ export interface FormElement {
 
 export interface GeneralFormStyles {
   heading: string,
+  borderWidth: string,
+  borderColor: string,
   borderStyle: string, 
   fontSize: number,
   fontWeight: number,

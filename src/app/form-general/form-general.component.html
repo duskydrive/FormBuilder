@@ -1,0 +1,89 @@
+<div *ngIf="formStyles | async as formData; else loading">
+  <div class="row">
+    <label for="">Form heading</label>
+    <input 
+      #heading 
+      type="text" 
+      [value]="formData.heading" 
+      (keyup)="changeGeneral({key: 'heading', val: heading.value})"
+    >
+  </div>
+  <div class="row">
+    <label for="">Border width</label>
+    <input 
+      #borderWidth 
+      type="text" 
+      [value]="formData.borderWidth" 
+      (keyup)="changeGeneral({key: 'borderWidth', val: borderWidth.value})"
+    >
+  </div>
+  <div class="row">
+    <label for="">Border color</label>
+    <input 
+      #borderColor
+      type="color"
+      [value]="formData.borderColor"
+      (change)="changeGeneral({key: 'borderColor', val: borderColor.value})"
+    >
+  </div>
+  <div class="row">
+    <label for="">Border style</label>
+    <select 
+      #borderStyle
+      name="" 
+      id=""
+      [value]="formData.borderStyle"
+      (change)="changeGeneral({key: 'borderStyle', val: borderStyle.value})"
+    >
+    <option value="initial">initial</option>
+    <option value="solid">solid</option>
+      <option value="dotted">dotted</option>
+      <option value="dashed">dashed</option>
+    </select>
+  </div>
+  <div class="row">
+    <label for="">Font size</label>
+    <input 
+      #fontSize
+      type="text" 
+      value="20"
+      (keyup)="changeGeneral({key: 'fontSize', val: fontSize.value})"
+    >
+  </div>
+  <div class="row">
+    <label for="">Font weight</label>
+    <select 
+      #fontWeight
+      name="" 
+      id=""
+      [value]="formData.fontWeight"
+      (change)="changeGeneral({key: 'fontWeight', val: fontWeight.value})"
+    >
+      <option value="200">200</option>
+      <option value="400">400</option>
+      <option value="500">500</option>
+      <option value="600">600</option>
+    </select>
+  </div>
+  <div class="row">
+    <label for="">Color</label>
+    <input 
+      #color
+      type="color"
+      [value]="formData.color"
+      (change)="changeGeneral({key: 'color', val: color.value})"
+    >
+  </div>
+  <div class="row">
+    <label for="">Background color</label>
+    <input 
+      #backgroundColor
+      type="color"
+      [value]="formData.backgroundColor" 
+      (change)="changeGeneral({key: 'backgroundColor', val: backgroundColor.value})"
+    >
+  </div>
+</div>
+<ng-template #loading>
+  <div>Loading ...</div>
+</ng-template> 

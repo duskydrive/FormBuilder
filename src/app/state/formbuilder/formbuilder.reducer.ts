@@ -14,11 +14,13 @@ export const initialState: FormBuilderState = {
   formElements: [],
   generalForm: {
     heading: 'Form Builder',
-    borderStyle: 'initial', 
+    borderWidth: '1',
+    borderColor: '#cccccc',
+    borderStyle: 'solid', 
     fontSize: 20,
     fontWeight: 500,
-    color: '#000',
-    backgroundColor: '#fff',
+    color: '#000000',
+    backgroundColor: '#ffffff',
   },
 }
 

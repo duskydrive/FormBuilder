@@ -1,0 +1,84 @@
+<!-- <div *ngIf="element ? test : loading"></div>
+
+<ng-template #test [ngSwitch]="element.type">
+  <div *ngSwitchCase="'input'">
+    <input 
+      type="text" 
+      [ngStyle]="{
+        'width': element.width + '%',
+        'height': element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color,
+        boxSizing: 'border-box'
+      }"
+      [required]="element.required"
+      [placeholder]="element.placeholderText"
+      />
+    </div>
+  <div *ngSwitchCase="'textarea'">
+    <textarea 
+      name="" 
+      id="" 
+      [ngStyle]="{
+        width: element.width + '%',
+        height: element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color,
+        boxSizing: 'border-box'
+      }"
+      [required]="element.required"
+      [placeholder]="element.placeholderText"
+    ></textarea>
+  </div>
+  <div *ngSwitchCase="'button'">
+    <button
+      [ngStyle]="{
+        'width': element.width + '%',
+        'height': element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color,
+        'background-color': element.backgroundColor,
+        boxSizing: 'border-box'
+      }"
+    >
+      {{ element.placeholderText }}
+    </button>
+  </div>
+  <div *ngSwitchCase="'checkbox'">
+    <input 
+    type="checkbox"
+    [required]="element.required"
+    >
+    <label for="">
+      {{ element.placeholderText }}
+    </label>
+  </div>
+  <div *ngSwitchCase="'select'">
+    <select 
+      name="" 
+      id=""
+      [ngStyle]="{
+        'width': element.width + '%',
+        'height': element.height + 'px',
+        'border-style': element.borderStyle,
+        'font-size': element.fontSize + 'px',
+        'font-weight': element.fontWeight,
+        'color': element.color
+      }"
+    >
+      <option value="">One</option>
+      <option value="">Two</option>
+      <option value="">Three</option>
+    </select>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div>Loading ...</div>
+</ng-template>  -->

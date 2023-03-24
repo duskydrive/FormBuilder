@@ -1,6 +1,9 @@
 .wrapper-item
-  display: grid
+  // display: grid
   width: 100%
+  & > div
+    height: 100%
+    display: grid
 
 .mat-mdc-card-content
   display: flex
@@ -15,19 +18,16 @@ h2
 .items-list 
   height: 100%
   min-height: 60px
-  background: white
   border-radius: 4px
   overflow: hidden
   display: block
 
 .items-box 
-  padding: 10px 0
-  // border-bottom: solid 1px #ccc
+  margin-bottom: 20px
   color: rgba(0, 0, 0, 0.87)
   width: 100%
   box-sizing: border-box
   cursor: move
-  background: white
   font-size: 14px
 
 
