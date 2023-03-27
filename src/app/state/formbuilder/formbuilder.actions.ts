@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { FormElement } from "src/app/service/interfaces";
+import { FormElement, SelectOption } from "src/app/service/interfaces";
 
 export const addFormElement = createAction(
   '[Form Builder] Add Form Element',
@@ -23,7 +23,7 @@ export const swapFormElements = createAction(
 
 export const addOption = createAction(
   '[Form Builder select] Add option to select',
-  props<{ selectId: string, content: string }>()
+  props<{ selectId: string, content: SelectOption }>()
 )
 
 export const removeOption = createAction(
@@ -44,4 +44,18 @@ export const selectFormElement = createAction(
 export const updateCurrentElement = createAction(
   '[Form Builder] Update Current Form Element',
   props<{ key: string, val: string }>()
+)
+
+export const addOptionToCurrentElement = createAction(
+  '[Fields Styling] Add option to select of current element',
+  props<{ data: SelectOption }>()
+)
+
+export const removeOptionFromCurrentElement = createAction(
+  '[Fields Styling] Remove option from select of current element',
+  props<{ optionId: string }>()
+)
+
+export const removeCurrentElement = createAction(
+  '[Fields Styling] Remove current element'
 )

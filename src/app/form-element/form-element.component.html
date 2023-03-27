@@ -62,15 +62,37 @@
     </button>
   </div>
   <div *ngSwitchCase="'checkbox'">
-    <input 
-    type="checkbox"
-    (click)="selectElement()"
-    [required]="element.required"
-    [disabled]="isDisabled"
-    >
-    <label for="">
-      {{ element.placeholderText }}
-    </label>
+    <div class="checkbox-wrap">
+      <input 
+        type="checkbox"
+        [id]="element.id"
+        [ngStyle]="{
+          'width': element.width + 'px',
+          'height': element.width + 'px',
+          'border-width': element.borderWidth + 'px',
+          'border-color': element.borderColor,
+          'border-style': element.borderStyle,
+          'font-size': element.fontSize + 'px',
+          'font-weight': element.fontWeight,
+          'color': element.color,
+          boxSizing: 'border-box',
+          pointerEvents: isDisabled ? 'none' : ''
+        }"
+        (click)="selectElement()"
+        [required]="element.required"
+        [disabled]="isDisabled"
+      >
+      <label 
+        [for]="element.id"
+        [ngStyle]="{
+          'font-size': element.fontSize + 'px',
+          'font-weight': element.fontWeight,
+          'color': element.color
+        }"
+      >
+        {{ element.placeholderText }}
+      </label>
+    </div>
   </div>
   <div *ngSwitchCase="'select'">
     <select 
@@ -88,9 +110,11 @@
         'color': element.color
       }"
     >
-      <option value="">One</option>
-      <option value="">Two</option>
-      <option value="">Three</option>
+      <option disabled selected>{{ element.placeholderText }}</option>
+      <option 
+        *ngFor="let option of element.options"
+        [value]="option.content"
+      >{{ option.content }}</option>
     </select>
   </div>
 </div>

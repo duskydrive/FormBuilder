@@ -10,6 +10,9 @@ import {
   swapFormElements,
   selectFormElement,
   updateCurrentElement,
+  addOptionToCurrentElement,
+  removeOptionFromCurrentElement,
+  removeCurrentElement,
 } from "./formbuilder.actions";
 
 export const initialState: FormBuilderState = {
@@ -85,7 +88,7 @@ export const formBuilderReducer = createReducer(
       }
       return {
         ...item,
-        options: item.options?.concat({id: Date.now().toString(), content}),
+        options: item.options?.concat(content),
       }
     })
   })),
@@ -119,5 +122,27 @@ export const formBuilderReducer = createReducer(
       [key]: val,
     }
     // state.formElements.map((item => item.id === elementId ? {...item, [key]: val} : item ))
+  })),
+  on(addOptionToCurrentElement, (state, { data }) => ({
+    ...state,
+    currentElement: {
+      ...state.currentElement!,
+      options: [
+        ...state.currentElement!.options!,
+      ].concat(data)
+    }
+  })),
+  on(removeOptionFromCurrentElement, (state, { optionId }) => ({
+    ...state,
+    currentElement: {
+      ...state.currentElement!,
+      options: [
+        ...state.currentElement!.options!,
+      ].filter((el) => el.id !== optionId)
+    }
+  })),
+  on(removeCurrentElement, (state) => ({
+    ...state,
+    currentElement: undefined,
   })),
 )
