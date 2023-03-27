@@ -18,3 +18,13 @@ export const selectCurrentElement = createSelector(
   selectFormBuilder,
   (state: FormBuilderState) => state.currentElement
 );
+
+export const getItemById = (id: string) => createSelector(selectFormElements, (allItems) => {
+  if (allItems) {
+    return allItems.find(item => {
+      return item.id === id;
+    });
+  } else {
+    return {};
+  }
+});

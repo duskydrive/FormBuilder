@@ -16,9 +16,12 @@ export class FormElementComponent {
   constructor(private store: Store<AppState>, public changeAccordion: AccordionManipulatorService) {}
 
   selectElement() {
-    // console.log('this.element')
-    // console.log(this.element)
-    this.store.dispatch(selectFormElement({element: this.element}))
+    // this.store.dispatch(selectFormElement({element: this.element}))
     this.changeAccordion.callToggle.next( true );
+    // console.log('cur el')
+    // console.log(this.element)
+    // this.changeAccordion.setDataObject( this.element );
+    this.changeAccordion.passId( this.element.id! );
+
   }
 }
