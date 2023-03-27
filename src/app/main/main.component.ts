@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-// import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../state/app.state';
+import { resetState } from '../state/formbuilder/formbuilder.actions';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.sass']
 })
 export class MainComponent {
-  // drop(event: CdkDragDrop<string[]>) {
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     transferArrayItem(
-  //       event.previousContainer.data,
-  //       event.container.data,
-  //       event.previousIndex,
-  //       event.currentIndex,
-  //     );
-  //   }
-  // }
+  constructor(private _route:Router, private _authService: AuthService, private store: Store<AppState>) {}
+
+  exitApp() {
+    this._authService.logout()
+    this.store.dispatch(resetState())
+    this._route.navigate(['login'])
+  }
 }

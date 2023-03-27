@@ -59,3 +59,7 @@ export const removeOptionFromCurrentElement = createAction(
 export const removeCurrentElement = createAction(
   '[Fields Styling] Remove current element'
 )
+
+export const resetState = createAction(
+  '[Logut] Reset State Back to Initial State'
+)

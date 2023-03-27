@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatCardModule,
     CdkAccordionModule,
     DragDropModule,
+    MatIconModule,
   ]
 })
 export class MaterialDesignModule { }

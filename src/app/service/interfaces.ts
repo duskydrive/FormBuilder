@@ -42,3 +42,8 @@ export interface FormBuilderState {
   generalForm: GeneralFormStyles,
   currentElement: FormElement | undefined,
 }
+
+export interface UserState {
+  username: string,
+  email: string,
+}

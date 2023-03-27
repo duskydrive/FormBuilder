@@ -13,6 +13,7 @@ import {
   addOptionToCurrentElement,
   removeOptionFromCurrentElement,
   removeCurrentElement,
+  resetState,
 } from "./formbuilder.actions";
 
 export const initialState: FormBuilderState = {
@@ -144,5 +145,8 @@ export const formBuilderReducer = createReducer(
   on(removeCurrentElement, (state) => ({
     ...state,
     currentElement: undefined,
+  })),
+  on(resetState, () => ({
+    ...initialState,
   })),
 )
