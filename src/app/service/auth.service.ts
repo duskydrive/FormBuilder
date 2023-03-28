@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, BehaviorSubject } from 'rxjs';
+import { 
+  tap, 
+  BehaviorSubject 
+} from 'rxjs';
 import { UserData } from './interfaces';
 @Injectable({
   providedIn: 'root'
@@ -25,6 +28,7 @@ export class AuthService {
     return this._http.post(this.apiUrl + 'login', { email: data.email, password: data.password })
       .pipe(
         tap((response: any) => {
+          console.log(response)
           localStorage.setItem('jwt_auth_token', response.accessToken);
         })
       );

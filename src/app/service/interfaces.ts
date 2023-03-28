@@ -40,10 +40,34 @@ export interface GeneralFormStyles {
 export interface FormBuilderState {
   formElements: FormElement[],
   generalForm: GeneralFormStyles,
-  currentElement: FormElement | undefined,
 }
 
 export interface UserState {
   username: string,
   email: string,
 }
+
+export interface OptionField {
+  elementId: string, 
+  key: string, 
+  val: string
+}
+
+export interface KeyValuePair {
+  key: string, 
+  val: string
+}
+
+export interface UserData {
+  email: string | null | undefined,
+  password: string | null | undefined,
+  username?: string | null | undefined,
+}
+
+// export interface ServerLoginResponse {
+//   accessToken: string,
+//   user: {
+//     email: string,
+//     id: string,
+//   }
+// }

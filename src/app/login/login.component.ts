@@ -1,5 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { 
+  ChangeDetectionStrategy, 
+  Component, 
+  OnDestroy 
+} from '@angular/core';
+import { 
+  FormGroup, 
+  FormControl, 
+  Validators 
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs';
 import { AuthService } from '../service/auth.service';
@@ -32,7 +40,10 @@ export class LoginComponent extends Unsub implements OnDestroy {
     ]),
   });
 
-  constructor(private _route:Router, private _authService: AuthService) {
+  constructor(
+    private _route:Router, 
+    private _authService: AuthService
+  ) {
     super();
   }
 

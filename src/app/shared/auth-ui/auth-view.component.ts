@@ -1,11 +1,12 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { 
+  Component, 
+  Input, 
+  Output, 
+  EventEmitter, 
+  ChangeDetectionStrategy 
+} from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
-interface UserData {
-  email: string | null | undefined,
-  password: string | null | undefined,
-  username?: string | null | undefined,
-}
+import { UserData } from 'src/app/service/interfaces';
 
 @Component({
   selector: 'app-auth-view',
@@ -13,20 +14,16 @@ interface UserData {
   styleUrls: ['./auth-view.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class AuthViewComponent {
   @Input() formName!: FormGroup;
   @Input() btnText!: string;
   @Input() urlTitle!: string;
   @Input() routeUrl!: string;
   @Input() requestError!: string;
-  @Output() submitFunc: EventEmitter<any> = new EventEmitter();
+  @Output() submitFunc: EventEmitter<UserData> = new EventEmitter();
 
   public raiseSubmit(): void {
     this.submitFunc.emit();
   }
-  
-  // constructor() {
-  // }
-
-
 }

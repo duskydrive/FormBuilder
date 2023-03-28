@@ -20,15 +20,11 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   redirectTo: 'login',
-  // },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

@@ -1,5 +1,11 @@
-import { createAction, props } from "@ngrx/store";
-import { FormElement, SelectOption } from "src/app/service/interfaces";
+import { 
+  createAction, 
+  props 
+} from "@ngrx/store";
+import { 
+  FormElement, 
+  SelectOption 
+} from "src/app/service/interfaces";
 
 export const addFormElement = createAction(
   '[Form Builder] Add Form Element',

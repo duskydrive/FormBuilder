@@ -1,5 +1,11 @@
-import { createReducer, on } from "@ngrx/store";
-import { FormElement, FormBuilderState } from "src/app/service/interfaces";
+import { 
+  createReducer, 
+  on 
+} from "@ngrx/store";
+import { 
+  FormElement, 
+  FormBuilderState 
+} from "src/app/service/interfaces";
 import { 
   addFormElement, 
   removeFormElement, 
@@ -24,7 +30,6 @@ export const initialState: FormBuilderState = {
     color: '#000000',
     backgroundColor: '#ffffff',
   },
-  currentElement: undefined,
 }
 
 const sortNewElement = (arr: FormElement[], index: number, newElement: FormElement) => {

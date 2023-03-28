@@ -1,23 +1,25 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { 
+  ChangeDetectionStrategy, 
+  ChangeDetectorRef, 
+  Component, 
+  ElementRef, 
+  OnInit, 
+  ViewChild
+} from '@angular/core';
+import { Unsub } from '../service/unsub.class';
+import { map, takeUntil } from 'rxjs';
+import { FormElement, OptionField } from '../service/interfaces';
 import { AppState } from '../state/app.state';
-import * as selectors from '../state/formbuilder/formBuilder.selectors';
-import { updateFormElement } from '../state/formbuilder/formbuilder.actions';
+import { Store } from '@ngrx/store';
 import { 
   addOption, 
   removeOption, 
   removeFormElement,
+  updateFormElement,
 } from '../state/formbuilder/formbuilder.actions';
-import { SendElementIdService } from '../service/send-element-id.service';
-import { FormElement } from '../service/interfaces';
-import { Unsub } from '../service/unsub.class';
-import { map, takeUntil } from 'rxjs';
 import { selectFormElements } from '../state/formbuilder/formBuilder.selectors';
-interface Field {
-  elementId: string, 
-  key: string, 
-  val: string
-}
+import { SendElementIdService } from '../service/send-element-id.service';
+
 @Component({
   selector: 'app-element-fields',
   templateUrl: './element-fields.component.html',
@@ -32,15 +34,16 @@ export class ElementFieldsComponent extends Unsub implements OnInit {
   constructor(
     private store: Store<AppState>, 
     public receiveId: SendElementIdService,
-    private changeDetectorRef: ChangeDetectorRef) {
-      super()
-    }
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
+    super()
+  }
 
   changeCurrentElement(id: string) {
     this.store.select(selectFormElements)
       .pipe(
         map((arr) => {
-          return arr.filter((item:FormElement) => item.id === id)[0]
+          return arr.filter((item: FormElement) => item.id === id)[0]
         }),
         takeUntil(this.unsubscribe$)
       )
@@ -60,7 +63,7 @@ export class ElementFieldsComponent extends Unsub implements OnInit {
       })
   }
   
-  changeField(obj: Field) {
+  changeField(obj: OptionField) {
     this.store.dispatch(updateFormElement(obj))
   }
 
@@ -68,6 +71,7 @@ export class ElementFieldsComponent extends Unsub implements OnInit {
     const id = Date.now().toString();
 
     this.store.dispatch(addOption({selectId, content: {id: id, content: value}}));
+
     this.optionInput.nativeElement.value = '';
   }
 
@@ -78,6 +82,4 @@ export class ElementFieldsComponent extends Unsub implements OnInit {
   removeElement(id: string) {
     this.store.dispatch(removeFormElement({ id }));
   }
- 
-
-}
+ }

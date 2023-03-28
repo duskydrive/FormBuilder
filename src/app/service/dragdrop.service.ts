@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { FormElement } from './interfaces';
-import { CdkDragDrop, CdkDragExit } from '@angular/cdk/drag-drop';
-import { addFormElement, swapFormElements } from '../state/formbuilder/formbuilder.actions';
-import { Store } from '@ngrx/store';
+import { 
+  CdkDragDrop, 
+  CdkDragExit 
+} from '@angular/cdk/drag-drop';
 import { Observable } from 'rxjs';
+import { FormElement } from './interfaces';
+import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
+import { 
+  addFormElement, 
+  swapFormElements 
+} from '../state/formbuilder/formbuilder.actions';
 @Injectable({
   providedIn: 'root'
 })
-export class DragdropService {
 
-  constructor(private store: Store<AppState>) { }
+export class DragdropService {
+  constructor(private store: Store<AppState>) {}
 
   transferringItem: FormElement | undefined = undefined;
 
@@ -18,9 +24,11 @@ export class DragdropService {
     if (event.previousContainer == event.container && event.container.id === 'doneList') {
       this.store.dispatch(swapFormElements({ index1: event.previousIndex, index2: event.currentIndex }))      
     }
+
     if (event.previousContainer.id !== event.container.id) {
       this.store.dispatch(addFormElement({ element: event.item.data, index: event.currentIndex }))
     }
+
     this.transferringItem = undefined;
   }
 
@@ -35,5 +43,4 @@ export class DragdropService {
   exited(e: CdkDragExit) {
     this.transferringItem = e.item.data;
   }
-
 }

@@ -13,15 +13,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthInterceptorProvider } from './auth.interceptor';
 import { AuthViewComponent } from './shared/auth-ui/auth-view.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { FormElementsComponent } from './form-elements/form-elements.component';
 import { FormElementComponent } from './form-element/form-element.component';
-import { formBuilderReducer } from './state/formbuilder/formbuilder.reducer';
 import { FormGeneralComponent } from './form-general/form-general.component';
 import { ElementFieldsComponent } from './element-fields/element-fields.component';
+import { AuthInterceptorProvider } from './auth.interceptor';
+import { formBuilderReducer } from './state/formbuilder/formbuilder.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,6 @@ import { ElementFieldsComponent } from './element-fields/element-fields.componen
     StoreModule.forRoot({ formBuilder: formBuilderReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
-      // logOnly: environment.production,
     }),
   ],
   providers: [AuthInterceptorProvider],
