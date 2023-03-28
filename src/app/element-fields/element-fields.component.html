@@ -1,28 +1,5 @@
 <!-- <div *ngIf="element$ | async as currentElement; else empty"> -->
-  {{ currentElement}}
 <div *ngIf="currentElement; else empty">
-    <!-- {{ currentElement.id }}
-  <br/>  
-  {{ currentElement.placeholderText }}
-  <br/>
-  {{ currentElement.width }}
-  <br/>
-  {{ currentElement.height }}
-  <br/>
-  {{ currentElement.required }}
-  <br/>
-  {{ currentElement.borderWidth }}
-  <br/>
-  {{ currentElement.borderColor }}
-  <br/>
-  {{ currentElement.borderStyle }}
-  <br/>
-  {{ currentElement.fontSize }}
-  <br/>
-  {{ currentElement.fontWeight }}
-  <br/>
-  {{ currentElement.color }} -->
-  
   <div [ngSwitch]="currentElement.type">
     <div *ngSwitchCase="'input'">
       <div class="row">

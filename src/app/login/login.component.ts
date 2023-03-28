@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 import { UserData } from '../service/interfaces';
+import { Unsub } from '../service/unsub.class';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class LoginComponent {
+export class LoginComponent extends Unsub implements OnDestroy {
   requestError = '';
   // text for submit btn in view component
   btnText = 'Login';
@@ -29,7 +32,9 @@ export class LoginComponent {
     ]),
   });
 
-  constructor(private _route:Router, private _authService: AuthService) { }
+  constructor(private _route:Router, private _authService: AuthService) {
+    super();
+  }
 
   onSubmit() {
     const userData: UserData = {
@@ -38,6 +43,9 @@ export class LoginComponent {
     }
 
     this._authService.login(userData)
+      .pipe(
+        takeUntil(this.unsubscribe$)
+      )
       .subscribe({
         error: (e) => this.requestError = e.error,
         complete: () => this._route.navigate([''])

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { FormElement } from '../service/interfaces';
 import { DefaultFormElementsService } from '../service/default-form-elements.service';
@@ -9,7 +9,8 @@ import { of } from 'rxjs';
 @Component({
   selector: 'app-form-elements',
   templateUrl: './form-elements.component.html',
-  styleUrls: ['./form-elements.component.sass']
+  styleUrls: ['./form-elements.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormElementsComponent {
   defaultElements$: Observable<FormElement[]> = of(this.formElements.get());

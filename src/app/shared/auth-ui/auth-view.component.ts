@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 interface UserData {
@@ -10,7 +10,8 @@ interface UserData {
 @Component({
   selector: 'app-auth-view',
   templateUrl: './auth-view.component.html',
-  styleUrls: ['./auth-view.component.sass']
+  styleUrls: ['./auth-view.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthViewComponent {
   @Input() formName!: FormGroup;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { selectGeneralForm } from '../state/formbuilder/formBuilder.selectors';
@@ -12,7 +12,8 @@ interface Test {
 @Component({
   selector: 'app-form-general',
   templateUrl: './form-general.component.html',
-  styleUrls: ['./form-general.component.sass']
+  styleUrls: ['./form-general.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormGeneralComponent {
   formStyles = this.store.select(selectGeneralForm);

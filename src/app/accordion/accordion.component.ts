@@ -1,18 +1,26 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { takeUntil } from 'rxjs';
 import { AccordionManipulatorService } from '../service/accordion-manipulator.service';
+import { Unsub } from '../service/unsub.class';
 @Component({
   selector: 'app-accordion',
   templateUrl: './accordion.component.html',
-  styleUrls: ['./accordion.component.sass']
+  styleUrls: ['./accordion.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccordionComponent implements AfterViewInit {
+export class AccordionComponent extends Unsub implements AfterViewInit {
   fieldsTab: HTMLElement | null = null;
   fieldsTabClickable: HTMLElement | null = null;
 
   constructor( public changeAccordion: AccordionManipulatorService ) { 
-    this.changeAccordion.callToggle.subscribe(( ) => {
-      this.openFieldStyling();
-    } )
+    super()
+    this.changeAccordion.callToggle
+      .pipe(
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe(( ) => {
+        this.openFieldStyling();
+      } )
   } 
 
   ngAfterViewInit(): void {

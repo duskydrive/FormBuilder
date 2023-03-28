@@ -20,11 +20,7 @@ export const selectCurrentElement = createSelector(
 );
 
 export const getItemById = (id: string) => createSelector(selectFormElements, (allItems) => {
-  if (allItems) {
-    return allItems.find(item => {
-      return item.id === id;
-    });
-  } else {
-    return {};
-  }
+  return allItems.find(item => {
+    return item.id === id;
+  });
 });

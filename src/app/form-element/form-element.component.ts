@@ -1,27 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
-import { selectFormElement } from '../state/formbuilder/formbuilder.actions';
 import { FormElement } from '../service/interfaces';
 import { AccordionManipulatorService } from '../service/accordion-manipulator.service';
+import { SendElementIdService } from '../service/send-element-id.service';
 @Component({
   selector: 'app-form-element',
   templateUrl: './form-element.component.html',
-  styleUrls: ['./form-element.component.sass']
+  styleUrls: ['./form-element.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormElementComponent {
   @Input() element!: FormElement;
   @Input() isDisabled!: boolean;
   
-  constructor(private store: Store<AppState>, public changeAccordion: AccordionManipulatorService) {}
+  constructor(private store: Store<AppState>, public changeAccordion: AccordionManipulatorService,
+    public sendId: SendElementIdService) {}
 
   selectElement() {
-    // this.store.dispatch(selectFormElement({element: this.element}))
     this.changeAccordion.callToggle.next( true );
-    // console.log('cur el')
-    // console.log(this.element)
-    // this.changeAccordion.setDataObject( this.element );
-    this.changeAccordion.passId( this.element.id! );
-
+    this.sendId.passId( this.element.id! );
   }
 }
