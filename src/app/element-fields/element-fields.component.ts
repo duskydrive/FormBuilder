@@ -67,11 +67,13 @@ export class ElementFieldsComponent extends Unsub implements OnInit {
     this.store.dispatch(updateFormElement(obj))
   }
 
-  addOption(selectId: string, value: string) {
-    const id = Date.now().toString();
+  launchAddOption(selectId: string, value: string) {
+    this.store.dispatch(addOption({selectId, content: {id: Date.now().toString(), content: value}}));
 
-    this.store.dispatch(addOption({selectId, content: {id: id, content: value}}));
+    this.clearInput()
+  }
 
+  clearInput() {
     this.optionInput.nativeElement.value = '';
   }
 

@@ -16,13 +16,13 @@ import { SendElementIdService } from '../service/send-element-id.service';
 
 export class FormElementComponent {
   @Input() element!: FormElement;
-  @Input() isDisabled!: boolean;
   
   constructor( 
     public changeAccordion: AccordionManipulatorService,
     public sendId: SendElementIdService) {}
 
-  selectElement() {
+  selectElement(e: MouseEvent) {
+    e.preventDefault();
     this.changeAccordion.callToggle.next( true );
     this.sendId.passId( this.element.id );
   }

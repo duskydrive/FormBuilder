@@ -42,11 +42,6 @@ export const updateGeneralForm = createAction(
   props<{ key: string, val: string }>()
 )
 
-export const selectFormElement = createAction(
-  '[Fields Styling] Select a Form Element',
-  props<{ element: FormElement }>()
-)
-
 export const resetState = createAction(
   '[Logut] Reset State Back to Initial State'
 )

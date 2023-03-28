@@ -2,7 +2,8 @@
   <div *ngSwitchCase="'input'">
     <input 
       type="text" 
-      (click)="selectElement()"
+      #placeholderInput
+      (click)="selectElement($event)"
       [ngStyle]="{
         'width': element.width + '%',
         'height': element.height + 'px',
@@ -16,14 +17,13 @@
       }"
       [required]="element.required"
       [placeholder]="element.placeholderText"
-      [disabled]="isDisabled"
       />
     </div>
   <div *ngSwitchCase="'textarea'">
     <textarea 
       name="" 
       id="" 
-      (click)="selectElement()"
+      (click)="selectElement($event)"
       [ngStyle]="{
         width: element.width + '%',
         height: element.height + 'px',
@@ -36,7 +36,6 @@
         boxSizing: 'border-box'
       }"
       [required]="element.required"
-      [disabled]="isDisabled"
       [placeholder]="element.placeholderText"
     ></textarea>
   </div>
@@ -52,11 +51,9 @@
         'font-weight': element.fontWeight,
         'color': element.color,
         'background-color': element.backgroundColor,
-        boxSizing: 'border-box',
-        pointerEvents: isDisabled ? 'none' : ''
+        boxSizing: 'border-box'
       }"
-      (click)="selectElement()"
-      [disabled]="isDisabled"
+      (click)="selectElement($event)"
     >
       {{ element.placeholderText }}
     </button>
@@ -75,12 +72,10 @@
           'font-size': element.fontSize + 'px',
           'font-weight': element.fontWeight,
           'color': element.color,
-          boxSizing: 'border-box',
-          pointerEvents: isDisabled ? 'none' : ''
+          boxSizing: 'border-box'
         }"
-        (click)="selectElement()"
+        (click)="selectElement($event)"
         [required]="element.required"
-        [disabled]="isDisabled"
       >
       <label 
         [for]="element.id"
@@ -98,7 +93,8 @@
     <select 
       name="" 
       id=""
-      (click)="selectElement()"
+      (click)="selectElement($event)"
+      [required]="element.required"
       [ngStyle]="{
         'width': element.width + '%',
         'height': element.height + 'px',

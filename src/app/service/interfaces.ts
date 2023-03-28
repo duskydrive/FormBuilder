@@ -15,7 +15,7 @@ export interface FormElement {
   placeholderText: string,
   width: number,
   height?: number,
-  required?: boolean,
+  required: boolean,
   borderWidth?: string,
   borderColor?: string,
   borderStyle?: string, 

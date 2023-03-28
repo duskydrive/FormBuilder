@@ -324,6 +324,15 @@
           (keyup)="changeField({elementId: currentElement.id!, key: 'width', val: width.value})"
         >
       </div>
+      <div class="row checkbox">
+        <label for="">Required</label>
+        <input 
+          #required 
+          type="checkbox" 
+          [value]="currentElement.required" 
+          (keyup)="changeField({elementId: currentElement.id!, key: 'required', val: required.value})"
+        >
+      </div>
       <div class="row">
         <label for="">Font size</label>
         <input 
@@ -369,7 +378,7 @@
         <button 
           mat-raised-button
           color="primary"
-          (click)="addOption(currentElement.id!, option.value)">
+          (click)="launchAddOption(currentElement.id!, option.value)">
             add option
         </button>
       </div>
@@ -410,6 +419,15 @@
           type="text" 
           [value]="currentElement.height" 
           (keyup)="changeField({elementId: currentElement.id!, key: 'height', val: height.value})"
+        >
+      </div>
+      <div class="row checkbox">
+        <label for="">Required</label>
+        <input 
+          #required 
+          type="checkbox" 
+          [value]="currentElement.required" 
+          (keyup)="changeField({elementId: currentElement.id!, key: 'required', val: required.value})"
         >
       </div>
       <div class="row">
@@ -482,10 +500,10 @@
     <div class="row">
       <label for="">Remove {{ currentElement.type }} element</label>
       <button 
-              mat-raised-button
-              color="accent"
-              (click)="removeElement(currentElement.id!)"
-            >remove</button>
+        mat-raised-button
+        color="accent"
+        (click)="removeElement(currentElement.id!)"
+      >remove</button>
     </div>
   </div>
 </div>

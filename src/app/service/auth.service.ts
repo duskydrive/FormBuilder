@@ -28,7 +28,6 @@ export class AuthService {
     return this._http.post(this.apiUrl + 'login', { email: data.email, password: data.password })
       .pipe(
         tap((response: any) => {
-          console.log(response)
           localStorage.setItem('jwt_auth_token', response.accessToken);
         })
       );

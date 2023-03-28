@@ -14,7 +14,6 @@ import {
   removeOption,
   updateGeneralForm,
   swapFormElements,
-  selectFormElement,
   resetState,
 } from "./formbuilder.actions";
 
@@ -95,10 +94,6 @@ export const formBuilderReducer = createReducer(
       ...state.generalForm,
       [key]: val,
     }
-  })),
-  on(selectFormElement, (state, { element }) => ({
-    ...state,
-    currentElement: element,
   })),
   on(resetState, () => ({
     ...initialState,
