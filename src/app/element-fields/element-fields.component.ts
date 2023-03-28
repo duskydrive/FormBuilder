@@ -11,8 +11,8 @@ import {
 import { SendElementIdService } from '../service/send-element-id.service';
 import { FormElement } from '../service/interfaces';
 import { Unsub } from '../service/unsub.class';
-import { takeUntil } from 'rxjs';
-
+import { map, takeUntil } from 'rxjs';
+import { selectFormElements } from '../state/formbuilder/formBuilder.selectors';
 interface Field {
   elementId: string, 
   key: string, 
@@ -37,8 +37,11 @@ export class ElementFieldsComponent extends Unsub implements OnInit {
     }
 
   changeCurrentElement(id: string) {
-    this.store.select(selectors.getItemById(id))
+    this.store.select(selectFormElements)
       .pipe(
+        map((arr) => {
+          return arr.filter((item:FormElement) => item.id === id)[0]
+        }),
         takeUntil(this.unsubscribe$)
       )
       .subscribe((item) => {
