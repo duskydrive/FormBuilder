@@ -41,25 +41,6 @@ export const selectFormElement = createAction(
   props<{ element: FormElement }>()
 )
 
-export const updateCurrentElement = createAction(
-  '[Form Builder] Update Current Form Element',
-  props<{ key: string, val: string }>()
-)
-
-export const addOptionToCurrentElement = createAction(
-  '[Fields Styling] Add option to select of current element',
-  props<{ data: SelectOption }>()
-)
-
-export const removeOptionFromCurrentElement = createAction(
-  '[Fields Styling] Remove option from select of current element',
-  props<{ optionId: string }>()
-)
-
-export const removeCurrentElement = createAction(
-  '[Fields Styling] Remove current element'
-)
-
 export const resetState = createAction(
   '[Logut] Reset State Back to Initial State'
 )

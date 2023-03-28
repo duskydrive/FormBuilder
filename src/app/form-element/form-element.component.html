@@ -110,10 +110,14 @@
         'color': element.color
       }"
     >
-      <option disabled selected>{{ element.placeholderText }}</option>
+      <option 
+        disabled
+        [selected]="!element.options?.length"
+      >{{ element.placeholderText }}</option>
       <option 
         *ngFor="let option of element.options"
         [value]="option.content"
+        [selected]="element.options?.length"
       >{{ option.content }}</option>
     </select>
   </div>

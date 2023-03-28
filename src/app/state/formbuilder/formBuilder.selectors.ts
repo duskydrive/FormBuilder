@@ -13,14 +13,3 @@ export const selectGeneralForm = createSelector(
   selectFormBuilder,
   (state: FormBuilderState) => state.generalForm
 );
-
-export const selectCurrentElement = createSelector(
-  selectFormBuilder,
-  (state: FormBuilderState) => state.currentElement
-);
-
-export const getItemById = (id: string) => createSelector(selectFormElements, (allItems) => {
-  return allItems.find(item => {
-    return item.id === id;
-  });
-});

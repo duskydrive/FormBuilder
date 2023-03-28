@@ -19,6 +19,6 @@ export class FormElementComponent {
 
   selectElement() {
     this.changeAccordion.callToggle.next( true );
-    this.sendId.passId( this.element.id! );
+    this.sendId.passId( this.element.id );
   }
 }

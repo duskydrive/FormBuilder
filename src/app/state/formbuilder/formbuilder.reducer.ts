@@ -9,10 +9,6 @@ import {
   updateGeneralForm,
   swapFormElements,
   selectFormElement,
-  updateCurrentElement,
-  addOptionToCurrentElement,
-  removeOptionFromCurrentElement,
-  removeCurrentElement,
   resetState,
 } from "./formbuilder.actions";
 
@@ -33,9 +29,7 @@ export const initialState: FormBuilderState = {
 
 const sortNewElement = (arr: FormElement[], index: number, newElement: FormElement) => {
   const copyArr = arr.slice();
-  const newElementClone = Object.assign({
-    id: Date.now().toString(),
-  }, newElement);
+  const newElementClone = Object.assign({}, newElement, { id: Date.now().toString() });
 
   for (let i = copyArr.length; i > index; i--) {
     copyArr[i] = copyArr[i-1];
@@ -83,27 +77,12 @@ export const formBuilderReducer = createReducer(
   })),
   on(addOption, (state, { selectId, content }) => ({
     ...state,
-    formElements: state.formElements.map((item) => {
-      if ( item.id !== selectId ) {
-        return item
-      }
-      return {
-        ...item,
-        options: item.options?.concat(content),
-      }
-    })
+    formElements: state.formElements.map((item => item.id == selectId ? {...item, options: item.options?.concat(content)} : item ))
   })),
   on(removeOption, (state, { selectId, optionId }) => ({
     ...state,
-    formElements: state.formElements.map((item) => {
-      if ( item.id !== selectId ) {
-        return item
-      }
-      return {
-        ...item,
-        options: item.options?.filter((el) => el.id !== optionId)
-      }
-    })
+    formElements: state.formElements.map(item => item.id !== selectId ? item : 
+      {...item, options: item.options?.filter((el) => el.id !== optionId)})
   })),
   on(updateGeneralForm, (state, { key, val }) => ({
     ...state,
@@ -115,36 +94,6 @@ export const formBuilderReducer = createReducer(
   on(selectFormElement, (state, { element }) => ({
     ...state,
     currentElement: element,
-  })),
-  on(updateCurrentElement, (state, { key, val }) => ({
-    ...state,
-    currentElement: {
-      ...state.currentElement!,
-      [key]: val,
-    }
-    // state.formElements.map((item => item.id === elementId ? {...item, [key]: val} : item ))
-  })),
-  on(addOptionToCurrentElement, (state, { data }) => ({
-    ...state,
-    currentElement: {
-      ...state.currentElement!,
-      options: [
-        ...state.currentElement!.options!,
-      ].concat(data)
-    }
-  })),
-  on(removeOptionFromCurrentElement, (state, { optionId }) => ({
-    ...state,
-    currentElement: {
-      ...state.currentElement!,
-      options: [
-        ...state.currentElement!.options!,
-      ].filter((el) => el.id !== optionId)
-    }
-  })),
-  on(removeCurrentElement, (state) => ({
-    ...state,
-    currentElement: undefined,
   })),
   on(resetState, () => ({
     ...initialState,

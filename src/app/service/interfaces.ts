@@ -10,7 +10,7 @@ export interface SelectOption {
 }
 
 export interface FormElement {
-  id?: string,
+  id: string,
   type: string,
   placeholderText: string,
   width: number,

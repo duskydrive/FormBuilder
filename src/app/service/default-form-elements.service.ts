@@ -9,6 +9,7 @@ export class DefaultFormElementsService {
   get() {
     return [
       {
+        id: '',
         type: 'input',
         placeholderText: 'Input placeholder',
         width: 100,
@@ -22,6 +23,7 @@ export class DefaultFormElementsService {
         color: '#000000',
       },
       {
+        id: '',
         type: 'textarea',
         placeholderText: 'Text placeholder',
         width: 100,
@@ -35,6 +37,7 @@ export class DefaultFormElementsService {
         color: '#000000',
       },
       {
+        id: '',
         type: 'button',
         placeholderText: 'Btn text',
         width: 100,
@@ -48,6 +51,7 @@ export class DefaultFormElementsService {
         backgroundColor: '#3f51b5',
       },
       {
+        id: '',
         type: 'checkbox',
         placeholderText: 'Placeholder',
         width: 15,
@@ -57,6 +61,7 @@ export class DefaultFormElementsService {
         color: '#000000',
       },
       {
+        id: '',
         type: 'select',
         placeholderText: 'Select your option',
         width: 100,
