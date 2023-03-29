@@ -1,0 +1,16 @@
+.items-container 
+  width: 400px
+  max-width: 100%
+  margin: 0 25px 25px 0
+  display: inline-block
+  vertical-align: top
+
+.items-list 
+  border: solid 1px #ccc
+  min-height: 60px
+  border-radius: 4px
+  overflow: hidden
+  display: block
+
+.items-list.cdk-drop-list-dragging .items-box:not(.cdk-drag-placeholder) 
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1)

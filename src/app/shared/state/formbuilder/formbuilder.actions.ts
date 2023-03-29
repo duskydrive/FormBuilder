@@ -5,7 +5,7 @@ import {
 import { 
   FormElement, 
   SelectOption 
-} from "src/app/service/interfaces";
+} from "src/app/shared/service/interfaces";
 
 export const addFormElement = createAction(
   '[Form Builder] Add Form Element',

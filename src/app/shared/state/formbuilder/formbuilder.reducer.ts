@@ -5,7 +5,7 @@ import {
 import { 
   FormElement, 
   FormBuilderState 
-} from "src/app/service/interfaces";
+} from "src/app/shared/service/interfaces";
 import { 
   addFormElement, 
   removeFormElement, 

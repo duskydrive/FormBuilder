@@ -1,0 +1,24 @@
+<select 
+  name="" 
+  id=""
+  (click)="bindFunc($event)"
+  [style.width]="widthPercent"
+  [style.height]="heightPx"
+  [style.borderWidth]="borderWidthPx"
+  [style.borderColor]="borderColor"
+  [style.borderStyle]="borderStyle"
+  [style.fontSize]="fontSizePx"
+  [style.fontWeight]="fontWeight"
+  [style.color]="color"
+  [required]="required"
+>
+  <option 
+    disabled
+    [selected]="!options.length"
+  >{{ placeholderText }}</option>
+  <option 
+    *ngFor="let option of options"
+    [value]="option.content"
+    [selected]="options.length"
+  >{{ option.content }}</option>
+</select>

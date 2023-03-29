@@ -1,0 +1,4 @@
+<div *ngFor="let item of items" class="items-box" cdkDrag [cdkDragData]="item">
+  <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+  {{ item.type }}
+</div>
