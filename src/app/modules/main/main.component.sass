@@ -6,10 +6,31 @@
 
 .wrapper > app-design-section,
 .wrapper > app-drop-section,
-.wrapper > app-form-elements
+.wrapper > app-drag-section
   flex: 0 1 30%
   min-height: calc(100vh - 19vh)
   display: grid
 
 .wrapper-item
   width: 100%
+
+@media (max-width: 1500px) 
+  .wrapper
+    padding: 15px
+
+  .wrapper > app-design-section,
+  .wrapper > app-drop-section,
+  .wrapper > app-drag-section
+    flex: 0 1 32%
+
+@media (max-width: 950px) 
+  .wrapper
+    flex-direction: column
+
+  .wrapper > app-design-section,
+  .wrapper > app-drop-section,
+  .wrapper > app-drag-section
+    margin-bottom: 50px
+    display: block
+    width: 100%
+    min-height: 100px

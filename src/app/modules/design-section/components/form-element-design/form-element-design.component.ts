@@ -66,6 +66,9 @@ export class FormElementDesignComponent extends Unsub implements OnInit {
   }
 
   launchAddOption(obj: SelectOptionPair) {
+    if (obj.value.trim() === '') {
+      return
+    }
     this.store.dispatch(
       addOption(
         {
