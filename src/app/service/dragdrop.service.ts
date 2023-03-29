@@ -6,11 +6,11 @@ import {
 import { Observable } from 'rxjs';
 import { FormElement } from './interfaces';
 import { Store } from '@ngrx/store';
-import { AppState } from '../state/app.state';
+import { AppState } from '../shared/state/app.state';
 import { 
   addFormElement, 
   swapFormElements 
-} from '../state/formbuilder/formbuilder.actions';
+} from '../shared/state/formbuilder/formbuilder.actions';
 @Injectable({
   providedIn: 'root'
 })

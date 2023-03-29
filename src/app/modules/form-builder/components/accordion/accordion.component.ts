@@ -4,8 +4,8 @@ import {
   ChangeDetectionStrategy 
 } from '@angular/core';
 import { takeUntil } from 'rxjs';
-import { AccordionManipulatorService } from '../service/accordion-manipulator.service';
-import { Unsub } from '../service/unsub.class';
+import { AccordionManipulatorService } from '../../../../service/accordion-manipulator.service';
+import { Unsub } from '../../../../service/unsub.class';
 
 @Component({
   selector: 'app-accordion',

@@ -3,10 +3,10 @@ import {
   Component 
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '../state/app.state';
-import { selectGeneralForm } from '../state/formbuilder/formBuilder.selectors';
-import { updateGeneralForm } from '../state/formbuilder/formbuilder.actions';
-import { KeyValuePair } from '../service/interfaces';
+import { AppState } from 'src/app/shared/state/app.state';
+import { selectGeneralForm } from 'src/app/shared/state/formbuilder/formBuilder.selectors';
+import { updateGeneralForm } from 'src/app/shared/state/formbuilder/formbuilder.actions';
+import { KeyValuePair } from 'src/app/service/interfaces';
 
 @Component({
   selector: 'app-form-general',

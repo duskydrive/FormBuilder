@@ -4,7 +4,7 @@ import {
   tap, 
   BehaviorSubject 
 } from 'rxjs';
-import { UserData } from './interfaces';
+import { UserData } from 'src/app/service/interfaces';
 @Injectable({
   providedIn: 'root'
 })

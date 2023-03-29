@@ -5,13 +5,10 @@ import {
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { FormElement } from '../service/interfaces';
-import { DragdropService } from '../service/dragdrop.service';
-import { AppState } from '../state/app.state';
-import { 
-  selectGeneralForm, 
-  selectFormElements, 
-} from '../state/formbuilder/formBuilder.selectors';
+import { FormElement } from 'src/app/service/interfaces';
+import { DragdropService } from 'src/app/service/dragdrop.service';
+import { AppState } from 'src/app/shared/state/app.state';
+import { selectGeneralForm, selectFormElements, } from 'src/app/shared/state/formbuilder/formBuilder.selectors';
 
 @Component({
   selector: 'app-form-builder',

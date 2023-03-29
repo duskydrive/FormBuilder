@@ -6,19 +6,19 @@ import {
   OnInit, 
   ViewChild
 } from '@angular/core';
-import { Unsub } from '../service/unsub.class';
+import { Unsub } from 'src/app/service/unsub.class';
 import { map, takeUntil } from 'rxjs';
-import { FormElement, OptionField } from '../service/interfaces';
-import { AppState } from '../state/app.state';
+import { FormElement, OptionField } from 'src/app/service/interfaces';
+import { AppState } from 'src/app/shared/state/app.state';
 import { Store } from '@ngrx/store';
 import { 
   addOption, 
   removeOption, 
-  removeFormElement,
+  removeFormElement, 
   updateFormElement,
-} from '../state/formbuilder/formbuilder.actions';
-import { selectFormElements } from '../state/formbuilder/formBuilder.selectors';
-import { SendElementIdService } from '../service/send-element-id.service';
+} from 'src/app/shared/state/formbuilder/formbuilder.actions';
+import { selectFormElements } from 'src/app/shared/state/formbuilder/formBuilder.selectors';
+import { SendElementIdService } from 'src/app/service/send-element-id.service';
 
 @Component({
   selector: 'app-element-fields',

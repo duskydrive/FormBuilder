@@ -3,10 +3,10 @@ import {
   Component 
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../service/auth.service';
-import { AppState } from '../state/app.state';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AppState } from 'src/app/shared/state/app.state';
 import { Store } from '@ngrx/store';
-import { resetState } from '../state/formbuilder/formbuilder.actions';
+import { resetState } from 'src/app/shared/state/formbuilder/formbuilder.actions';
 
 @Component({
   selector: 'app-main',

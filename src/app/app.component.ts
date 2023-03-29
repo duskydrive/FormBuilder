@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './service/auth.service';
+import { AuthService } from './modules/auth/services/auth.service';
 import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({

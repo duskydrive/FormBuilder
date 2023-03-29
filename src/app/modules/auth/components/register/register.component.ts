@@ -10,9 +10,9 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs';
-import { AuthService } from '../service/auth.service';
-import { UserData } from '../service/interfaces';
-import { Unsub } from '../service/unsub.class';
+import { AuthService } from '../../services/auth.service';
+import { UserData } from 'src/app/service/interfaces';
+import { Unsub } from 'src/app/service/unsub.class';
 
 @Component({
   selector: 'app-register',

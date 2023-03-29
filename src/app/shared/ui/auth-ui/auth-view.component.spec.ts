@@ -4,7 +4,7 @@ import { AuthViewComponent } from './auth-view.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialDesignModule } from 'src/app/material-design/material-design.module';
+import { MaterialDesignModule } from 'src/app/shared/material-design/material-design.module';
 
 describe('AuthViewComponent', () => {
   let component: AuthViewComponent;

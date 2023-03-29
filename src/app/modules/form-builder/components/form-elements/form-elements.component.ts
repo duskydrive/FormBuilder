@@ -4,9 +4,9 @@ import {
 } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { FormElement } from '../service/interfaces';
-import { DefaultFormElementsService } from '../service/default-form-elements.service';
-import { DragdropService } from '../service/dragdrop.service';
+import { FormElement } from '../../../../service/interfaces';
+import { DefaultFormElementsService } from '../../../../service/default-form-elements.service';
+import { DragdropService } from '../../../../service/dragdrop.service';
 
 @Component({
   selector: 'app-form-elements',
