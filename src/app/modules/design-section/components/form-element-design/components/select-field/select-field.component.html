@@ -1,0 +1,128 @@
+<div class="row">
+  <label for="">Add option</label>
+  <input 
+    type="text" 
+    #option
+    class="mb-15"  
+  >
+  <button 
+    mat-raised-button
+    color="primary"
+    (click)="bindAddOption({selectId: designId, value: option.value})">
+      add option
+  </button>
+</div>
+<div class="row">
+  <ul class="option-list">
+    <li *ngFor="let option of selectOptions">
+      <span>{{ option.content }}</span>
+      <button 
+        mat-raised-button
+        color="accent"
+        (click)="bindRemoveOption({selectId: designId, value: option.id})"
+      >remove</button>
+    </li>
+  </ul>
+</div>
+<div class="row">
+  <label for="">Placeholder text</label>
+  <input 
+    #placeholderText 
+    type="text" 
+    [value]="designPlaceholder" 
+    (keyup)="bindFunc({elementId: designId, key: 'placeholderText', val: placeholderText.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Select width %</label>
+  <input 
+    #width 
+    type="text" 
+    [value]="designWidth" 
+    (keyup)="bindFunc({elementId: designId, key: 'width', val: width.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Select height</label>
+  <input 
+    #height 
+    type="text" 
+    [value]="designHeight" 
+    (keyup)="bindFunc({elementId: designId, key: 'height', val: height.value})"
+  >
+</div>
+<div class="row checkbox">
+  <label for="">Required</label>
+  <input 
+    #required 
+    type="checkbox" 
+    [value]="designRequired" 
+    (keyup)="bindFunc({elementId: designId, key: 'required', val: required.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Border width</label>
+  <input 
+    #borderWidth 
+    type="text" 
+    [value]="designBorderWidth" 
+    (keyup)="bindFunc({elementId: designId , key: 'borderWidth', val: borderWidth.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Border color</label>
+  <input 
+    #borderColor
+    type="color"
+    [value]="designBorderColor"
+    (change)="bindFunc({elementId: designId , key: 'borderColor', val: borderColor.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Border style</label>
+  <select 
+    #borderStyle
+    name="" 
+    id=""
+    [value]="designBorderStyle"
+    (change)="bindFunc({elementId: designId , key: 'borderStyle', val: borderStyle.value})"
+  >
+  <option value="initial">initial</option>
+  <option value="solid">solid</option>
+    <option value="dotted">dotted</option>
+    <option value="dashed">dashed</option>
+  </select>
+</div>
+<div class="row">
+  <label for="">Font size</label>
+  <input 
+    #fontSize
+    type="text" 
+    [value]="designFontSize" 
+    (keyup)="bindFunc({elementId: designId, key: 'fontSize', val: fontSize.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Font weight</label>
+  <select 
+    #fontWeight
+    name="" 
+    id=""
+    [value]="designFontWeight"
+    (change)="bindFunc({elementId: designId , key: 'fontWeight', val: fontWeight.value})"
+  >
+  <option value="400">400</option>
+  <option value="500">500</option>
+    <option value="600">600</option>
+    <option value="700">700</option>
+  </select>
+</div>
+<div class="row">
+  <label for="">Color</label>
+  <input 
+    #color
+    type="color"
+    [value]="designColor"
+    (change)="bindFunc({elementId: designId , key: 'color', val: color.value})"
+  >
+</div>

@@ -1,0 +1,60 @@
+<div class="row">
+  <label for="">Placeholder text</label>
+  <input 
+    #placeholderText 
+    type="text" 
+    [value]="designPlaceholder" 
+    (keyup)="bindFunc({elementId: designId, key: 'placeholderText', val: placeholderText.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Checkbox width (px)</label>
+  <input 
+    #width 
+    type="text" 
+    [value]="designWidth" 
+    (keyup)="bindFunc({elementId: designId, key: 'width', val: width.value})"
+  >
+</div>
+<div class="row checkbox">
+  <label for="">Required</label>
+  <input 
+    #required 
+    type="checkbox" 
+    [value]="designRequired" 
+    (keyup)="bindFunc({elementId: designId, key: 'required', val: required.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Font size</label>
+  <input 
+    #fontSize
+    type="text" 
+    [value]="designFontSize" 
+    (keyup)="bindFunc({elementId: designId, key: 'fontSize', val: fontSize.value})"
+  >
+</div>
+<div class="row">
+  <label for="">Font weight</label>
+  <select 
+    #fontWeight
+    name="" 
+    id=""
+    [value]="designFontWeight"
+    (change)="bindFunc({elementId: designId , key: 'fontWeight', val: fontWeight.value})"
+  >
+  <option value="400">400</option>
+  <option value="500">500</option>
+    <option value="600">600</option>
+    <option value="700">700</option>
+  </select>
+</div>
+<div class="row">
+  <label for="">Color</label>
+  <input 
+    #color
+    type="color"
+    [value]="designColor"
+    (change)="bindFunc({elementId: designId , key: 'color', val: color.value})"
+  >
+</div>
