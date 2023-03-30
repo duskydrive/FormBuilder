@@ -45,6 +45,7 @@ export class LoginComponent extends Unsub implements OnDestroy {
     private _authService: AuthService
   ) {
     super();
+    console.log(this.loginForm)
   }
 
   onSubmit() {

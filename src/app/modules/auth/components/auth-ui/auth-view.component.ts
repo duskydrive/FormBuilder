@@ -16,7 +16,7 @@ import { UserData } from 'src/app/shared/service/interfaces';
 })
 
 export class AuthViewComponent {
-  @Input() formName!: FormGroup;
+  @Input() formGroup!: FormGroup;
   @Input() btnText!: string;
   @Input() urlTitle!: string;
   @Input() routeUrl!: string;

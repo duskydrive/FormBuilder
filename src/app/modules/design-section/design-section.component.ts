@@ -18,10 +18,10 @@ export class DesignSectionComponent extends Unsub implements AfterViewInit {
   fieldsTab: HTMLElement | null = null;
   fieldsTabClickable: HTMLElement | null = null;
 
-  constructor( public changeAccordion: AccordionManipulatorService ) { 
+  constructor( public toggleAccordion: AccordionManipulatorService ) { 
     super()
 
-    this.changeAccordion.callToggle
+    this.toggleAccordion.callToggle
       .pipe(
         takeUntil(this.unsubscribe$)
       )

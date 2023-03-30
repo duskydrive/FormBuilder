@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../services/auth.service';
 import { RegisterComponent } from './register.component';
 
 describe('RegisterComponent', () => {

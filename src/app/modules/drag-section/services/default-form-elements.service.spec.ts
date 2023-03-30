@@ -13,4 +13,9 @@ describe('DefaultFormElementsService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return elements on get()', () => {
+    console.log(service.get())
+    expect(service.get()).toBeTruthy();
+  });
 });

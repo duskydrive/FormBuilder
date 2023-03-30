@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+import { MaterialDesignModule } from 'src/app/shared/material-design/material-design.module';
 
 import { DropSectionFormViewComponent } from './drop-section-form-view.component';
+import { DropSectionListViewComponent } from '../drop-section-list-view/drop-section-list-view.component';
 
 describe('DropSectionFormViewComponent', () => {
   let component: DropSectionFormViewComponent;
@@ -8,7 +11,9 @@ describe('DropSectionFormViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DropSectionFormViewComponent ]
+      declarations: [ DropSectionFormViewComponent, DropSectionListViewComponent ],
+      imports: [ MaterialDesignModule ],
+      providers: [ provideMockStore({}) ],
     })
     .compileComponents();
 

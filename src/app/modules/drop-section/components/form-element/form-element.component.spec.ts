@@ -18,6 +18,20 @@ describe('FormElementComponent', () => {
   });
 
   it('should create', () => {
+    component.element = {
+      id: '',
+      type: 'input',
+      placeholderText: 'Input placeholder',
+      width: 100,
+      height: 50,
+      required: false,
+      borderWidth: '1',
+      borderColor: '#cccccc',
+      borderStyle: 'solid', 
+      fontSize: 14,
+      fontWeight: 400,
+      color: '#000000',
+    }
     expect(component).toBeTruthy();
   });
 });

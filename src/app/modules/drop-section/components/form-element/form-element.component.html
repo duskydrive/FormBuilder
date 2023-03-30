@@ -1,4 +1,4 @@
-<div [ngSwitch]="element.type">
+<div *ngIf="element" [ngSwitch]="element.type">
 
   <div *ngSwitchCase="'input'">
     <app-input-element

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialDesignModule } from 'src/app/shared/material-design/material-design.module';
 
 import { HeaderViewComponent } from './header-view.component';
 
@@ -8,7 +9,8 @@ describe('HeaderViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderViewComponent ]
+      declarations: [ HeaderViewComponent ],
+      imports: [ MaterialDesignModule ],
     })
     .compileComponents();
 

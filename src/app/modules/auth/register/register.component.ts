@@ -56,12 +56,12 @@ export class RegisterComponent extends Unsub implements OnDestroy {
     }
 
     this._authService.register(userData)
-    .pipe(
-      takeUntil(this.unsubscribe$)
-    )
-    .subscribe({
-      error: (e) => this.requestError = e.error,
-      complete: () => this._route.navigate(['/', 'login'])
-    })    
+      .pipe(
+        takeUntil(this.unsubscribe$)
+      )
+      .subscribe({
+        error: (e) => this.requestError = e.error,
+        complete: () => this._route.navigate(['/', 'login'])
+      })    
   }
 }
