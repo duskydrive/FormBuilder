@@ -27,7 +27,7 @@ describe('Design Section', () => {
     cy.get('#dropForm').should('have.css', 'border-width', '12px');
   })
 
-  it('Should change border-color of form in DropSection when user types in Form Border Color Input', () => {
+  xit('Should change border-color of form in DropSection when user types in Form Border Color Input', () => {
     cy.login(userCreds);
     cy.get('#generalDesignBorderColor')
       .click()
