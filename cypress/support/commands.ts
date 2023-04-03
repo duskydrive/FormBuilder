@@ -12,14 +12,14 @@ interface UserData {
   password: string
 }
 
-declare global{
+declare global {
   namespace Cypress {
-  interface Chainable<Subject = any> {
-    login(userData: UserData): Chainable<any>;
-    dragElement(draggable: string, dropTo: string): Chainable<any>;
-    openFieldStyles(selector: string): Chainable<any>;
+    interface Chainable<Subject = any> {
+      login(userData: UserData): Chainable<any>;
+      dragElement(draggable: string, dropTo: string): Chainable<any>;
+      openFieldStyles(selector: string): Chainable<any>;
+    }
   }
-}
 }
 
 

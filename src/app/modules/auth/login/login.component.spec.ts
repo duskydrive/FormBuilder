@@ -101,3 +101,76 @@
 //   //   f.detectChanges();
 //   // }
 // });
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { LoginComponent } from './login.component';
+import { AuthService } from '../services/auth.service';
+import { of } from 'rxjs';
+
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
+  let authServiceSpy: jasmine.SpyObj<AuthService>;
+
+  const stubValue = {
+    accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6I…zMifQ.fj_HYefNPogOio9yIV0I7g0aD-xMFyhVjp96b6Nx1_0', 
+    user: {
+      email: "test@gmail.com",
+      id: "4_0iTK3",
+    }
+  }
+
+  const validUser = {
+    email: 'test@gmail.com',
+    password: '123123',
+  }
+
+  beforeEach(() => {
+    const spy = jasmine.createSpyObj('AuthService', ['login']);
+  
+    TestBed.configureTestingModule({
+      providers: [
+        LoginComponent,
+        { provide: AuthService, useValue: spy }
+      ]
+    });
+
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    authServiceSpy = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
+
+  });
+
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should be whatever', () => {
+    // authServiceSpy.login.withArgs(validUser).and.returnValue(of(stubValue));
+    authServiceSpy.login.and.returnValue(of(stubValue));
+
+    component.loginForm.controls['email'].setValue('test@gmail.com')
+    component.loginForm.controls['password'].setValue('123123')
+    
+    component.onSubmit()
+
+    setTimeout(() => {
+      console.log('after submit')
+      
+    }, 1000)
+    // expect(component.onSubmit())
+    // .withContext('service returned stub value')
+    // .toBe(stubValue);
+    // localStorage.removeItem('jwt_auth_token')
+    // console.log('after remove item:')
+    // console.log(localStorage.getItem('jwt_auth_token'))
+    // console.log(component.onSubmit())
+    // setTimeout(() => {
+      // console.log('after submit')
+      // console.log(localStorage.getItem('jwt_auth_token'))
+    // }, 1000)
+  });
+
+})
+
