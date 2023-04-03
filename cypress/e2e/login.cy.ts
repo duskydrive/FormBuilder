@@ -15,7 +15,7 @@ describe('Login', () => {
   });
 
   it('Should login if creds are valid', () => {
-    cy.login({email: 'test@gmail.com', password: '123123'})
+    cy.login(Cypress.env('userCreds'))
     cy.url().should('equal', `${Cypress.config('baseUrl')}/`)
   });
 

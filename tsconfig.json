@@ -18,6 +18,7 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
+    "types": ["cypress", "node", "cypress-real-events"],
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",

@@ -27,4 +27,9 @@ export abstract class DesignField {
     this.triggerChange.emit(obj);
   }
 
+  public bindCheckboxFunc($event: Event, id: string): void {
+    const checkboxValue = ($event.target as HTMLInputElement).checked;
+    this.triggerChange.emit({elementId: id, key: 'required', val: checkboxValue});
+  }
+
 }

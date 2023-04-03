@@ -8,6 +8,7 @@ export default defineConfig({
 
   env: {
     'backendUrl': 'http://localhost:3000',
+    'userCreds': {email: 'test@gmail.com', password: '123123'},
   },
 
   // chromeWebSecurity: false,

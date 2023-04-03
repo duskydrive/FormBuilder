@@ -63,8 +63,8 @@
     #required 
     type="checkbox" 
     id="fieldRequired"
-    [value]="designRequired" 
-    (keyup)="bindFunc({elementId: designId, key: 'required', val: required.value})"
+    [checked]="designRequired" 
+    (change)="bindCheckboxFunc($event, designId)"
   >
 </div>
 <div class="row">

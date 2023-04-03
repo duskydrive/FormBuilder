@@ -11,4 +11,9 @@ export class StandardFieldComponent extends DesignField {
   constructor() {
     super()
   }
+
+  handleRequired(e: any) {
+    console.log('here')
+    console.log(e.target.checked)
+  }
 }

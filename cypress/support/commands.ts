@@ -1,21 +1,31 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-namespace */
 // ***********************************************
 // This example namespace declaration will help
 // with Intellisense and code completion in your
 // IDE or Text Editor.
 // ***********************************************
+import "cypress-real-events";
+
 interface UserData {
   email: string, 
   password: string
 }
 
-declare namespace Cypress {
+declare global{
+  namespace Cypress {
   interface Chainable<Subject = any> {
-    login(userData: UserData): typeof login;
+    login(userData: UserData): Chainable<any>;
+    dragElement(draggable: string, dropTo: string): Chainable<any>;
+    openFieldStyles(selector: string): Chainable<any>;
   }
 }
-//
-function login(userData: UserData): void { 
+}
+
+
+
+
+Cypress.Commands.add('login', (userData: UserData) => { 
   cy.intercept(`${Cypress.env('backendUrl')}/login`).as('waitForLogin')
   cy.visit('/');
   cy.url().should('includes', 'login');
@@ -24,10 +34,29 @@ function login(userData: UserData): void {
   cy.get('#submitBtn').click()
   cy.wait('@waitForLogin')
   cy.visit('/');
-}
+});
+
+// CDK DragnDrop Cypress test works in all browsers except for firefox. Testing DragnDropCDK is pretty hard and this solution is the only one that worked for me, thanks for a cypress-real-events plugin.
+Cypress.Commands.add('dragElement', (draggable: string, dropTo: string) => { 
+  cy.get(draggable)
+    .realMouseDown({ button: 'left', position: 'center' })
+    .realMouseMove(0, 10, { position: 'center' });
+  cy.get(dropTo ).realMouseMove(0, 0, { position: 'center' }).realMouseUp();
+  // wait for animations to finish
+  cy.wait(500)
+});
+
+Cypress.Commands.add('openFieldStyles', (selector: string) => { 
+  cy.get(selector).should('have.length', 1);
+  cy.get(selector).click();
+  cy.get('#accordion-header-2')
+    .invoke('attr', 'aria-expanded')
+    .should('eq', 'true');
+});
+
+
 //
 // NOTE: You can use it like so:
-Cypress.Commands.add('login', login);
 //
 // ***********************************************
 // This example commands.js shows you how to
