@@ -1,7 +1,8 @@
 import { 
   ChangeDetectionStrategy, 
   Component, 
-  OnDestroy 
+  OnDestroy,
+  NgZone,
 } from '@angular/core';
 import { 
   FormGroup, 
@@ -42,10 +43,10 @@ export class LoginComponent extends Unsub implements OnDestroy {
 
   constructor(
     private _route:Router, 
-    private _authService: AuthService
+    private _authService: AuthService,
+    private ngZone: NgZone,
   ) {
     super();
-    console.log(this.loginForm)
   }
 
   onSubmit() {
@@ -54,13 +55,16 @@ export class LoginComponent extends Unsub implements OnDestroy {
       password: this.loginForm.value.password,
     }
 
-    this._authService.login(userData)
-      .pipe(
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe({
-        error: (e) => this.requestError = e.error,
-        complete: () => this._route.navigate([''])
-      })             
+    this.ngZone.run(() => {
+      this._authService.login(userData)
+        .pipe(
+          takeUntil(this.unsubscribe$)
+        )
+        .subscribe({
+          error: (e) => this.requestError = e.error,
+          complete: () => this._route.navigate([''])
+        })             
+
+    });
   }
 }

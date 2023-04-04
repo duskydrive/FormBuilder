@@ -15,7 +15,7 @@ describe('DefaultFormElementsService', () => {
   });
 
   it('should return elements on get()', () => {
-    console.log(service.get())
+    // console.log(service.get())
     expect(service.get()).toBeTruthy();
   });
 });

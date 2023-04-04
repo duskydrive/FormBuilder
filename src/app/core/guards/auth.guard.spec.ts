@@ -16,7 +16,9 @@ describe('Auth Guard', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule.withRoutes([]),
+        RouterTestingModule.withRoutes([
+          {path: 'login', redirectTo: ''}
+        ]),
       ],
       providers: [
         {provide: AuthService, useValue: authenticationMock}
@@ -45,6 +47,13 @@ describe('Auth Guard', () => {
     spy.isLoggedIn$ = of(true);
     authGuard.canActivate().subscribe((res: boolean) => {
       expect(res).toBe(true);
+    })
+  }));
+
+  it('should receive false if user is logged in', fakeAsync(() => {      
+    spy.isLoggedIn$ = of(false);
+    authGuard.canActivate().subscribe((res: boolean) => {
+      expect(res).toBe(false);
     })
   }));
 

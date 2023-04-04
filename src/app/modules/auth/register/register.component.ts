@@ -1,7 +1,8 @@
 import { 
   ChangeDetectionStrategy, 
   Component, 
-  OnDestroy 
+  OnDestroy,
+  NgZone,
 } from '@angular/core';
 import { 
   FormGroup, 
@@ -43,7 +44,8 @@ export class RegisterComponent extends Unsub implements OnDestroy {
 
   constructor(
     private _route:Router, 
-    private _authService: AuthService
+    private _authService: AuthService,
+    private ngZone: NgZone,
   ) {
     super()
   }
@@ -55,13 +57,15 @@ export class RegisterComponent extends Unsub implements OnDestroy {
       password: this.regForm.value.password,
     }
 
-    this._authService.register(userData)
-      .pipe(
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe({
-        error: (e) => this.requestError = e.error,
-        complete: () => this._route.navigate(['/', 'login'])
-      })    
+    this.ngZone.run(() => {
+      this._authService.register(userData)
+        .pipe(
+          takeUntil(this.unsubscribe$)
+        )
+        .subscribe({
+          error: (e) => this.requestError = e.error,
+          complete: () => this._route.navigate(['/', 'login']),
+        })    
+    })
   }
 }
