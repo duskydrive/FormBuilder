@@ -17,7 +17,6 @@ import { DragdropService } from '../../shared/service/dragdrop.service';
 
 export class DragSectionComponent {
   defaultElements$: Observable<FormElement[]> = of(this.formElements.get());
-  disableBool = true;
   
   constructor (
     private formElements: DefaultFormElementsService, 

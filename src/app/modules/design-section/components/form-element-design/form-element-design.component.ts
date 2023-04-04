@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Unsub } from 'src/app/shared/service/unsub.class';
 import { map, takeUntil } from 'rxjs';
-import { FormElement, OptionField, SelectOptionPair } from 'src/app/shared/service/interfaces';
+import { AddSelectOption, FormElement, OptionField, SelectOptionPair } from 'src/app/shared/service/interfaces';
 import { AppState } from 'src/app/shared/state/app.state';
 import { Store } from '@ngrx/store';
 import { 
@@ -65,20 +65,16 @@ export class FormElementDesignComponent extends Unsub implements OnInit {
     this.store.dispatch(updateFormElement(obj))
   }
 
-  launchAddOption(obj: SelectOptionPair) {
+  launchAddOption(obj: AddSelectOption) {
     if (obj.value.trim() === '') {
       return
     }
     this.store.dispatch(
-      addOption(
-        {
-          selectId: obj.selectId, 
-          content: {
-            id: Date.now().toString(), 
-            content: obj.value,
-          }
-        }
-      )
+      addOption({
+        selectId: obj.selectId,
+        optionId: obj.optionId,
+        value: obj.value,
+      })
     );
   }
       

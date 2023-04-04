@@ -29,7 +29,7 @@ export const swapFormElements = createAction(
 
 export const addOption = createAction(
   '[Form Builder select] Add option to select',
-  props<{ selectId: string, content: SelectOption }>()
+  props<{ selectId: string, optionId: string, value: string }>()
 )
 
 export const removeOption = createAction(

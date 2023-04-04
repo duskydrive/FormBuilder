@@ -34,6 +34,24 @@ describe('MainComponent', () => {
       imports: [ HttpClientTestingModule, MaterialDesignModule ],
       providers: [ provideMockStore({}) ],
     })
+    .overrideComponent(FormGeneralDesignComponent, {
+      set: {
+        selector: 'app-form-general-design-view',
+        template: `<h1>Form General Design</h1>`
+      }
+    })
+    .overrideComponent(DesignSectionComponent, {
+      set: {
+        selector: 'app-design-section',
+        template: `<h1>Design Section</h1>`
+      }
+    })
+    .overrideComponent(DropSectionComponent, {
+      set: {
+        selector: 'app-drop-section',
+        template: `<h1>Drop Section</h1>`
+      }
+    })
     .compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);

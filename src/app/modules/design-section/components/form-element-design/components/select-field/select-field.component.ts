@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { SelectOptionPair, SelectOption } from 'src/app/shared/service/interfaces';
+import { SelectOptionPair, SelectOption, AddSelectOption } from 'src/app/shared/service/interfaces';
 import { DesignField } from '../design-field.class';
 
 
@@ -21,7 +21,11 @@ export class SelectFieldComponent extends DesignField {
   @Output() triggerClearInput = new EventEmitter();
 
   public bindAddOption(obj: SelectOptionPair): void {
-    this.triggerAddOption.emit(obj);
+    this.triggerAddOption.emit({
+      selectId: obj.selectId,
+      optionId: Date.now().toString(),
+      value: obj.value,
+    });
     this.bindClearInput()
   }
 

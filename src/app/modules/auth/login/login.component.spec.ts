@@ -26,7 +26,6 @@ describe('LoginComponent', () => {
       ],
       providers: [
         LoginComponent,
-        AuthService
       ],
     });
 

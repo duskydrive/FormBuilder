@@ -8,6 +8,13 @@ export interface SelectOptionPair {
   selectId: string,
   value: string,
 }
+
+export interface AddSelectOption {
+  selectId: string,
+  optionId: string,
+  value: string,
+}
+
 export interface SelectOption {
   id: string,
   content: string,

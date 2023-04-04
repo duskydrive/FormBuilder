@@ -1,4 +1,3 @@
-<!-- <div *ngIf="element$ | async as currentElement; else empty"> -->
 <div *ngIf="currentElement; else empty">
   <div [ngSwitch]="currentElement.type">
     <div *ngSwitchDefault>

@@ -9,6 +9,7 @@ import { FormElementDesignComponent } from './components/form-element-design/for
 import { AccordionManipulatorService } from 'src/app/shared/service/accordion-manipulator.service';
 import { Subject } from 'rxjs';
 import { FormGeneralDesignComponent } from './components/form-general-design/form-general-design.component';
+import { Component } from '@angular/core';
  
 describe('DesignSectionComponent', () => {
   let component: DesignSectionComponent;
@@ -28,11 +29,17 @@ describe('DesignSectionComponent', () => {
     }
   }
 
+  @Component({
+    selector: 'app-form-general-design',
+    template: '<div></div>',
+  })
+  class MockFormGeneralDesignComponent {}
+
   beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ 
         DesignSectionComponent,
-        FormGeneralDesignComponent,
+        MockFormGeneralDesignComponent,
         FormElementDesignComponent,
       ],
       imports: [
@@ -43,13 +50,6 @@ describe('DesignSectionComponent', () => {
         { provide: AccordionManipulatorService, useValue: accordionServiceSpy }
       ],
     })
-    // override component to loose it's dependencies
-    .overrideComponent(FormGeneralDesignComponent, {
-      set: {
-          selector: 'app-form-general-design',
-          template: `<h1>General Form</h1>`
-      }
-  })
     .compileComponents();
     
     fixture = TestBed.createComponent(DesignSectionComponent);
