@@ -1,0 +1,14 @@
+<select 
+  [id]="id"
+  [(ngModel)]="value"
+  (change)="bindFunc({key: fieldKey, value: value})"
+>
+  <option 
+    *ngFor="let item of options" 
+    [value]="item"
+    [selected]="item === value"
+  >
+    {{item}}
+  </option>
+  
+</select>

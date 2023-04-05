@@ -1,0 +1,7 @@
+<input 
+  [type]="type" 
+  [id]="id" 
+  [placeholder]="placeholder" 
+  [(ngModel)]="value"
+  (keyup)="bindFunc({key: fieldKey, value: value})"
+>
