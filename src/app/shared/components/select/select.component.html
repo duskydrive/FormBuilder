@@ -1,4 +1,4 @@
-<select 
+<!-- <select 
   [id]="id"
   [(ngModel)]="value"
   (change)="bindFunc({key: fieldKey, value: value})"
@@ -11,4 +11,30 @@
     {{item}}
   </option>
   
-</select>
+</select> -->
+
+
+<select 
+  (change)="bindFunc({key: fieldKey, value: value})"
+  [id]="elementId"
+  [style.width]="widthPercent"
+  [style.height]="heightPx"
+  [style.borderWidth]="borderWidthPx"
+  [style.borderColor]="borderColor"
+  [style.borderStyle]="borderStyle"
+  [style.fontSize]="fontSizePx"
+  [style.fontWeight]="fontWeight"
+  [style.color]="color"
+  [required]="required"
+>
+  <option 
+    disabled
+    [selected]="!options!.length"
+  >{{ placeholderText }}</option>
+  <option 
+    *ngFor="let item of options"
+    [value]="item"
+    [selected]="item === value"
+    >{{ item }}</option>
+  </select>
+  <!-- [selected]="options!.length" -->

@@ -13,56 +13,55 @@ export abstract class HtmlComponent implements ControlValueAccessor {
   @Input() id = '';
   @Input() fieldKey = '';
   @Input() options: any[] | null = [];
+  @Input() elementId = '';
 
-  // @Input() elementId = '';
+  @Input() placeholderText!: string;
 
-  // @Input() placeholderText = '';
-
-  // @Input() width = 0;
+  @Input() width!: number;
   
-  // @Input() height = 0;
+  @Input() height!: number;
 
-  // @Input() required = false;
+  @Input() required!: boolean;
 
-  // @Input() borderWidth = '';
+  @Input() borderWidth!: string;
 
-  // @Input() borderColor = '';
+  @Input() borderColor!: string;
 
-  // @Input() borderStyle = '';
+  @Input() borderStyle!: string;
 
-  // @Input() fontSize = 0;
+  @Input() fontSize!: number;
 
-  // @Input() fontWeight = 0;
+  @Input() fontWeight!: number;
 
-  // @Input() color = '';
+  @Input() color!: string;
 
-  // @Input() backgroundColor = '';
+  @Input() backgroundColor!: string;
 
-  // public get widthPercent(): string {
-  //   return `${this.width}%`;
-  // }
+  public get widthPercent(): string {
+    return `${this.width}%`;
+  }
 
-  // public get widthPx(): string {
-  //   return `${this.width}px`;
-  // }
+  public get widthPx(): string {
+    return `${this.width}px`;
+  }
 
-  // public get heightPx(): string {
-  //   return `${this.height}px`;
-  // }
+  public get heightPx(): string {
+    return `${this.height}px`;
+  }
 
-  // public get borderWidthPx(): string {
-  //   return `${this.borderWidth}px`;
-  // }
+  public get borderWidthPx(): string {
+    return `${this.borderWidth}px`;
+  }
 
-  // public get fontSizePx(): string {
-  //   return `${this.fontSize}px`;
-  // }
+  public get fontSizePx(): string {
+    return `${this.fontSize}px`;
+  }
 
-  // @Output() triggerSelect = new EventEmitter();
+  @Output() triggerSelect = new EventEmitter();
 
-  // public bindFunc(e: MouseEvent): void {
-  //   this.triggerSelect.emit(e);
-  // }
+  public bindSelect(e: MouseEvent): void {
+    this.triggerSelect.emit(e);
+  }
   ///////////
 
   private _value: any;

@@ -1,4 +1,15 @@
-<button 
-    [id]="id"
-    (click)="bindFunc(id)"
-  >{{ placeholderText }}</button>
+<button
+  (click)="bindFunc($event)"
+  [id]="elementId"
+  [style.width]="widthPercent"
+  [style.height]="heightPx"
+  [style.borderWidth]="borderWidthPx"
+  [style.borderColor]="borderColor"
+  [style.borderStyle]="borderStyle"
+  [style.fontSize]="fontSizePx"
+  [style.fontWeight]="fontWeight"
+  [style.color]="color"
+  [style.backgroundColor]="backgroundColor"
+>
+  {{ placeholderText }}
+</button>
