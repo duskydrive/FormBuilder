@@ -3,8 +3,7 @@ import { CanActivate } from '@angular/router';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { AuthService } from '../../modules/auth/services/auth.service';
-
-import { inject } from "@angular/core";
+import { RoutesKeys } from 'src/app/shared/ts/routes-keys.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class AuthGuard implements CanActivate {
       .pipe(
         tap(isLoggedIn => {
           if (!isLoggedIn) {
-            this._route.navigate(['login']);
+            this._route.navigate([`${RoutesKeys.Login}`]);
           }
         }),
       );

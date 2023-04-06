@@ -1,109 +1,97 @@
 <div class="row">
   <label for="fieldPlaceholder">Button text</label>
-  <input 
-    #placeholderText 
-    id="fieldPlaceholder"
+  <app-input 
     type="text" 
-    [value]="designPlaceholder" 
-    (keyup)="bindFunc({elementId: designId, key: 'placeholderText', val: placeholderText.value})"
-  >
+    [id]="'fieldPlaceholder'"
+    [placeholder]="'Placeholder text'"
+    [value]="designPlaceholder"
+    [fieldKey]="'placeholderText'"
+    (triggerChange)="bindFunc($event)"
+  />
 </div>
 <div class="row">
-  <label for="fieldWidth">Button width %</label>
-  <input 
-    #width 
-    id="fieldWidth"
-    type="text" 
-    [value]="designWidth" 
-    (keyup)="bindFunc({elementId: designId, key: 'width', val: width.value})"
-  >
+  <label for="fieldWidth">Input width %</label>
+  <app-input 
+    [id]="'fieldWidth'"
+    [value]="designWidth"
+    [fieldKey]="'width'"
+    (triggerChange)="bindFunc($event)"
+  />
 </div>
 <div class="row">
-  <label for="fieldHeight">Button height</label>
-  <input 
-    #height 
-    id="fieldHeight"
-    type="text" 
-    [value]="designHeight" 
-    (keyup)="bindFunc({elementId: designId, key: 'height', val: height.value})"
-  >
+  <label for="fieldHeight">Input height</label>
+  <app-input 
+    [id]="'fieldHeight'"
+    [value]="designHeight"
+    [fieldKey]="'height'"
+    (triggerChange)="bindFunc($event)"
+  />
 </div>
 <div class="row">
   <label for="fieldBorderWidth">Border width</label>
-  <input 
-    #borderWidth
-    id="fieldBorderWidth" 
-    type="text" 
-    [value]="designBorderWidth" 
-    (keyup)="bindFunc({elementId: designId , key: 'borderWidth', val: borderWidth.value})"
-  >
+  <app-input 
+    [id]="'fieldBorderWidth'"
+    [value]="designBorderWidth"
+    [fieldKey]="'borderWidth'"
+    (triggerChange)="bindFunc($event)"
+  />
 </div>
 <div class="row">
   <label for="">Border color</label>
-  <input 
-    #borderColor
-    id="fieldBorderColor"
-    type="color"
+  <app-input-color 
+    [type]="'color'"
+    [id]="'fieldBorderColor'"
     [value]="designBorderColor"
-    (change)="bindFunc({elementId: designId , key: 'borderColor', val: borderColor.value})"
-  >
+    [fieldKey]="'borderColor'"
+    (triggerChange)="bindFunc($event)"
+  />
 </div>
 <div class="row">
   <label for="fieldBorderStyle">Border style</label>
-  <select 
-    #borderStyle
-    id="fieldBorderStyle"
+  <app-select 
+    [id]="'fieldBorderStyle'"
     [value]="designBorderStyle"
-    (change)="bindFunc({elementId: designId , key: 'borderStyle', val: borderStyle.value})"
-  >
-    <option value="solid">solid</option>
-    <option value="dotted">dotted</option>
-    <option value="dashed">dashed</option>
-    <option value="double">double</option>
-    <option value="groove">groove</option>
-  </select>
+    [fieldKey]="'borderStyle'"
+    (triggerChange)="bindFunc($event)"
+    [options]="borderStylesOptions$ | async"
+  />
 </div>
 <div class="row">
   <label for="fieldFontSize">Font size</label>
-  <input 
-    #fontSize
-    id="fieldFontSize"
-    type="text" 
-    [value]="designFontSize" 
-    (keyup)="bindFunc({elementId: designId, key: 'fontSize', val: fontSize.value})"
-  >
+  <app-input 
+    [id]="'fieldFontSize'"
+    [value]="designFontSize"
+    [fieldKey]="'fontSize'"
+    (triggerChange)="bindFunc($event)"
+  />
 </div>
 <div class="row">
   <label for="fieldFontWeight">Font weight</label>
-  <select 
-    #fontWeight
-    id="fieldFontWeight"
+  <app-select 
+    [id]="'fieldFontWeight'"
     [value]="designFontWeight"
-    (change)="bindFunc({elementId: designId , key: 'fontWeight', val: fontWeight.value})"
-  >
-    <option value="200">200</option>
-    <option value="400">400</option>
-    <option value="500">500</option>
-    <option value="600">600</option>
-  </select>
+    [fieldKey]="'fontWeight'"
+    (triggerChange)="bindFunc($event)"
+    [options]="fontWeightOptions$ | async"
+  />
 </div>
 <div class="row">
-  <label for="fieldColor">Color</label>
-  <input 
-    #color
-    id="fieldColor"
-    type="color"
+  <label for="">Color</label>
+  <app-input-color 
+    [type]="'color'"
+    [id]="'fieldColor'"
     [value]="designColor"
-    (change)="bindFunc({elementId: designId , key: 'color', val: color.value})"
-  >
-</div>
+    [fieldKey]="'color'"
+    (triggerChange)="bindFunc($event)"
+  />
+</div> 
 <div class="row">
-  <label for="fieldBackgroundColor">Background color</label>
-  <input 
-    #backgroundColor
-    id="fieldBackgroundColor"
-    type="color"
+  <label for="">Background Color</label>
+  <app-input-color 
+    [type]="'color'"
+    [id]="'fieldBackgroundColor'"
     [value]="designBackgroundColor"
-    (change)="bindFunc({elementId: designId , key: 'backgroundColor', val: backgroundColor.value})"
-  >
-</div>
+    [fieldKey]="'backgroundColor'"
+    (triggerChange)="bindFunc($event)"
+  />
+</div> 

@@ -10,7 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { DesignSectionModule } from './design-section/design-section.module';
 import { DragSectionModule } from './drag-section/drag-section.module';
 import { DropSectionModule } from './drop-section/drop-section.module';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { DropSectionModule } from './drop-section/drop-section.module';
     DesignSectionModule,
     DragSectionModule,
     DropSectionModule,
+    SharedModule,
   ],
   exports: [
     MainComponent,

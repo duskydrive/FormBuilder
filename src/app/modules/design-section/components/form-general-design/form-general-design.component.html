@@ -1,15 +1,84 @@
 <div *ngIf="formStyles | async as formData; else loading">
-  <app-form-general-design-view
-    [designPlaceholder]="formData.heading"
-    [designBorderWidth]="formData.borderWidth"
-    [designBorderColor]="formData.borderColor"
-    [designBorderStyle]="formData.borderStyle"
-    [designFontSize]="formData.fontSize"
-    [designFontWeight]="formData.fontWeight"
-    [designColor]="formData.color"
-    [designBackgroundColor]="formData.backgroundColor"
-    (triggerChange)="changeGeneral($event)"
-  ></app-form-general-design-view>
+  <div class="row">
+    <label for="generalDesignHeading">Form heading</label>
+    <app-input
+      [type]="'text'" 
+      [id]="'generalDesignHeading'"
+      [value]="formData.heading"
+      [fieldKey]="'heading'"
+      (triggerChange)="changeGeneral($event)"
+    />
+  </div>
+  <div class="row">
+    <label for="generalDesignBorderWidth">Border width</label>
+    <app-input 
+      [type]="'text'" 
+      [id]="'generalDesignBorderWidth'"
+      [value]="formData.borderWidth" 
+      [fieldKey]="'borderWidth'"
+      (triggerChange)="changeGeneral($event)"
+    />
+  </div>
+  <div class="row">
+    <label for="">Border color</label>
+    <app-input-color
+      [type]="'color'"
+      [id]="'generalDesignBorderColor'"
+      [value]="formData.borderColor"
+      [fieldKey]="'borderColor'"
+      (triggerChange)="changeGeneral($event)"
+    />
+  </div>
+  <div class="row">
+    <label for="generalDesignBorderStyle">Border style</label>
+    <app-select 
+      [id]="'generalDesignBorderStyle'"
+      [value]="formData.borderStyle"
+      [fieldKey]="'borderStyle'"
+      (triggerChange)="changeGeneral($event)"
+      [options]="borderStylesOptions$ | async"
+    />
+  </div>
+  <div class="row">
+    <label for="generalDesignFontSize">Font size</label>
+    <app-input 
+      [id]="'generalDesignFontSize'"
+      [type]="'text'" 
+      [value]="formData.fontSize"
+      [fieldKey]="'fontSize'"
+      (triggerChange)="changeGeneral($event)"
+    />
+  </div>
+  <div class="row">
+    <label for="generalDesignFontWeight">Font weight</label>
+    <app-select 
+      [id]="'generalDesignFontWeight'"
+      [value]="formData.fontWeight"
+      [fieldKey]="'fontWeight'"
+      (triggerChange)="changeGeneral($event)"
+      [options]="fontWeightOptions$ | async"
+    />
+  </div>
+  <div class="row">
+    <label>Color</label>
+    <app-input-color
+      [type]="'color'"
+      [id]="'generalDesignColor'"
+      [value]="formData.color"
+      [fieldKey]="'color'"
+      (triggerChange)="changeGeneral($event)"
+    />
+  </div>
+  <div class="row">
+    <label>Background color</label>
+    <app-input-color
+      [type]="'color'"
+      [id]="'generalDesignBackgroundColor'"
+      [value]="formData.backgroundColor"
+      [fieldKey]="'backgroundColor'"
+      (triggerChange)="changeGeneral($event)"
+    />
+  </div>
 </div>
 <ng-template #loading>
   <div>Loading ...</div>

@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { SelectOptionPair, SelectOption, AddSelectOption } from 'src/app/shared/service/interfaces';
+import { SelectOptionPair, SelectOption, AddSelectOption } from 'src/app/shared/ts/interfaces';
+import { SelectOptionsService } from '../../../services/select-options.service';
 import { DesignField } from '../design-field.class';
 
 
@@ -10,10 +11,13 @@ import { DesignField } from '../design-field.class';
 })
 
 export class SelectFieldComponent extends DesignField {
-  constructor() {
-    super()
+  optionsService: SelectOptionsService = new SelectOptionsService()
+
+  constructor(optionsService: SelectOptionsService) {
+    super(optionsService)
   }
-  @ViewChild('option') optionInput!: ElementRef;
+
+  @ViewChild('option', { static: false }) public optionInput!: ElementRef;
   @Input() selectOptions: SelectOption[] = [];
 
   @Output() triggerAddOption = new EventEmitter();
@@ -21,6 +25,7 @@ export class SelectFieldComponent extends DesignField {
   @Output() triggerClearInput = new EventEmitter();
 
   public bindAddOption(obj: SelectOptionPair): void {
+    if (obj.value === undefined || obj.value.trim() === '') {return}
     this.triggerAddOption.emit({
       selectId: obj.selectId,
       optionId: Date.now().toString(),
@@ -36,4 +41,5 @@ export class SelectFieldComponent extends DesignField {
   public bindClearInput(): void {
     this.triggerClearInput.emit(this.optionInput);
   }
+
 }

@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Unsub } from 'src/app/shared/service/unsub.class';
 import { map, takeUntil } from 'rxjs';
-import { AddSelectOption, FormElement, OptionField, SelectOptionPair } from 'src/app/shared/service/interfaces';
+import { AddSelectOption, FormElement, KeyValuePair, OptionField, SelectOptionPair } from 'src/app/shared/ts/interfaces';
 import { AppState } from 'src/app/shared/state/app.state';
 import { Store } from '@ngrx/store';
 import { 
@@ -60,15 +60,23 @@ export class FormElementDesignComponent extends Unsub implements OnInit {
         id ? this.changeCurrentElement(id) : false;
       })
   }
-  
-  changeField(obj: OptionField) {
-    this.store.dispatch(updateFormElement(obj))
+
+  changeField(obj: KeyValuePair) {
+    console.log('obj')
+    console.log(obj)
+    console.log({
+      elementId: this.currentElement!.id,
+      key: obj.key,
+      value: obj.value,
+    })
+    this.store.dispatch(updateFormElement({
+      elementId: this.currentElement!.id,
+      key: obj.key,
+      value: obj.value,
+    }))
   }
 
   launchAddOption(obj: AddSelectOption) {
-    if (obj.value.trim() === '') {
-      return
-    }
     this.store.dispatch(
       addOption({
         selectId: obj.selectId,
@@ -78,8 +86,8 @@ export class FormElementDesignComponent extends Unsub implements OnInit {
     );
   }
       
-  clearInput(ref: ElementRef) {
-    ref.nativeElement.value = '';
+  clearInput(ref: any) {
+    ref.value = '';
   }
       
   launchRemoveOption(obj: SelectOptionPair) {
@@ -96,4 +104,4 @@ export class FormElementDesignComponent extends Unsub implements OnInit {
   removeElement(id: string) {
     this.store.dispatch(removeFormElement({ id }));
   }
- }
+}

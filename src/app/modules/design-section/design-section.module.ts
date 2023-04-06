@@ -10,8 +10,7 @@ import { RemoveElementButtonComponent } from './components/form-element-design/c
 import { SelectFieldComponent } from './components/form-element-design/components/select-field/select-field.component';
 import { StandardFieldComponent } from './components/form-element-design/components/standard-field/standard-field.component';
 import { FormGeneralDesignComponent } from './components/form-general-design/form-general-design.component';
-import { FormGeneralDesignViewComponent } from './components/form-general-design/form-general-design-view/form-general-design-view.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -24,11 +23,11 @@ import { FormGeneralDesignViewComponent } from './components/form-general-design
     SelectFieldComponent,
     StandardFieldComponent,
     FormGeneralDesignComponent,
-    FormGeneralDesignViewComponent,
   ],
   imports: [
     CommonModule,
     MaterialDesignModule,
+    SharedModule,
   ],
   exports: [
     DesignSectionComponent,
@@ -39,7 +38,6 @@ import { FormGeneralDesignViewComponent } from './components/form-general-design
     SelectFieldComponent,
     StandardFieldComponent,
     FormGeneralDesignComponent,
-    FormGeneralDesignViewComponent,
   ]
 })
 export class DesignSectionModule { }

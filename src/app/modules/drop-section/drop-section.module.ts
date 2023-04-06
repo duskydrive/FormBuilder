@@ -6,12 +6,7 @@ import { DropSectionComponent } from './drop-section.component';
 import { DropSectionFormViewComponent } from './components/drop-section-form-view/drop-section-form-view.component';
 import { DropSectionListViewComponent } from './components/drop-section-list-view/drop-section-list-view.component';
 import { FormElementComponent } from './components/form-element/form-element.component';
-import { ButtonElementComponent } from './components/form-element/components/button-element/button-element.component';
-import { CheckboxElementComponent } from './components/form-element/components/checkbox-element/checkbox-element.component';
-import { InputElementComponent } from './components/form-element/components/input-element/input-element.component';
-import { SelectElementComponent } from './components/form-element/components/select-element/select-element.component';
-import { TextareaElementComponent } from './components/form-element/components/textarea-element/textarea-element.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -20,26 +15,17 @@ import { TextareaElementComponent } from './components/form-element/components/t
     DropSectionFormViewComponent,
     DropSectionListViewComponent,
     FormElementComponent,
-    ButtonElementComponent,
-    CheckboxElementComponent,
-    InputElementComponent,
-    SelectElementComponent,
-    TextareaElementComponent,
   ],
   imports: [
     CommonModule,
     MaterialDesignModule,
+    SharedModule,
   ],
   exports: [
     DropSectionComponent,
     DropSectionFormViewComponent,
     DropSectionListViewComponent,
     FormElementComponent,
-    ButtonElementComponent,
-    CheckboxElementComponent,
-    InputElementComponent,
-    SelectElementComponent,
-    TextareaElementComponent,
   ]
 })
 export class DropSectionModule { }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormElement } from 'src/app/shared/service/interfaces';
+import { FormElement } from 'src/app/shared/ts/interfaces';
 @Component({
   selector: 'app-drag-section-list-view',
   templateUrl: './drag-section-list-view.component.html',

@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { SelectOptionsService } from '../../../services/select-options.service';
 import { DesignField } from '../design-field.class';
 
 @Component({
@@ -8,7 +10,7 @@ import { DesignField } from '../design-field.class';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StandardFieldComponent extends DesignField {
-  constructor() {
-    super()
+  constructor(public optionsService: SelectOptionsService) {
+    super(optionsService)
   }
 }

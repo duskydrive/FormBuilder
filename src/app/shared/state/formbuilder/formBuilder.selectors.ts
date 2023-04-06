@@ -1,6 +1,6 @@
 import { createSelector } from "@ngrx/store";
 import { AppState } from "../app.state";
-import { FormBuilderState } from "src/app/shared/service/interfaces";
+import { FormBuilderState } from "src/app/shared/ts/interfaces";
 
 export const selectFormBuilder = (state: AppState) => state.formBuilder;
 

@@ -5,7 +5,7 @@ import {
 import { 
   FormElement, 
   SelectOption 
-} from "src/app/shared/service/interfaces";
+} from "src/app/shared/ts/interfaces";
 
 export const addFormElement = createAction(
   '[Form Builder] Add Form Element',
@@ -19,7 +19,7 @@ export const removeFormElement = createAction(
 
 export const updateFormElement = createAction(
   '[Form Builder] Update Form Element',
-  props<{ elementId: string, key: string, val: string }>()
+  props<{ elementId: string, key: string, value: string }>()
 )
 
 export const swapFormElements = createAction(
@@ -39,7 +39,7 @@ export const removeOption = createAction(
 
 export const updateGeneralForm = createAction(
   '[Form General] Update General Form',
-  props<{ key: string, val: string }>()
+  props<{ key: string, value: string }>()
 )
 
 export const resetState = createAction(

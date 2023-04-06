@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { AppState } from 'src/app/shared/state/app.state';
 import { selectGeneralForm } from 'src/app/shared/state/formbuilder/formBuilder.selectors';
-import { FormGeneralDesignViewComponent } from './form-general-design-view/form-general-design-view.component';
 
 import { FormGeneralDesignComponent } from './form-general-design.component';
 import { updateGeneralForm } from 'src/app/shared/state/formbuilder/formbuilder.actions';
@@ -19,7 +18,6 @@ describe('FormGeneralDesignComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ 
         FormGeneralDesignComponent,
-        FormGeneralDesignViewComponent,
       ],
       providers: [provideMockStore({initialState})],
     })

@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AuthInterceptorProvider } from './core/interceptors/auth.interceptor';
 import { formBuilderReducer } from './shared/state/formbuilder/formbuilder.reducer';
 import { ModulesModule } from './modules/modules.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ModulesModule } from './modules/modules.module';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
+    SharedModule,
     ModulesModule,
   ],
   providers: [AuthInterceptorProvider],
