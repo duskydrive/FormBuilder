@@ -1,0 +1,10 @@
+<div class="row checkbox">
+  <label for={{id}}>{{ labelText}}</label>
+  <app-input-checkbox
+    [type]="type" 
+    [id]="id"
+    [value]="value"
+    [fieldKey]="fieldKey"
+    (triggerChange)="bindFunc($event)"
+  ></app-input-checkbox>
+</div>
