@@ -1,0 +1,31 @@
+<form
+  id="dropForm"
+  [style.backgroundColor]="backgroundColor"
+  [style.borderWidth]="borderWidthPx"
+  [style.borderColor]="borderColor"
+  [style.borderStyle]="borderStyle"
+  >
+    <mat-card-content>
+      <h2 
+        id="dropHeading"
+        [style.fontSize]="fontSizePx"
+        [style.fontWeight]="fontWeight"
+        [style.color]="color"
+      >
+        {{ heading }}
+      </h2>
+      <div class="items-container">    
+        <div
+          cdkDropList
+          id="doneList"
+          [cdkDropListData]="elements$"
+          [cdkDropListSortingDisabled]="false"
+          class="items-list rec"
+          (cdkDropListDropped)="onDrop($event)">
+            <app-drop-section-list-view
+            [items]="elements$ | async"
+            ></app-drop-section-list-view>
+        </div>
+      </div>
+    </mat-card-content>
+  </form>  
