@@ -62,13 +62,6 @@ export class FormElementDesignComponent extends Unsub implements OnInit {
   }
 
   changeField(obj: KeyValuePair) {
-    console.log('obj')
-    console.log(obj)
-    console.log({
-      elementId: this.currentElement!.id,
-      key: obj.key,
-      value: obj.value,
-    })
     this.store.dispatch(updateFormElement({
       elementId: this.currentElement!.id,
       key: obj.key,

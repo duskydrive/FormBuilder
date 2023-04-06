@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Subject } from 'rxjs';
-import { AccordionManipulatorService } from 'src/app/shared/service/accordion-manipulator.service';
 import { SendElementIdService } from 'src/app/shared/service/send-element-id.service';
 
 import { FormElementComponent } from './form-element.component';
