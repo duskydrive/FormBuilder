@@ -8,10 +8,9 @@ import { ControlValueAccessor } from '@angular/forms';
 export abstract class HtmlComponent implements ControlValueAccessor {
 
   @Input() type = '';
-  @Input() placeholder = '';
   @Input() id = '';
   @Input() fieldKey = '';
-  @Input() options: any[] | null = [];
+  @Input() options: string[] | number[] | null = [];
   @Input() elementId = '';
   @Input() placeholderText!: string;
   @Input() width!: number;
@@ -46,9 +45,19 @@ export abstract class HtmlComponent implements ControlValueAccessor {
   }
   
   @Output() triggerSelect = new EventEmitter();
+  @Output() triggerChange = new EventEmitter();
 
   public bindSelect(e: MouseEvent): void {
     this.triggerSelect.emit(e);
+  }
+
+  public bindFunc(obj: any): void {
+    this.triggerChange.emit(obj);
+  }
+
+  public bindCheckboxFunc($event: Event): void {
+    const checkboxValue = ($event.target as HTMLInputElement).checked;
+    this.triggerChange.emit({key: 'required', value: checkboxValue});
   }
 
 
@@ -84,16 +93,4 @@ export abstract class HtmlComponent implements ControlValueAccessor {
 
   private onChange = (value: any) => {};
   private onTouched = () => {};
-
-  @Output() triggerChange = new EventEmitter();
-
-  public bindFunc(obj: any): void {
-    this.triggerChange.emit(obj);
-  }
-
-  public bindCheckboxFunc($event: Event): void {
-    const checkboxValue = ($event.target as HTMLInputElement).checked;
-    this.triggerChange.emit({key: 'required', value: checkboxValue});
-  }
-
 }
