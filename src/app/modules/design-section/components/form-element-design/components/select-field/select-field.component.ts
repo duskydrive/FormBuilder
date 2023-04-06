@@ -1,5 +1,5 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { SelectOptionPair, SelectOption, AddSelectOption } from 'src/app/shared/ts/interfaces';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { SelectOptionPair, SelectOption } from 'src/app/shared/ts/interfaces';
 import { SelectOptionsService } from '../../../services/select-options.service';
 import { DesignField } from '../design-field.class';
 
@@ -7,7 +7,8 @@ import { DesignField } from '../design-field.class';
 @Component({
   selector: 'app-select-field',
   templateUrl: './select-field.component.html',
-  styleUrls: ['./select-field.component.sass']
+  styleUrls: ['./select-field.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class SelectFieldComponent extends DesignField {

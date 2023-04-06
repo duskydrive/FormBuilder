@@ -5,7 +5,6 @@ import { HtmlComponent } from '../html-component.class';
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.sass'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => HtmlComponent),

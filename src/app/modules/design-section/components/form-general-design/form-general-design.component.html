@@ -1,84 +1,77 @@
 <div *ngIf="formStyles | async as formData; else loading">
-  <div class="row">
-    <label for="generalDesignHeading">Form heading</label>
-    <app-input
-      [type]="'text'" 
-      [id]="'generalDesignHeading'"
-      [value]="formData.heading"
-      [fieldKey]="'heading'"
-      (triggerChange)="changeGeneral($event)"
-    />
-  </div>
-  <div class="row">
-    <label for="generalDesignBorderWidth">Border width</label>
-    <app-input 
-      [type]="'text'" 
-      [id]="'generalDesignBorderWidth'"
-      [value]="formData.borderWidth" 
-      [fieldKey]="'borderWidth'"
-      (triggerChange)="changeGeneral($event)"
-    />
-  </div>
-  <div class="row">
-    <label for="">Border color</label>
-    <app-input-color
-      [type]="'color'"
-      [id]="'generalDesignBorderColor'"
-      [value]="formData.borderColor"
-      [fieldKey]="'borderColor'"
-      (triggerChange)="changeGeneral($event)"
-    />
-  </div>
-  <div class="row">
-    <label for="generalDesignBorderStyle">Border style</label>
-    <app-select 
-      [id]="'generalDesignBorderStyle'"
-      [value]="formData.borderStyle"
-      [fieldKey]="'borderStyle'"
-      (triggerChange)="changeGeneral($event)"
-      [options]="borderStylesOptions$ | async"
-    />
-  </div>
-  <div class="row">
-    <label for="generalDesignFontSize">Font size</label>
-    <app-input 
-      [id]="'generalDesignFontSize'"
-      [type]="'text'" 
-      [value]="formData.fontSize"
-      [fieldKey]="'fontSize'"
-      (triggerChange)="changeGeneral($event)"
-    />
-  </div>
-  <div class="row">
-    <label for="generalDesignFontWeight">Font weight</label>
-    <app-select 
-      [id]="'generalDesignFontWeight'"
-      [value]="formData.fontWeight"
-      [fieldKey]="'fontWeight'"
-      (triggerChange)="changeGeneral($event)"
-      [options]="fontWeightOptions$ | async"
-    />
-  </div>
-  <div class="row">
-    <label>Color</label>
-    <app-input-color
-      [type]="'color'"
-      [id]="'generalDesignColor'"
-      [value]="formData.color"
-      [fieldKey]="'color'"
-      (triggerChange)="changeGeneral($event)"
-    />
-  </div>
-  <div class="row">
-    <label>Background color</label>
-    <app-input-color
-      [type]="'color'"
-      [id]="'generalDesignBackgroundColor'"
-      [value]="formData.backgroundColor"
-      [fieldKey]="'backgroundColor'"
-      (triggerChange)="changeGeneral($event)"
-    />
-  </div>
+
+  <app-input-row
+    [type]="'text'"
+    [id]="'generalDesignHeading'"
+    [value]="formData.heading"
+    [fieldKey]="'heading'"
+    [labelText]="'Form heading'"
+    (triggerChange)="changeGeneral($event)"
+  ></app-input-row>
+
+  <app-input-row
+    [type]="'text'"
+    [id]="'generalDesignBorderWidth'"
+    [value]="formData.borderWidth"
+    [fieldKey]="'borderWidth'"
+    [labelText]="'Border width'"
+    (triggerChange)="changeGeneral($event)"
+  ></app-input-row>
+
+  <app-input-color-row
+    [type]="'color'"
+    [id]="'generalDesignBorderColor'"
+    [value]="formData.borderColor"
+    [fieldKey]="'borderColor'"
+    [labelText]="'Border color'"
+    (triggerChange)="changeGeneral($event)"
+  ></app-input-color-row>
+
+  <app-select-row
+    [id]="'generalDesignBorderStyle'"
+    [value]="formData.borderStyle"
+    [fieldKey]="'borderStyle'"
+    [labelText]="'Border style'"
+    [options]="borderStylesOptions$ | async"
+    (triggerChange)="changeGeneral($event)"
+  ></app-select-row>
+
+  <app-input-row
+    [type]="'text'"
+    [id]="'generalDesignFontSize'"
+    [value]="formData.fontSize"
+    [fieldKey]="'fontSize'"
+    [labelText]="'Font size'"
+    (triggerChange)="changeGeneral($event)"
+  ></app-input-row>
+
+  <app-select-row
+    [id]="'generalDesignFontWeight'"
+    [value]="formData.fontWeight"
+    [fieldKey]="'fontWeight'"
+    [labelText]="'Font weight'"
+    [options]="fontWeightOptions$ | async"
+    (triggerChange)="changeGeneral($event)"
+  ></app-select-row>
+
+  <app-input-color-row
+    [type]="'color'"
+    [id]="'generalDesignColor'"
+    [value]="formData.color"
+    [fieldKey]="'color'"
+    [labelText]="'Color'"
+    (triggerChange)="changeGeneral($event)"
+  ></app-input-color-row>
+
+  <app-input-color-row
+    [type]="'color'"
+    [id]="'generalDesignBackgroundColor'"
+    [value]="formData.backgroundColor"
+    [fieldKey]="'backgroundColor'"
+    [labelText]="'Background color'"
+    (triggerChange)="changeGeneral($event)"
+  ></app-input-color-row>
+
 </div>
 <ng-template #loading>
   <div>Loading ...</div>

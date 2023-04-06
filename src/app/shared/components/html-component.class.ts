@@ -10,7 +10,7 @@ export abstract class HtmlComponent implements ControlValueAccessor {
   @Input() type = '';
   @Input() id = '';
   @Input() fieldKey = '';
-  @Input() options: string[] | number[] | null = [];
+  @Input() options: any[] | null = [];
   @Input() elementId = '';
   @Input() placeholderText!: string;
   @Input() width!: number;

@@ -18,8 +18,8 @@ import { Observable, of } from 'rxjs';
 
 export class FormGeneralDesignComponent {
   formStyles = this.store.select(selectGeneralForm);
-  borderStylesOptions$: Observable<string[]> = of(this.optionsService.getBorderStyles());
-  fontWeightOptions$: Observable<number[]> = of(this.optionsService.getFontWeights());
+  borderStylesOptions$: Observable<{ id: string; content: string; }[]> = of(this.optionsService.getBorderStyles());
+  fontWeightOptions$: Observable<{ id: string; content: number; }[]> = of(this.optionsService.getFontWeights());
 
   constructor(
     private store: Store<AppState>,

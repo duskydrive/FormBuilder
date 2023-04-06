@@ -81,7 +81,8 @@ export const formBuilderReducer = createReducer(
   })),
   on(addOption, (state, { selectId, optionId, value }) => ({
     ...state,
-    formElements: state.formElements.map((item => item.id == selectId ? {...item, options: item.options?.concat({id: optionId, content: value})} : item ))
+    // formElements: state.formElements.map((item => item.id == selectId ? {...item, options: item.options?.concat({id: optionId, content: value})} : item ))
+    formElements: state.formElements.map((item => item.id == selectId ? {...item, options: [{id: optionId, content: value}].concat(item.options!)} : item ))
   })),
   on(removeOption, (state, { selectId, optionId }) => ({
     ...state,

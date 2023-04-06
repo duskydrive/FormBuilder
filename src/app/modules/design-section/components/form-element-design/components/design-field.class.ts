@@ -28,8 +28,8 @@ export abstract class DesignField {
   @Input() designBackgroundColor = '';
   @Output() triggerChange = new EventEmitter();
 
-  borderStylesOptions$: Observable<string[]> = of(this.localOptionsService.getBorderStyles());
-  fontWeightOptions$: Observable<number[]> = of(this.localOptionsService.getFontWeights());
+  borderStylesOptions$: Observable<{ id: string; content: string; }[]> = of(this.localOptionsService.getBorderStyles());
+  fontWeightOptions$: Observable<{ id: string; content: number; }[]> = of(this.localOptionsService.getFontWeights());
 
   public bindFunc(obj: any): void {
     this.triggerChange.emit(obj);

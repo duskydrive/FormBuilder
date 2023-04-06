@@ -5,7 +5,6 @@ import { HtmlComponent } from '../html-component.class';
 @Component({
   selector: 'app-input-checkbox',
   templateUrl: './input-checkbox.component.html',
-  styleUrls: ['./input-checkbox.component.sass'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => InputCheckboxComponent),

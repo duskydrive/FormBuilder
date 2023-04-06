@@ -14,6 +14,7 @@
     [placeholderText]="'Add option'"
   />
 </div>
+
 <div class="row">
   <ul class="option-list">
     <li *ngFor="let option of selectOptions">
@@ -27,100 +28,94 @@
     </li>
   </ul>
 </div>
-<div class="row">
-  <label for="fieldPlaceholder">Placeholder text</label>
-  <app-input 
-    type="text" 
-    [id]="'fieldPlaceholder'"
-    [value]="designPlaceholder"
-    [fieldKey]="'placeholderText'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
-<div class="row">
-  <label for="fieldWidth">Select width %</label>
-  <app-input 
-    [id]="'fieldWidth'"
-    [value]="designWidth"
-    [fieldKey]="'width'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
-<div class="row">
-  <label for="fieldHeight">Select height</label>
-  <app-input 
-    [id]="'fieldHeight'"
-    [value]="designHeight"
-    [fieldKey]="'height'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
-<div class="row checkbox">
-  <label for="fieldRequired">Required</label>
-  <app-input-checkbox
-    [type]="'checkbox'" 
-    [id]="'fieldRequired'"
-    [value]="designRequired"
-    [fieldKey]="'required'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
-<div class="row">
-  <label for="fieldBorderWidth">Border width</label>
-  <app-input 
-    [id]="'fieldBorderWidth'"
-    [value]="designBorderWidth"
-    [fieldKey]="'borderWidth'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
-<div class="row">
-  <label for="">Border color</label>
-  <app-input-color 
-    [type]="'color'"
-    [id]="'fieldBorderColor'"
-    [value]="designBorderColor"
-    [fieldKey]="'borderColor'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
-<div class="row">
-  <label for="fieldBorderStyle">Border style</label>
-  <app-select 
-    [id]="'fieldBorderStyle'"
-    [value]="designBorderStyle"
-    [fieldKey]="'borderStyle'"
-    (triggerChange)="bindFunc($event)"
-    [options]="borderStylesOptions$ | async"
-  />
-</div>
-<div class="row">
-  <label for="fieldFontSize">Font size</label>
-  <app-input 
-    [id]="'fieldFontSize'"
-    [value]="designFontSize"
-    [fieldKey]="'fontSize'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
-<div class="row">
-  <label for="fieldFontWeight">Font weight</label>
-  <app-select 
-    [id]="'fieldFontWeight'"
-    [value]="designFontWeight"
-    [fieldKey]="'fontWeight'"
-    (triggerChange)="bindFunc($event)"
-    [options]="fontWeightOptions$ | async"
-  />
-</div>
-<div class="row">
-  <label for="">Color</label>
-  <app-input-color 
-    [type]="'color'"
-    [id]="'fieldColor'"
-    [value]="designColor"
-    [fieldKey]="'color'"
-    (triggerChange)="bindFunc($event)"
-  />
-</div>
+
+<app-input-row
+  [type]="'text'" 
+  [id]="'fieldPlaceholder'"
+  [value]="designPlaceholder"
+  [fieldKey]="'placeholderText'"
+  [labelText]="'Placeholder text'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldWidth'"
+  [value]="designWidth"
+  [fieldKey]="'width'"
+  [labelText]="'Select width %'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldHeight'"
+  [value]="designHeight"
+  [fieldKey]="'height'"
+  [labelText]="'Select height'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-checkbox-row
+  [type]="'checkbox'"
+  [id]="'fieldRequired'"
+  [value]="designRequired"
+  [fieldKey]="'required'"
+  [labelText]="'Required'"
+  (triggerChange)="bindFunc($event)"
+></app-input-checkbox-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldBorderWidth'"
+  [value]="designBorderWidth"
+  [fieldKey]="'borderWidth'"
+  [labelText]="'Border width'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-color-row
+  [type]="'color'"
+  [id]="'fieldBorderColor'"
+  [value]="designBorderColor"
+  [fieldKey]="'borderColor'"
+  [labelText]="'Border color'"
+  (triggerChange)="bindFunc($event)"
+></app-input-color-row>
+
+<app-select-row
+  [id]="'fieldBorderStyle'"
+  [value]="designBorderStyle"
+  [fieldKey]="'borderStyle'"
+  [labelText]="'Border style'"
+  [options]="borderStylesOptions$ | async"
+  (triggerChange)="bindFunc($event)"
+></app-select-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldFontSize'"
+  [value]="designFontSize"
+  [fieldKey]="'fontSize'"
+  [labelText]="'Font size'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-select-row
+  [id]="'fieldFontWeight'"
+  [value]="designFontWeight"
+  [fieldKey]="'fontWeight'"
+  [labelText]="'Font weight'"
+  [options]="fontWeightOptions$ | async"
+  (triggerChange)="bindFunc($event)"
+></app-select-row>
+
+<app-input-color-row
+  [type]="'color'"
+  [id]="'fieldColor'"
+  [value]="designColor"
+  [fieldKey]="'color'"
+  [labelText]="'Color'"
+  (triggerChange)="bindFunc($event)"
+></app-input-color-row>
 
