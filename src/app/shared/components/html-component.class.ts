@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Directive, EventEmitter, Injectable, Input, Output } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { KeyValuePair, OptionField } from '../service/interfaces';
 
 @Injectable()
 @Directive()
@@ -14,55 +13,44 @@ export abstract class HtmlComponent implements ControlValueAccessor {
   @Input() fieldKey = '';
   @Input() options: any[] | null = [];
   @Input() elementId = '';
-
   @Input() placeholderText!: string;
-
   @Input() width!: number;
-  
   @Input() height!: number;
-
   @Input() required!: boolean;
-
   @Input() borderWidth!: string;
-
   @Input() borderColor!: string;
-
   @Input() borderStyle!: string;
-
   @Input() fontSize!: number;
-
   @Input() fontWeight!: number;
-
   @Input() color!: string;
-
   @Input() backgroundColor!: string;
 
   public get widthPercent(): string {
     return `${this.width}%`;
   }
-
+  
   public get widthPx(): string {
     return `${this.width}px`;
   }
-
+  
   public get heightPx(): string {
     return `${this.height}px`;
   }
-
+  
   public get borderWidthPx(): string {
     return `${this.borderWidth}px`;
   }
-
+  
   public get fontSizePx(): string {
     return `${this.fontSize}px`;
   }
-
+  
   @Output() triggerSelect = new EventEmitter();
 
   public bindSelect(e: MouseEvent): void {
     this.triggerSelect.emit(e);
   }
-  ///////////
+
 
   private _value: any;
 

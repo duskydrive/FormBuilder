@@ -1,7 +1,8 @@
 <input 
-  [type]="type" 
+  type="checkbox" 
   [id]="id" 
-  [placeholder]="placeholder" 
   [checked]="value"
   (change)="bindCheckboxFunc($event)"
+  [style.width]="width + 'px'"
+  [attr.required]="required || null"
 >
