@@ -1,76 +1,16 @@
 <div *ngIf="currentElement; else empty">
-  <div [ngSwitch]="currentElement.type">
-    <div *ngSwitchDefault>
-      <app-standard-field
-        [designId]="currentElement.id"
-        [designPlaceholder]="currentElement.placeholderText"
-        [designWidth]="currentElement.width"
-        [designHeight]="currentElement.height!"
-        [designRequired]="currentElement.required"
-        [designBorderWidth]="currentElement.borderWidth!"
-        [designBorderColor]="currentElement.borderColor!"
-        [designBorderStyle]="currentElement.borderStyle!"
-        [designFontSize]="currentElement.fontSize"
-        [designFontWeight]="currentElement.fontWeight"
-        [designColor]="currentElement.color"
-        (triggerChange)="changeField($event)"
-      ></app-standard-field>
-    </div>
-    <div *ngSwitchCase="'button'">
-      <app-button-field
-        [designId]="currentElement.id"
-        [designPlaceholder]="currentElement.placeholderText"
-        [designWidth]="currentElement.width"
-        [designHeight]="currentElement.height!"
-        [designBorderWidth]="currentElement.borderWidth!"
-        [designBorderColor]="currentElement.borderColor!"
-        [designBorderStyle]="currentElement.borderStyle!"
-        [designFontSize]="currentElement.fontSize"
-        [designFontWeight]="currentElement.fontWeight"
-        [designColor]="currentElement.color"
-        [designBackgroundColor]="currentElement.backgroundColor!"
-        (triggerChange)="changeField($event)"
-      ></app-button-field>
-    </div>
-    <div *ngSwitchCase="'checkbox'">
-      <app-checkbox-field
-        [designId]="currentElement.id"
-        [designPlaceholder]="currentElement.placeholderText"
-        [designWidth]="currentElement.width"
-        [designRequired]="currentElement.required"
-        [designFontSize]="currentElement.fontSize"
-        [designFontWeight]="currentElement.fontWeight"
-        [designColor]="currentElement.color"
-        (triggerChange)="changeField($event)"
-      ></app-checkbox-field>
-    </div>
-    <div *ngSwitchCase="'select'">
-      <app-select-field
-        [designId]="currentElement.id"
-        [designPlaceholder]="currentElement.placeholderText"
-        [designWidth]="currentElement.width"
-        [designHeight]="currentElement.height!"
-        [designRequired]="currentElement.required"
-        [designBorderWidth]="currentElement.borderWidth!"
-        [designBorderColor]="currentElement.borderColor!"
-        [designBorderStyle]="currentElement.borderStyle!"
-        [designFontSize]="currentElement.fontSize"
-        [designFontWeight]="currentElement.fontWeight"
-        [designColor]="currentElement.color"
-        [selectOptions]="currentElement.options!"
-        (triggerChange)="changeField($event)"
-        (triggerAddOption)="launchAddOption($event)"
-        (triggerRemoveOption)="launchRemoveOption($event)"
-        (triggerClearInput)="clearInput($event)"
-      ></app-select-field>
-    </div>
-    <app-remove-element-button
-      [elementId]="currentElement.id"
-      [elementType]="currentElement.type"
-      (triggerRemoveElement)="removeElement($event)"
-    >
-    </app-remove-element-button>
-  </div>
+  <app-display-rows
+    [currentStyles]="currentElement!.styles"
+    (triggerChange)="changeField($event)"
+    [id]="currentElement!.id"
+  ></app-display-rows>
+
+  <app-remove-element-button
+    [elementId]="currentElement.id"
+    [elementType]="currentElement.type"
+    (triggerRemoveElement)="removeElement($event)"
+  >
+  </app-remove-element-button>
 </div>
 
 <ng-template #empty>

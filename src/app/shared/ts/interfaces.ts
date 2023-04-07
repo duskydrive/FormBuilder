@@ -20,9 +20,7 @@ export interface SelectOption {
   content: string,
 }
 
-export interface FormElement {
-  id: string,
-  type: string,
+export interface FormStyles {
   placeholderText: string,
   width: number,
   height?: number,
@@ -34,11 +32,29 @@ export interface FormElement {
   fontWeight: number,
   color: string,
   backgroundColor?: string,
+}
+
+export interface FormElement {
+  id: string,
+  type: string,
+  styles: {
+    placeholderText: string,
+    width: number,
+    height?: number,
+    required: boolean,
+    borderWidth?: string,
+    borderColor?: string,
+    borderStyle?: string, 
+    fontSize: number,
+    fontWeight: number,
+    color: string,
+    backgroundColor?: string,
+  },
   options?: SelectOption[],
 }
 
 export interface GeneralFormStyles {
-  heading: string,
+  placeholderText: string,
   borderWidth: string,
   borderColor: string,
   borderStyle: string, 

@@ -2,12 +2,11 @@ import {
   ChangeDetectionStrategy, 
   ChangeDetectorRef, 
   Component, 
-  ElementRef, 
   OnInit, 
 } from '@angular/core';
 import { Unsub } from 'src/app/shared/service/unsub.class';
 import { map, takeUntil } from 'rxjs';
-import { AddSelectOption, FormElement, KeyValuePair, OptionField, SelectOptionPair } from 'src/app/shared/ts/interfaces';
+import { AddSelectOption, FormElement, KeyValuePair, SelectOptionPair } from 'src/app/shared/ts/interfaces';
 import { AppState } from 'src/app/shared/state/app.state';
 import { Store } from '@ngrx/store';
 import { 
@@ -29,10 +28,11 @@ import { SendElementIdService } from 'src/app/shared/service/send-element-id.ser
 export class FormElementDesignComponent extends Unsub implements OnInit {
   currentElement: FormElement | undefined = undefined;
   
+  
   constructor(
     private store: Store<AppState>, 
     public receiveId: SendElementIdService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
   ) {
     super()
   }
@@ -97,4 +97,8 @@ export class FormElementDesignComponent extends Unsub implements OnInit {
   removeElement(id: string) {
     this.store.dispatch(removeFormElement({ id }));
   }
+
+  // trackByFn(index: any) {
+  //   return index; // or item.id
+  // }
 }

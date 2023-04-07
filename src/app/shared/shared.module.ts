@@ -7,6 +7,8 @@ import { SelectComponent } from './components/select/select.component';
 import { ButtonComponent } from './components/button/button.component';
 import { InputCheckboxComponent } from './components/input-checkbox/input-checkbox.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
+import { ForObjectPipe } from './pipes/for-object.pipe';
+import { LabelTransformPipe } from './pipes/label-transform.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     ButtonComponent,
     InputCheckboxComponent,
     TextareaComponent,
+    // LabelTransformPipe,
+    // ForObjectPipe,
   ],
   exports: [
     InputComponent,
@@ -29,6 +33,10 @@ import { TextareaComponent } from './components/textarea/textarea.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+  ],
+  providers: [
+    // ForObjectPipe,
+    // LabelTransformPipe,
   ]
 })
 export class SharedModule { }
