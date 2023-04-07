@@ -59,7 +59,7 @@ describe('RegisterComponent', () => {
     component.onSubmit()
     tick()
 
-    expect(navigateSpy).toHaveBeenCalledWith([ '/', 'login' ]);
+    expect(navigateSpy).toHaveBeenCalledWith([ 'login' ]);
     
   }));
 

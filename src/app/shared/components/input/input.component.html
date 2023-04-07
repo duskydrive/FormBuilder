@@ -1,0 +1,16 @@
+<input 
+  [type]="type" 
+  [id]="id" 
+  [placeholder]="placeholderText" 
+  [(ngModel)]="value"
+  (keyup)="bindFunc({key: fieldKey, value: value})"
+  [style.width]="widthPercent"
+  [style.height]="heightPx"
+  [style.borderWidth]="borderWidthPx"
+  [style.borderColor]="borderColor"
+  [style.borderStyle]="borderStyle"
+  [style.fontSize]="fontSizePx"
+  [style.fontWeight]="fontWeight"
+  [style.color]="color"
+  [attr.required]="required || null"
+  >

@@ -4,7 +4,7 @@ import {
   CdkDragExit 
 } from '@angular/cdk/drag-drop';
 import { Observable } from 'rxjs';
-import { FormElement } from './interfaces';
+import { FormElement } from '../ts/interfaces';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { 

@@ -12,8 +12,9 @@ import {
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { UserData } from 'src/app/shared/service/interfaces';
+import { UserData } from 'src/app/shared/ts/interfaces';
 import { Unsub } from 'src/app/shared/service/unsub.class';
+import { RoutesKeys } from 'src/app/shared/ts/routes-keys.enum';
 
 @Component({
   selector: 'app-register',
@@ -63,8 +64,9 @@ export class RegisterComponent extends Unsub implements OnDestroy {
           takeUntil(this.unsubscribe$)
         )
         .subscribe({
+          next: (res) => console.log(res),
           error: (e) => this.requestError = e.error,
-          complete: () => this._route.navigate(['/', 'login']),
+          complete: () => this._route.navigate([`${RoutesKeys.Login}`]),
         })    
     })
   }

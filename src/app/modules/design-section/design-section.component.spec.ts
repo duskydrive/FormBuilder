@@ -8,7 +8,6 @@ import { DesignSectionComponent } from './design-section.component';
 import { FormElementDesignComponent } from './components/form-element-design/form-element-design.component';
 import { AccordionManipulatorService } from 'src/app/shared/service/accordion-manipulator.service';
 import { Subject } from 'rxjs';
-import { FormGeneralDesignComponent } from './components/form-general-design/form-general-design.component';
 import { Component } from '@angular/core';
  
 describe('DesignSectionComponent', () => {

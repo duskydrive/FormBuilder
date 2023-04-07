@@ -10,9 +10,11 @@ import { RemoveElementButtonComponent } from './components/form-element-design/c
 import { SelectFieldComponent } from './components/form-element-design/components/select-field/select-field.component';
 import { StandardFieldComponent } from './components/form-element-design/components/standard-field/standard-field.component';
 import { FormGeneralDesignComponent } from './components/form-general-design/form-general-design.component';
-import { FormGeneralDesignViewComponent } from './components/form-general-design/form-general-design-view/form-general-design-view.component';
-
-
+import { SharedModule } from 'src/app/shared/shared.module';
+import { InputRowComponent } from './components/rows/input-row/input-row.component';
+import { InputCheckboxRowComponent } from './components/rows/input-checkbox-row/input-checkbox-row.component';
+import { InputColorRowComponent } from './components/rows/input-color-row/input-color-row.component';
+import { SelectRowComponent } from './components/rows/select-row/select-row.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,15 @@ import { FormGeneralDesignViewComponent } from './components/form-general-design
     SelectFieldComponent,
     StandardFieldComponent,
     FormGeneralDesignComponent,
-    FormGeneralDesignViewComponent,
+    InputRowComponent,
+    InputCheckboxRowComponent,
+    InputColorRowComponent,
+    SelectRowComponent,
   ],
   imports: [
     CommonModule,
     MaterialDesignModule,
+    SharedModule,
   ],
   exports: [
     DesignSectionComponent,
@@ -39,7 +45,7 @@ import { FormGeneralDesignViewComponent } from './components/form-general-design
     SelectFieldComponent,
     StandardFieldComponent,
     FormGeneralDesignComponent,
-    FormGeneralDesignViewComponent,
+    InputRowComponent,
   ]
 })
 export class DesignSectionModule { }

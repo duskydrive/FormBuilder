@@ -4,20 +4,21 @@ import { LoginComponent } from './modules/auth/login/login.component';
 import { MainComponent } from './modules/main/main.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { RoutesKeys } from './shared/ts/routes-keys.enum';
 
 const routes: Routes = [
   {
-    path: '',
+    path: `${RoutesKeys.Main}`,
     component: MainComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
   },
   {
-    path: 'login',
+    path: `${RoutesKeys.Login}`,
     component: LoginComponent,
   },
   {
-    path: 'register',
+    path: `${RoutesKeys.Register}`,
     component: RegisterComponent,
   },
 ];

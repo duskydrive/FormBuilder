@@ -1,0 +1,24 @@
+<select 
+  #select
+  [id]="id"
+  [style.width]="widthPercent"
+  [style.height]="heightPx"
+  [style.borderWidth]="borderWidthPx"
+  [style.borderColor]="borderColor"
+  [style.borderStyle]="borderStyle"
+  [style.fontSize]="fontSizePx"
+  [style.fontWeight]="fontWeight"
+  [style.color]="color"
+  [required]="required"
+  (change)="bindFunc({key: fieldKey, value: select.value})"
+>
+  <option 
+    disabled
+    [selected]="!options!.length"
+  >{{ placeholderText }}</option>
+  <option 
+    *ngFor="let item of options"
+    [value]="item.content"
+    [selected]="item.content === value"
+    >{{ item.content }}</option>
+  </select>

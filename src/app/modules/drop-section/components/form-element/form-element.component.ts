@@ -3,9 +3,10 @@ import {
   Component, 
   Input, 
 } from '@angular/core';
-import { FormElement } from '../../../../shared/service/interfaces';
-import { AccordionManipulatorService } from '../../../../shared/service/accordion-manipulator.service';
-import { SendElementIdService } from '../../../../shared/service/send-element-id.service';
+import { FormElement } from 'src/app/shared/ts/interfaces';
+import { AccordionManipulatorService } from 'src/app/shared/service/accordion-manipulator.service';
+import { SendElementIdService } from 'src/app/shared/service/send-element-id.service';
+import { FormElementType } from 'src/app/shared/ts/form-element-type.enum';
 
 @Component({
   selector: 'app-form-element',
@@ -16,6 +17,8 @@ import { SendElementIdService } from '../../../../shared/service/send-element-id
 
 export class FormElementComponent {
   @Input() element!: FormElement;
+  // enum for switch statement in template
+  public formElementType: typeof FormElementType = FormElementType;
   
   constructor( 
     public changeAccordion: AccordionManipulatorService,

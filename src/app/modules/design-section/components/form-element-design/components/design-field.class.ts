@@ -3,7 +3,12 @@ import {
   EventEmitter,
   Injectable, Input, Output, 
 } from "@angular/core";
-import { KeyValuePair, OptionField } from "src/app/shared/service/interfaces";
+import { Store } from "@ngrx/store";
+import { Observable, of } from "rxjs";
+import { KeyValuePair, OptionField } from "src/app/shared/ts/interfaces";
+import { AppState } from "src/app/shared/state/app.state";
+import { updateFormElement } from "src/app/shared/state/formbuilder/formbuilder.actions";
+import { SelectOptionsService } from "../../services/select-options.service";
 
 @Injectable()
 @Directive()
@@ -23,13 +28,17 @@ export abstract class DesignField {
   @Input() designBackgroundColor = '';
   @Output() triggerChange = new EventEmitter();
 
-  public bindFunc(obj: OptionField | KeyValuePair): void {
+  borderStylesOptions$: Observable<{ id: string; content: string; }[]> = of(this.localOptionsService.getBorderStyles());
+  fontWeightOptions$: Observable<{ id: string; content: number; }[]> = of(this.localOptionsService.getFontWeights());
+
+  public bindFunc(obj: any): void {
     this.triggerChange.emit(obj);
   }
 
-  public bindCheckboxFunc($event: Event, id: string): void {
+  public bindCheckboxFunc($event: Event): void {
     const checkboxValue = ($event.target as HTMLInputElement).checked;
-    this.triggerChange.emit({elementId: id, key: 'required', val: checkboxValue});
+    this.triggerChange.emit({key: 'required', val: checkboxValue});
   }
 
+  constructor(public localOptionsService: SelectOptionsService) {}
 }

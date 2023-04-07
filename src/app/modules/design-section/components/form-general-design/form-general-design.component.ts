@@ -6,8 +6,9 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/shared/state/app.state';
 import { selectGeneralForm } from 'src/app/shared/state/formbuilder/formBuilder.selectors';
 import { updateGeneralForm } from 'src/app/shared/state/formbuilder/formbuilder.actions';
-import { KeyValuePair } from 'src/app/shared/service/interfaces';
-
+import { KeyValuePair } from 'src/app/shared/ts/interfaces';
+import { SelectOptionsService } from '../services/select-options.service';
+import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-form-general-design',
   templateUrl: './form-general-design.component.html',
@@ -17,8 +18,13 @@ import { KeyValuePair } from 'src/app/shared/service/interfaces';
 
 export class FormGeneralDesignComponent {
   formStyles = this.store.select(selectGeneralForm);
+  borderStylesOptions$: Observable<{ id: string; content: string; }[]> = of(this.optionsService.getBorderStyles());
+  fontWeightOptions$: Observable<{ id: string; content: number; }[]> = of(this.optionsService.getFontWeights());
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private optionsService: SelectOptionsService,
+  ) {}
 
   changeGeneral(obj: KeyValuePair) {
     this.store.dispatch(updateGeneralForm(obj))

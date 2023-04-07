@@ -1,7 +1,7 @@
 <div *ngIf="element" [ngSwitch]="element.type">
 
-  <div *ngSwitchCase="'input'">
-    <app-input-element
+  <div *ngSwitchCase="formElementType.Input">
+    <app-input
       [placeholderText]="element.placeholderText"
       [width]="element.width"
       [height]="element.height!"
@@ -12,12 +12,12 @@
       [fontWeight]="element.fontWeight"
       [color]="element.color"
       [required]="element.required"
-      (triggerSelect)="selectElement($event)"
-    ></app-input-element>
+      (click)="selectElement($event)"
+    ></app-input>
   </div>
   
-  <div *ngSwitchCase="'textarea'">
-    <app-textarea-element
+  <div *ngSwitchCase="formElementType.Textarea">
+    <app-textarea
       [placeholderText]="element.placeholderText"
       [width]="element.width"
       [height]="element.height!"
@@ -29,13 +29,13 @@
       [color]="element.color"
       [backgroundColor]="element.backgroundColor!"
       [required]="element.required"
-      (triggerSelect)="selectElement($event)"
+      (click)="selectElement($event)"
     >
-    </app-textarea-element>
+    </app-textarea>
   </div>
  
-  <div *ngSwitchCase="'button'">
-    <app-button-element
+  <div *ngSwitchCase="formElementType.Button">
+    <app-button
       [placeholderText]="element.placeholderText"
       [width]="element.width"
       [height]="element.height!"
@@ -46,25 +46,31 @@
       [fontWeight]="element.fontWeight"
       [color]="element.color"
       [backgroundColor]="element.backgroundColor!"
-      (triggerSelect)="selectElement($event)"
-    ></app-button-element>
+      (click)="selectElement($event)"
+    ></app-button>
   </div>
   
-  <div *ngSwitchCase="'checkbox'">
-    <app-checkbox-element
-      [elementId]="element.id"
-      [placeholderText]="element.placeholderText"
-      [width]="element.width"
-      [fontSize]="element.fontSize"
-      [fontWeight]="element.fontWeight"
-      [color]="element.color"
-      [backgroundColor]="element.backgroundColor!"
-      (triggerSelect)="selectElement($event)"
-    ></app-checkbox-element>
+  <div *ngSwitchCase="formElementType.Checkbox">
+    <div class="checkbox-wrap">
+      <app-input-checkbox
+        [id]="element.id"
+        [width]="element.width"
+        (click)="selectElement($event)"
+        [required]="element.required"
+      ></app-input-checkbox>
+      <label 
+        [for]="element.id"
+        [style.fontSize]="element.fontSize + 'px'"
+        [style.fontWeight]="element.fontWeight"
+        [style.color]="element.color"
+      >
+        {{ element.placeholderText }}
+      </label>
+    </div>
   </div>
   
-  <div *ngSwitchCase="'select'">
-    <app-select-element
+  <div *ngSwitchCase="formElementType.Select">
+    <app-select
       [placeholderText]="element.placeholderText"
       [width]="element.width"
       [height]="element.height!"
@@ -76,8 +82,8 @@
       [color]="element.color"
       [required]="element.required"
       [options]="element.options!"
-      (triggerSelect)="selectElement($event)"
-    ></app-select-element>
+      (click)="selectElement($event)"
+    ></app-select>
   </div>
   
 </div>

@@ -6,7 +6,7 @@ import {
   ChangeDetectionStrategy 
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { UserData } from 'src/app/shared/service/interfaces';
+import { UserData } from 'src/app/shared/ts/interfaces';
 
 @Component({
   selector: 'app-auth-view',

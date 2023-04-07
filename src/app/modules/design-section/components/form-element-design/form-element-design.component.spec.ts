@@ -121,10 +121,11 @@ describe('FormElementDesignComponent', () => {
   });
 
   it('changeField method should dispatch updateFormElement action', () => {
-    component.changeField({elementId: '111', key: 'placeholderText', val: 'New placeholder'});
+    component.currentElement = formElementsArr[0];
+    component.changeField({key: 'placeholderText', value: 'New placeholder'});
 
     expect(store.dispatch).toHaveBeenCalledWith(
-      updateFormElement({elementId: '111', key: 'placeholderText', val: 'New placeholder'})
+      updateFormElement({elementId: '111', key: 'placeholderText', value: 'New placeholder'})
     );
   });
 

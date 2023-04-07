@@ -1,138 +1,121 @@
 <div class="row">
   <label for="fieldAddOption">Add option</label>
-  <input 
-    type="text" 
-    id="fieldAddOption"
+  <app-input 
     #option
     class="mb-15"  
-  >
-  <button 
-    mat-raised-button
-    color="primary"
-    id="btnAddOption"
-    (click)="bindAddOption({selectId: designId, value: option.value})">
-      add option
-  </button>
+    [placeholderText]="'Add option'"
+    [type]="'text'" 
+    [id]="'fieldAddOption'"
+  />
+  <app-button 
+    class="primary"
+    [id]="'btnAddOption'"
+    (click)="bindAddOption({selectId: designId, value: option.value})"
+    [placeholderText]="'Add option'"
+  />
 </div>
+
 <div class="row">
   <ul class="option-list">
     <li *ngFor="let option of selectOptions">
       <span>{{ option.content }}</span>
-      <button 
-        mat-raised-button
-        color="accent"
-        id="btnRemoveOption"
+      <app-button 
+        class="primary"
+        [id]="'btnRemoveOption'"
+        [placeholderText]="'remove'"
         (click)="bindRemoveOption({selectId: designId, value: option.id})"
-      >remove</button>
+      />
     </li>
   </ul>
 </div>
-<div class="row">
-  <label for="fieldPlaceholder">Placeholder text</label>
-  <input 
-    #placeholderText 
-    type="text" 
-    id="fieldPlaceholder"
-    [value]="designPlaceholder" 
-    (keyup)="bindFunc({elementId: designId, key: 'placeholderText', val: placeholderText.value})"
-  >
-</div>
-<div class="row">
-  <label for="fieldWidth">Select width %</label>
-  <input 
-    #width 
-    type="text" 
-    id="fieldWidth"
-    [value]="designWidth" 
-    (keyup)="bindFunc({elementId: designId, key: 'width', val: width.value})"
-  >
-</div>
-<div class="row">
-  <label for="fieldHeight">Select height</label>
-  <input 
-    #height 
-    type="text" 
-    id="fieldHeight"
-    [value]="designHeight" 
-    (keyup)="bindFunc({elementId: designId, key: 'height', val: height.value})"
-  >
-</div>
-<div class="row checkbox">
-  <label for="fieldRequired">Required</label>
-  <input 
-    #required 
-    type="checkbox" 
-    id="fieldRequired"
-    [checked]="designRequired" 
-    (change)="bindCheckboxFunc($event, designId)"
-  >
-</div>
-<div class="row">
-  <label for="fieldBorderWidth">Border width</label>
-  <input 
-    #borderWidth 
-    type="text" 
-    id="fieldBorderWidth"
-    [value]="designBorderWidth" 
-    (keyup)="bindFunc({elementId: designId , key: 'borderWidth', val: borderWidth.value})"
-  >
-</div>
-<div class="row">
-  <label for="">Border color</label>
-  <input 
-    #borderColor
-    type="color"
-    id="fieldBorderColor"
-    [value]="designBorderColor"
-    (change)="bindFunc({elementId: designId , key: 'borderColor', val: borderColor.value})"
-  >
-</div>
-<div class="row">
-  <label for="fieldBorderStyle">Border style</label>
-  <select 
-    #borderStyle
-    id="fieldBorderStyle"
-    [value]="designBorderStyle"
-    (change)="bindFunc({elementId: designId , key: 'borderStyle', val: borderStyle.value})"
-  >
-    <option value="solid">solid</option>
-    <option value="dotted">dotted</option>
-    <option value="dashed">dashed</option>
-    <option value="double">double</option>
-    <option value="groove">groove</option>
-  </select>
-</div>
-<div class="row">
-  <label for="fieldFontSize">Font size</label>
-  <input 
-    #fontSize
-    type="text" 
-    id="fieldFontSize"
-    [value]="designFontSize" 
-    (keyup)="bindFunc({elementId: designId, key: 'fontSize', val: fontSize.value})"
-  >
-</div>
-<div class="row">
-  <label for="fieldFontWeight">Font weight</label>
-  <select 
-    #fontWeight
-    id="fieldFontWeight"
-    [value]="designFontWeight"
-    (change)="bindFunc({elementId: designId , key: 'fontWeight', val: fontWeight.value})"
-  >
-    <option value="200">200</option>
-    <option value="400">400</option>
-    <option value="500">500</option>
-    <option value="600">600</option>
-  </select>
-</div>
-<div class="row">
-  <label for="">Color</label>
-  <input 
-    #color
-    type="color"
-    id="fieldColor"
-    [value]="designColor"
-    (change)="bindFunc({elementId: designId , key: 'color', val: color.value})"
-  >
-</div>
+
+<app-input-row
+  [type]="'text'" 
+  [id]="'fieldPlaceholder'"
+  [value]="designPlaceholder"
+  [fieldKey]="'placeholderText'"
+  [labelText]="'Placeholder text'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldWidth'"
+  [value]="designWidth"
+  [fieldKey]="'width'"
+  [labelText]="'Select width %'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldHeight'"
+  [value]="designHeight"
+  [fieldKey]="'height'"
+  [labelText]="'Select height'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-checkbox-row
+  [type]="'checkbox'"
+  [id]="'fieldRequired'"
+  [value]="designRequired"
+  [fieldKey]="'required'"
+  [labelText]="'Required'"
+  (triggerChange)="bindFunc($event)"
+></app-input-checkbox-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldBorderWidth'"
+  [value]="designBorderWidth"
+  [fieldKey]="'borderWidth'"
+  [labelText]="'Border width'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-input-color-row
+  [type]="'color'"
+  [id]="'fieldBorderColor'"
+  [value]="designBorderColor"
+  [fieldKey]="'borderColor'"
+  [labelText]="'Border color'"
+  (triggerChange)="bindFunc($event)"
+></app-input-color-row>
+
+<app-select-row
+  [id]="'fieldBorderStyle'"
+  [value]="designBorderStyle"
+  [fieldKey]="'borderStyle'"
+  [labelText]="'Border style'"
+  [options]="borderStylesOptions$ | async"
+  (triggerChange)="bindFunc($event)"
+></app-select-row>
+
+<app-input-row
+  [type]="'text'"
+  [id]="'fieldFontSize'"
+  [value]="designFontSize"
+  [fieldKey]="'fontSize'"
+  [labelText]="'Font size'"
+  (triggerChange)="bindFunc($event)"
+></app-input-row>
+
+<app-select-row
+  [id]="'fieldFontWeight'"
+  [value]="designFontWeight"
+  [fieldKey]="'fontWeight'"
+  [labelText]="'Font weight'"
+  [options]="fontWeightOptions$ | async"
+  (triggerChange)="bindFunc($event)"
+></app-select-row>
+
+<app-input-color-row
+  [type]="'color'"
+  [id]="'fieldColor'"
+  [value]="designColor"
+  [fieldKey]="'color'"
+  [labelText]="'Color'"
+  (triggerChange)="bindFunc($event)"
+></app-input-color-row>
+

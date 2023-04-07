@@ -5,7 +5,7 @@ import {
 import { 
   FormElement, 
   FormBuilderState 
-} from "src/app/shared/service/interfaces";
+} from "src/app/shared/ts/interfaces";
 import { 
   addFormElement, 
   removeFormElement, 
@@ -71,9 +71,9 @@ export const formBuilderReducer = createReducer(
     ...state,
     formElements: state.formElements.filter((el) => el.id !== id)
   })),
-  on(updateFormElement, (state, { elementId, key, val }) => ({
+  on(updateFormElement, (state, { elementId, key, value }) => ({
     ...state,
-    formElements: state.formElements.map((item => item.id === elementId ? {...item, [key]: val} : item ))
+    formElements: state.formElements.map((item => item.id === elementId ? {...item, [key]: value} : item ))
   })),
   on(swapFormElements, (state, { index1, index2 }) => ({
     ...state,
@@ -81,18 +81,18 @@ export const formBuilderReducer = createReducer(
   })),
   on(addOption, (state, { selectId, optionId, value }) => ({
     ...state,
-    formElements: state.formElements.map((item => item.id == selectId ? {...item, options: item.options?.concat({id: optionId, content: value})} : item ))
+    formElements: state.formElements.map((item => item.id == selectId ? {...item, options: [{id: optionId, content: value}].concat(item.options!)} : item ))
   })),
   on(removeOption, (state, { selectId, optionId }) => ({
     ...state,
     formElements: state.formElements.map(item => item.id !== selectId ? item : 
       {...item, options: item.options?.filter((el) => el.id !== optionId)})
   })),
-  on(updateGeneralForm, (state, { key, val }) => ({
+  on(updateGeneralForm, (state, { key, value }) => ({
     ...state,
     generalForm: {
       ...state.generalForm,
-      [key]: val,
+      [key]: value,
     }
   })),
   on(resetState, () => ({

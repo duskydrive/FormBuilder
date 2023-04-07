@@ -1,4 +1,4 @@
-import { FormBuilderState } from "../service/interfaces";
+import { FormBuilderState } from "../ts/interfaces";
 
 export interface AppState {
   formBuilder: FormBuilderState,

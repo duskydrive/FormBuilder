@@ -12,9 +12,9 @@ import {
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { UserData } from '../../../shared/service/interfaces';
+import { UserData } from '../../../shared/ts/interfaces';
 import { Unsub } from '../../../shared/service/unsub.class';
-
+import { RoutesKeys } from 'src/app/shared/ts/routes-keys.enum';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -62,7 +62,7 @@ export class LoginComponent extends Unsub implements OnDestroy {
         )
         .subscribe({
           error: (e) => this.requestError = e.error,
-          complete: () => this._route.navigate([''])
+          complete: () => this._route.navigate([`${RoutesKeys.Main}`])
         })             
 
     });

@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { AppState } from 'src/app/shared/state/app.state';
 import { selectGeneralForm } from 'src/app/shared/state/formbuilder/formBuilder.selectors';
-import { FormGeneralDesignViewComponent } from './form-general-design-view/form-general-design-view.component';
 
 import { FormGeneralDesignComponent } from './form-general-design.component';
 import { updateGeneralForm } from 'src/app/shared/state/formbuilder/formbuilder.actions';
@@ -19,9 +18,9 @@ describe('FormGeneralDesignComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ 
         FormGeneralDesignComponent,
-        FormGeneralDesignViewComponent,
       ],
-      providers: [provideMockStore({initialState})],
+      schemas: [ NO_ERRORS_SCHEMA ],
+      providers: [ provideMockStore({initialState}) ],
     })
     .compileComponents();
 
@@ -53,10 +52,10 @@ describe('FormGeneralDesignComponent', () => {
   });
 
   it('changeGeneral method should dispatch updateGeneralForm action', () => {
-    component.changeGeneral({key: 'heading', val: 'New heading'});
+    component.changeGeneral({key: 'heading', value: 'New heading'});
 
     expect(store.dispatch).toHaveBeenCalledWith(
-      updateGeneralForm({key: 'heading', val: 'New heading'})
+      updateGeneralForm({key: 'heading', value: 'New heading'})
     );
   });
 

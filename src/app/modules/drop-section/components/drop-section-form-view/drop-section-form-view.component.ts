@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { DragdropService } from 'src/app/shared/service/dragdrop.service';
-import { FormElement } from 'src/app/shared/service/interfaces';
+import { FormElement } from 'src/app/shared/ts/interfaces';
 import { AppState } from 'src/app/shared/state/app.state';
 import { selectFormElements } from 'src/app/shared/state/formbuilder/formBuilder.selectors';
 

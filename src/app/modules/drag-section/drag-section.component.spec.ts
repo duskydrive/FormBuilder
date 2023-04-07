@@ -6,7 +6,7 @@ import { MaterialDesignModule } from 'src/app/shared/material-design/material-de
 import { DragdropService } from 'src/app/shared/service/dragdrop.service';
 import { DragSectionComponent } from './drag-section.component';
 import { DragSectionListViewComponent } from './drag-section-list-view/drag-section-list-view.component';
-import { FormElement } from 'src/app/shared/service/interfaces';
+import { FormElement } from 'src/app/shared/ts/interfaces';
 import { Observable } from 'rxjs';
 
 describe('DragSectionComponent', () => {

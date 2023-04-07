@@ -1,0 +1,10 @@
+<div class="row">
+  <label for={{id}}>{{ labelText }}</label>
+  <app-input-color
+    [type]="type" 
+    [id]="id"
+    [value]="value"
+    [fieldKey]="fieldKey"
+    (triggerChange)="bindFunc($event)"
+  />
+</div>

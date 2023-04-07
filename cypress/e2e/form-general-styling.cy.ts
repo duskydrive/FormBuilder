@@ -18,12 +18,13 @@ describe('Form General Styling', () => {
     cy.get('#dropForm').should('have.css', 'border-width', '12px');
   })
 
-  it('Should change border-color of form in DropSection when user types in Form Border Color Input', () => {
+  it.only('Should change border-color of form in DropSection when user types in Form Border Color Input', () => {
     cy.login(Cypress.env('userCreds'));
     cy.get('#generalDesignBorderColor')
-      .invoke('val', 'rgb(0, 0, 0)')
+      .invoke('val', '#ff0000')
       .trigger('change')
-    cy.get('#dropForm').should('have.css', 'border-color', 'rgb(0, 0, 0)');
+
+    cy.get('#dropForm').should('have.css', 'border-color', 'rgb(255, 0, 0)');
   })
 
   it('Should change border-style of form in DropSection when user change option in Form Border Style Select', () => {

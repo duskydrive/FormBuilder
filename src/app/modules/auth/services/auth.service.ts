@@ -4,7 +4,8 @@ import {
   tap, 
   BehaviorSubject 
 } from 'rxjs';
-import { UserData } from 'src/app/shared/service/interfaces';
+import { UserData } from 'src/app/shared/ts/interfaces';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,7 @@ export class AuthService {
     this._isLoggedIn$.next(!!token);
   }
   
-  apiUrl='http://localhost:3000/';
+  apiUrl = environment.link;
   
   register(data: UserData) {
     return this._http.post(this.apiUrl + 'register', { email: data.email, password: data.password })
@@ -34,7 +35,8 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('jwt_auth_token')
+    localStorage.removeItem('jwt_auth_token');
+    return {accessToken: '', user: { email: '', id: ''}}
   }
   
 }
