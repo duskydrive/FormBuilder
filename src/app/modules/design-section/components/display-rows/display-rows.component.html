@@ -1,0 +1,45 @@
+<div *ngFor="let pair of currentStyles | forObject; trackBy: trackByFn">
+    <div *ngIf="pair[0] === 'borderColor' || pair[0] === 'color' || pair[0] === 'backgroundColor'">
+      <app-input-color-row
+        [type]="'color'"
+        [id]="id + pair[0]"
+        [value]="pair[1]"
+        [fieldKey]="pair[0]"
+        [labelText]="pair[0]"
+        (triggerChange)="bindFunc($event)"
+      ></app-input-color-row>
+    </div>
+    <div *ngIf="pair[0] === 'borderStyle' || pair[0] === 'fontWeight'">
+      <app-select-row
+        [id]="id + pair[0]"
+        [value]="pair[1]"
+        [fieldKey]="pair[0]"
+        [labelText]="pair[0]"
+        [options]="(pair[0] === 'borderStyle') ? 
+          (borderStylesOptions$ | async) : 
+          (fontWeightOptions$ | async) "
+        (triggerChange)="bindFunc($event)"
+      ></app-select-row>
+    </div>
+    <div *ngIf="pair[0] === 'required'">
+      <app-input-checkbox-row
+        [type]="'checkbox'"
+        [id]="id + pair[0]"
+        [value]="pair[1]"
+        [fieldKey]="pair[0]"
+        [labelText]="pair[0]"
+        (triggerChange)="bindFunc($event)"
+      ></app-input-checkbox-row>
+    </div>
+    <div *ngIf="pair[0] === 'placeholderText' || pair[0] === 'width' || pair[0] === 'height' || pair[0] === 'borderWidth' || pair[0] === 'fontSize'">
+      <app-input-row
+        [type]="'text'"
+        [id]="id + pair[0]"
+        [value]="pair[1]"
+        [fieldKey]="pair[0]"
+        [labelText]="pair[0]"
+        (triggerChange)="bindFunc($event)"
+      ></app-input-row>
+    </div>
+
+  </div>
