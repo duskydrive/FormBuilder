@@ -2,33 +2,33 @@
 
   <div *ngSwitchCase="formElementType.Input">
     <app-input
-      [placeholderText]="element.placeholderText"
-      [width]="element.width"
-      [height]="element.height!"
-      [borderWidth]="element.borderWidth!"
-      [borderColor]="element.borderColor!"
-      [borderStyle]="element.borderStyle!"
-      [fontSize]="element.fontSize"
-      [fontWeight]="element.fontWeight"
-      [color]="element.color"
-      [required]="element.required"
+      [placeholderText]="element.styles.placeholderText"
+      [width]="element.styles.width"
+      [height]="element.styles.height!"
+      [borderWidth]="element.styles.borderWidth!"
+      [borderColor]="element.styles.borderColor!"
+      [borderStyle]="element.styles.borderStyle!"
+      [fontSize]="element.styles.fontSize"
+      [fontWeight]="element.styles.fontWeight"
+      [color]="element.styles.color"
+      [required]="element.styles.required"
       (click)="selectElement($event)"
     ></app-input>
   </div>
   
   <div *ngSwitchCase="formElementType.Textarea">
     <app-textarea
-      [placeholderText]="element.placeholderText"
-      [width]="element.width"
-      [height]="element.height!"
-      [borderWidth]="element.borderWidth!"
-      [borderColor]="element.borderColor!"
-      [borderStyle]="element.borderStyle!"
-      [fontSize]="element.fontSize"
-      [fontWeight]="element.fontWeight"
-      [color]="element.color"
-      [backgroundColor]="element.backgroundColor!"
-      [required]="element.required"
+      [placeholderText]="element.styles.placeholderText"
+      [width]="element.styles.width"
+      [height]="element.styles.height!"
+      [borderWidth]="element.styles.borderWidth!"
+      [borderColor]="element.styles.borderColor!"
+      [borderStyle]="element.styles.borderStyle!"
+      [fontSize]="element.styles.fontSize"
+      [fontWeight]="element.styles.fontWeight"
+      [color]="element.styles.color"
+      [backgroundColor]="element.styles.backgroundColor!"
+      [required]="element.styles.required"
       (click)="selectElement($event)"
     >
     </app-textarea>
@@ -36,16 +36,16 @@
  
   <div *ngSwitchCase="formElementType.Button">
     <app-button
-      [placeholderText]="element.placeholderText"
-      [width]="element.width"
-      [height]="element.height!"
-      [borderWidth]="element.borderWidth!"
-      [borderColor]="element.borderColor!"
-      [borderStyle]="element.borderStyle!"
-      [fontSize]="element.fontSize"
-      [fontWeight]="element.fontWeight"
-      [color]="element.color"
-      [backgroundColor]="element.backgroundColor!"
+      [placeholderText]="element.styles.placeholderText"
+      [width]="element.styles.width"
+      [height]="element.styles.height!"
+      [borderWidth]="element.styles.borderWidth!"
+      [borderColor]="element.styles.borderColor!"
+      [borderStyle]="element.styles.borderStyle!"
+      [fontSize]="element.styles.fontSize"
+      [fontWeight]="element.styles.fontWeight"
+      [color]="element.styles.color"
+      [backgroundColor]="element.styles.backgroundColor!"
       (click)="selectElement($event)"
     ></app-button>
   </div>
@@ -54,33 +54,33 @@
     <div class="checkbox-wrap">
       <app-input-checkbox
         [id]="element.id"
-        [width]="element.width"
+        [width]="element.styles.width"
         (click)="selectElement($event)"
-        [required]="element.required"
+        [required]="element.styles.required"
       ></app-input-checkbox>
       <label 
         [for]="element.id"
-        [style.fontSize]="element.fontSize + 'px'"
-        [style.fontWeight]="element.fontWeight"
-        [style.color]="element.color"
+        [style.fontSize]="element.styles.fontSize + 'px'"
+        [style.fontWeight]="element.styles.fontWeight"
+        [style.color]="element.styles.color"
       >
-        {{ element.placeholderText }}
+        {{ element.styles.placeholderText }}
       </label>
     </div>
   </div>
   
   <div *ngSwitchCase="formElementType.Select">
     <app-select
-      [placeholderText]="element.placeholderText"
-      [width]="element.width"
-      [height]="element.height!"
-      [borderWidth]="element.borderWidth!"
-      [borderColor]="element.borderColor!"
-      [borderStyle]="element.borderStyle!"
-      [fontSize]="element.fontSize"
-      [fontWeight]="element.fontWeight"
-      [color]="element.color"
-      [required]="element.required"
+      [placeholderText]="element.styles.placeholderText"
+      [width]="element.styles.width"
+      [height]="element.styles.height!"
+      [borderWidth]="element.styles.borderWidth!"
+      [borderColor]="element.styles.borderColor!"
+      [borderStyle]="element.styles.borderStyle!"
+      [fontSize]="element.styles.fontSize"
+      [fontWeight]="element.styles.fontWeight"
+      [color]="element.styles.color"
+      [required]="element.styles.required"
       [options]="element.options!"
       (click)="selectElement($event)"
     ></app-select>

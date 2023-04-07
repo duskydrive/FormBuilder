@@ -31,7 +31,7 @@ describe('FormGeneralDesignComponent', () => {
     mockFormStylesSelector = store.overrideSelector(
       selectGeneralForm, 
       {
-        heading: 'Form Builder',
+        placeholderText: 'Form Builder',
         borderWidth: '1',
         borderColor: '#cccccc',
         borderStyle: 'solid', 
@@ -52,10 +52,10 @@ describe('FormGeneralDesignComponent', () => {
   });
 
   it('changeGeneral method should dispatch updateGeneralForm action', () => {
-    component.changeGeneral({key: 'heading', value: 'New heading'});
+    component.changeGeneral({key: 'placeholderText', value: 'New heading'});
 
     expect(store.dispatch).toHaveBeenCalledWith(
-      updateGeneralForm({key: 'heading', value: 'New heading'})
+      updateGeneralForm({key: 'placeholderText', value: 'New heading'})
     );
   });
 

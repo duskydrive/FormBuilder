@@ -1,5 +1,5 @@
 <div class="row checkbox">
-  <label for={{id}}>{{ labelText}}</label>
+  <label for={{id}}>{{ labelText | labelTransform }}</label>
   <app-input-checkbox
     [type]="type" 
     [id]="id"

@@ -20,7 +20,7 @@ import {
 export const initialState: FormBuilderState = {
   formElements: [],
   generalForm: {
-    heading: 'Form Builder',
+    placeholderText: 'Form Builder',
     borderWidth: '1',
     borderColor: '#cccccc',
     borderStyle: 'solid', 
@@ -73,7 +73,15 @@ export const formBuilderReducer = createReducer(
   })),
   on(updateFormElement, (state, { elementId, key, value }) => ({
     ...state,
-    formElements: state.formElements.map((item => item.id === elementId ? {...item, [key]: value} : item ))
+    formElements: state.formElements.map((item => item.id === elementId ? 
+      {
+        ...item, 
+        styles: {
+          ...item.styles,
+          [key]: value,
+        }
+      } 
+    : item ))
   })),
   on(swapFormElements, (state, { index1, index2 }) => ({
     ...state,
