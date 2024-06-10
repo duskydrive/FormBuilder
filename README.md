@@ -23,11 +23,11 @@ I implemented extensive unit tests, covering around 80% of the project, and adde
 
 ## Screenshots
 
-![Screenshot 1](src/img/screenshots/screenshot1.png)
-*Drag and drop form elements*
+![Screenshot 1](src/assets/screen1.png)
+*Auth*
 
-![Screenshot 2](src/img/screenshots/screenshot2.png)
-*Customize element styles*
+![Screenshot 2](src/assets/screen2.png)
+**Drag and drop form elements*. Customize element styles*
 
-![Screenshot 3](src/img/screenshots/screenshot3.png)
+![Screenshot 3](src/assets/screen3.png)
 *Build and preview forms*
