@@ -1,27 +1,33 @@
-# FormBuilder
+# Project FormBuilder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+> This is a project I made for fun and learning reasons.
 
-## Development server
+## Stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular
+- Angular Material
+- Angular Material CDK
+- CDK Drag and Drop
+- NgRx Store
+- JSON Server
+- RxJS
+- SCSS
 
-## Code scaffolding
+## About
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I built this FormBuilder project to enhance my skills and explore new technologies. The project includes a simple authorization system based on JSON Server and JWT tokens.
 
-## Build
+The FormBuilder has a left column for styling options and a right column with form elements such as inputs, buttons, and headings. Users can drag elements to the middle column to build custom forms and adjust the styling of all elements using the options in the left column—setting colors, sizes, and more.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+I implemented extensive unit tests, covering around 80% of the project, and added end-to-end tests with Cypress. This project taught me how to use the Drag and Drop CDK and reinforced the importance of testing.
 
-## Running unit tests
+## Screenshots
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Screenshot 1](src/img/screenshots/screenshot1.png)
+*Drag and drop form elements*
 
-## Running end-to-end tests
+![Screenshot 2](src/img/screenshots/screenshot2.png)
+*Customize element styles*
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Screenshot 3](src/img/screenshots/screenshot3.png)
+*Build and preview forms*
